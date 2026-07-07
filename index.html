@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elie Schulman — Writer &amp; Educator</title>
+  <meta name="description" content="Elie Schulman writes about Jewish thought, language, and the ideas that shape how we understand ourselves. Free ebooks and essays.">
+  <meta property="og:title" content="Elie Schulman — Writer & Educator">
+  <meta property="og:description" content="Books and essays on Jewish thought, language, and the ideas that shape understanding.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://elieschulman.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --midnight: #0f1b2d;
+      --deep-navy: #1a2744;
+      --warm-ivory: #f5f0e8;
+      --cream: #faf7f2;
+      --gold: #c9a84c;
+      --gold-dim: #a88a3a;
+      --text-primary: #1a1a1a;
+      --text-secondary: #4a4a4a;
+      --text-light: #8a8a8a;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Inter', -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      color: var(--text-primary);
+      background: var(--cream);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Navigation ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(15, 27, 45, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 0.75rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    nav .logo {
+      font-family: var(--serif);
+      font-size: 1.25rem; font-weight: 600;
+      color: var(--warm-ivory);
+      text-decoration: none;
+    }
+    nav .nav-links { display: flex; gap: 2rem; }
+    nav .nav-links a {
+      color: rgba(245,240,232,0.7);
+      text-decoration: none; font-size: 0.875rem;
+      font-weight: 500; letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    nav .nav-links a:hover { color: var(--gold); }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, var(--midnight) 0%, var(--deep-navy) 50%, #1e3050 100%);
+      padding: 6rem 2rem 4rem;
+      text-align: center;
+    }
+    .hero-inner { max-width: 680px; }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 700;
+      color: var(--warm-ivory);
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+    .hero .subtitle {
+      font-size: 1.125rem;
+      color: rgba(245,240,232,0.7);
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+    }
+    .hero .cta {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--midnight);
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.875rem 2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .hero .cta:hover { background: var(--gold-dim); transform: translateY(-1px); }
+
+    /* ── Section Shared ── */
+    section { padding: 5rem 2rem; }
+    .section-inner { max-width: 960px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700; line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── Book Feature ── */
+    #books { background: var(--cream); }
+    .book-card {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 3rem;
+      align-items: start;
+      background: white;
+      border-radius: 12px;
+      padding: 2.5rem;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    }
+    .book-cover {
+      width: 100%;
+      border-radius: 4px;
+      box-shadow: 4px 6px 20px rgba(0,0,0,0.15);
+    }
+    .book-info h3 {
+      font-family: var(--serif);
+      font-size: 1.75rem; font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+    .book-info .book-author {
+      font-size: 0.9rem; color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+    .book-info .book-desc {
+      color: var(--text-secondary);
+      font-size: 0.95rem; line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+    .book-info .book-chapters {
+      font-size: 0.85rem; color: var(--text-light);
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── Email Capture Form ── */
+    .email-form {
+      background: var(--warm-ivory);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+    .email-form p {
+      font-size: 0.9rem; font-weight: 500;
+      margin-bottom: 0.75rem;
+    }
+    .email-form .form-row {
+      display: flex; gap: 0.5rem;
+    }
+    .email-form input[type="email"] {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      border: 1px solid #d0c9be;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-family: var(--sans);
+      background: white;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .email-form input[type="email"]:focus {
+      border-color: var(--gold);
+    }
+    .email-form button {
+      padding: 0.75rem 1.5rem;
+      background: var(--midnight);
+      color: var(--warm-ivory);
+      border: none; border-radius: 6px;
+      font-size: 0.9rem; font-weight: 600;
+      font-family: var(--sans);
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .email-form button:hover { background: var(--deep-navy); }
+    .email-form .form-note {
+      font-size: 0.75rem; color: var(--text-light);
+      margin-top: 0.5rem;
+    }
+    .email-form .success-msg {
+      display: none;
+      padding: 1rem;
+      background: #e8f5e9;
+      border-radius: 6px;
+      color: #2e7d32;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    /* ── About ── */
+    #about { background: white; }
+    .about-content {
+      max-width: 640px;
+    }
+    .about-content p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    /* ── Coming Soon ── */
+    #coming { background: var(--cream); }
+    .coming-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .coming-card {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      border-left: 3px solid var(--gold);
+    }
+    .coming-card h4 {
+      font-family: var(--serif);
+      font-size: 1.1rem; font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .coming-card p {
+      font-size: 0.85rem; color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--midnight);
+      color: rgba(245,240,232,0.5);
+      text-align: center;
+      padding: 2.5rem 2rem;
+      font-size: 0.8rem;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+
+    /* ── Mobile ── */
+    @media (max-width: 768px) {
+      nav { padding: 0.75rem 1rem; }
+      nav .nav-links { gap: 1rem; }
+      nav .nav-links a { font-size: 0.8rem; }
+      .book-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .book-cover { max-width: 220px; margin: 0 auto; }
+      .email-form .form-row { flex-direction: column; }
+      .email-form button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <a href="#" class="logo">Elie Schulman</a>
+  <div class="nav-links">
+    <a href="#books">Books</a>
+    <a href="#about">About</a>
+    <a href="#coming">Coming Soon</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Words shape how we think. Some words have been shaped wrong.</h1>
+    <p class="subtitle">
+      I write about Jewish thought, language, and the ideas we inherit — especially the ones
+      that got lost in translation. My books are free. Start with the first one.
+    </p>
+    <a href="#books" class="cta">Get the Free Ebook</a>
+  </div>
+</section>
+
+<!-- Books -->
+<section id="books">
+  <div class="section-inner">
+    <p class="section-label">Free Ebook</p>
+    <h2 class="section-title">Available Now</h2>
+
+    <div class="book-card">
+      <img src="emes-cover.png" alt="Emes: Translation Not Truth — Book Cover" class="book-cover">
+      <div class="book-info">
+        <h3>Emes: Translation Not Truth</h3>
+        <p class="book-author">By Elie Schulman</p>
+        <p class="book-desc">
+          Every English translation of Maimonides renders the Hebrew word אֱמֶת as "truth."
+          That rendering sends you somewhere you didn't intend to go. This book begins with a
+          translation problem — and follows it into questions about existence, knowledge,
+          disagreement, and what any human being can claim to know.
+        </p>
+        <p class="book-chapters">17 chapters · 5 parts · Published by Cohort Learning Labs</p>
+
+        <div class="email-form" id="emailForm">
+          <p>Enter your email to get the free ebook</p>
+          <form id="captureForm">
+            <div class="form-row">
+              <input type="email" name="email" placeholder="your@email.com" required>
+              <button type="submit">Send Me the Book</button>
+            </div>
+            <p class="form-note">Free download. No spam. Unsubscribe anytime.</p>
+          </form>
+          <div class="success-msg" id="successMsg">
+            Check your inbox — the ebook is on its way.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <div class="section-inner">
+    <p class="section-label">About</p>
+    <h2 class="section-title">Elie Schulman</h2>
+    <div class="about-content">
+      <p>
+        I run <strong>Cohort Learning Labs</strong>, where I build tools and frameworks for
+        people who teach and lead. I've spent years studying the intersection of Jewish
+        intellectual tradition and modern practice — how ancient texts speak to questions
+        we're still asking, and how translation shapes (and sometimes distorts) the answers.
+      </p>
+      <p>
+        My books are free because the ideas in them shouldn't have a price gate. If something
+        I wrote changed how you think, that's the return I'm looking for.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Coming Soon -->
+<section id="coming">
+  <div class="section-inner">
+    <p class="section-label">In Progress</p>
+    <h2 class="section-title">Coming Soon</h2>
+    <div class="coming-grid">
+      <div class="coming-card">
+        <h4>Ezer Knegdo</h4>
+        <p>A book about partnership, marriage, and what the Torah actually means when it describes
+        the creation of Eve — and why the standard translations got it wrong.</p>
+      </div>
+      <div class="coming-card">
+        <h4>The Grammar of Mind</h4>
+        <p>How the structure of language shapes thought, and what happens when we inherit
+        frameworks that were built for a different set of questions.</p>
+      </div>
+      <div class="coming-card">
+        <h4>More to come</h4>
+        <p>Sign up above to be notified when new books and essays are published.
+        Everything stays free.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2026 Elie Schulman · <a href="mailto:elie@cohortlearninglabs.org">elie@cohortlearninglabs.org</a></p>
+</footer>
+
+<script>
+  // Email capture — stores locally for now, ready to wire up to any backend
+  const form = document.getElementById('captureForm');
+  const successMsg = document.getElementById('successMsg');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = form.querySelector('input[type="email"]').value;
+
+    // Store email (replace this with your email service endpoint later)
+    // Options: Mailchimp, ConvertKit, Buttondown, or a Vercel serverless function
+    try {
+      // For now: save to localStorage and show success
+      const emails = JSON.parse(localStorage.getItem('es_captured_emails') || '[]');
+      emails.push({ email, date: new Date().toISOString() });
+      localStorage.setItem('es_captured_emails', JSON.stringify(emails));
+
+      // Hide form, show success
+      form.style.display = 'none';
+      successMsg.style.display = 'block';
+
+      // Auto-download Chapter 1
+      const link = document.createElement('a');
+      link.href = 'Emes_Chapter1_Free.pdf';
+      link.download = 'Emes_Chapter1_Free.pdf';
+      link.click();
+    } catch (err) {
+      alert('Something went wrong. Please try again.');
+    }
+  });
+
+  // Smooth nav background
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.background = window.scrollY > 50
+      ? 'rgba(15, 27, 45, 0.98)'
+      : 'rgba(15, 27, 45, 0.95)';
+  });
+</script>
+
+</body>
+</html>
