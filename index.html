@@ -3,12 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Elie Schulman — Writer &amp; Educator</title>
-  <meta name="description" content="Elie Schulman writes about Jewish thought, language, and the ideas that shape how we understand ourselves. Free ebooks and essays.">
-  <meta property="og:title" content="Elie Schulman — Writer & Educator">
-  <meta property="og:description" content="Books and essays on Jewish thought, language, and the ideas that shape understanding.">
+  <title>Elie Schulman — Attorney, Educator, Facilitator &amp; Writer</title>
+  <meta name="description" content="Elie Schulman is an attorney, educator, group facilitator, writer, and founder of Cohort Learning Labs. His work explores language, judgment, learning, and Jewish thought.">
+  <link rel="canonical" href="https://elieschulman.com/">
+  <meta property="og:title" content="Elie Schulman — Attorney, Educator, Facilitator & Writer">
+  <meta property="og:description" content="Work at the intersection of language, judgment, learning, group process, AI, and Jewish thought.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://elieschulman.com">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Elie Schulman — Attorney, Educator, Facilitator & Writer">
+  <meta name="twitter:description" content="Language, judgment, learning, group process, AI, and Jewish thought.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -30,6 +34,14 @@
     }
 
     html { scroll-behavior: smooth; }
+
+    .skip-link {
+      position: fixed; top: 0.5rem; left: 0.5rem; z-index: 200;
+      padding: 0.65rem 1rem; border-radius: 4px;
+      background: white; color: var(--midnight);
+      transform: translateY(-150%); transition: transform 0.2s;
+    }
+    .skip-link:focus { transform: translateY(0); }
 
     body {
       font-family: var(--sans);
@@ -61,6 +73,10 @@
       transition: color 0.2s;
     }
     nav .nav-links a:hover { color: var(--gold); }
+    a:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 3px;
+    }
 
     /* ── Hero ── */
     .hero {
@@ -84,6 +100,11 @@
       color: rgba(245,240,232,0.7);
       line-height: 1.8;
       margin-bottom: 2.5rem;
+    }
+    .hero .eyebrow {
+      color: var(--gold); font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      margin-bottom: 1rem;
     }
     .hero .cta {
       display: inline-block;
@@ -149,58 +170,28 @@
       margin-bottom: 1.5rem;
     }
 
-    /* ── Email Capture Form ── */
-    .email-form {
+    /* ── Book Download ── */
+    .download-panel {
       background: var(--warm-ivory);
       border-radius: 8px;
       padding: 1.5rem;
     }
-    .email-form p {
+    .download-panel p {
       font-size: 0.9rem; font-weight: 500;
       margin-bottom: 0.75rem;
     }
-    .email-form .form-row {
-      display: flex; gap: 0.5rem;
-    }
-    .email-form input[type="email"] {
-      flex: 1;
-      padding: 0.75rem 1rem;
-      border: 1px solid #d0c9be;
-      border-radius: 6px;
-      font-size: 0.9rem;
-      font-family: var(--sans);
-      background: white;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-    .email-form input[type="email"]:focus {
-      border-color: var(--gold);
-    }
-    .email-form button {
+    .download-button {
+      display: inline-block;
       padding: 0.75rem 1.5rem;
       background: var(--midnight);
       color: var(--warm-ivory);
       border: none; border-radius: 6px;
       font-size: 0.9rem; font-weight: 600;
       font-family: var(--sans);
-      cursor: pointer;
+      text-decoration: none;
       transition: background 0.2s;
-      white-space: nowrap;
     }
-    .email-form button:hover { background: var(--deep-navy); }
-    .email-form .form-note {
-      font-size: 0.75rem; color: var(--text-light);
-      margin-top: 0.5rem;
-    }
-    .email-form .success-msg {
-      display: none;
-      padding: 1rem;
-      background: #e8f5e9;
-      border-radius: 6px;
-      color: #2e7d32;
-      font-size: 0.9rem;
-      text-align: center;
-    }
+    .download-button:hover { background: var(--deep-navy); }
 
     /* ── About ── */
     #about { background: white; }
@@ -212,6 +203,10 @@
       font-size: 0.95rem;
       line-height: 1.8;
       margin-bottom: 1rem;
+    }
+    .work-link {
+      color: var(--deep-navy); font-weight: 600;
+      text-decoration-thickness: 1px; text-underline-offset: 3px;
     }
 
     /* ── Coming Soon ── */
@@ -258,40 +253,103 @@
         text-align: center;
       }
       .book-cover { max-width: 220px; margin: 0 auto; }
-      .email-form .form-row { flex-direction: column; }
-      .email-form button { width: 100%; }
+      .download-button { width: 100%; text-align: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Elie Schulman",
+    "url": "https://elieschulman.com/",
+    "email": "mailto:elie@cohortlearninglabs.org",
+    "jobTitle": "Attorney, educator, group facilitator, writer, and founder",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Cohort Learning Labs",
+      "url": "https://www.cohortlearninglabs.org/"
+    }
+  }
+  </script>
 </head>
 <body>
 
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
 <!-- Navigation -->
 <nav>
-  <a href="#" class="logo">Elie Schulman</a>
+  <a href="#main-content" class="logo">Elie Schulman</a>
   <div class="nav-links">
-    <a href="#books">Books</a>
     <a href="#about">About</a>
-    <a href="#coming">Coming Soon</a>
+    <a href="#work">Work</a>
+    <a href="#books">Writing</a>
   </div>
 </nav>
 
 <!-- Hero -->
+<main id="main-content">
 <section class="hero">
   <div class="hero-inner">
-    <h1>Words shape how we think. Some words have been shaped wrong.</h1>
+    <p class="eyebrow">Attorney · Educator · Facilitator · Writer</p>
+    <h1>Making the hidden structure of language, judgment, and learning visible.</h1>
     <p class="subtitle">
-      I write about Jewish thought, language, and the ideas we inherit — especially the ones
-      that got lost in translation. My books are free. Start with the first one.
+      I work where professional judgment, group process, technology, and Jewish thought meet—helping
+      people examine the words and assumptions that quietly organize how they think and act.
     </p>
-    <a href="#books" class="cta">Get the Free Ebook</a>
+    <a href="#about" class="cta">About My Work</a>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <div class="section-inner">
+    <p class="section-label">About</p>
+    <h2 class="section-title">Elie Schulman</h2>
+    <div class="about-content">
+      <p>
+        I am an attorney, educator, group facilitator, writer, and the founder of
+        <strong>Cohort Learning Labs</strong>. Across these roles, I return to the same practical
+        question: what becomes possible when people can see the language, assumptions, relationships,
+        and decision structures already shaping their work?
+      </p>
+      <p>
+        My legal background keeps the work attentive to evidence, responsibility, and judgment.
+        My work in education and group process focuses on how people learn together, especially when
+        technology changes faster than shared understanding. My writing explores related questions
+        through Jewish texts, translation, and intellectual history.
+      </p>
+      <p>Based in Beit Shemesh, Israel, I work with people and organizations in Israel and the United States.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Professional Work -->
+<section id="work">
+  <div class="section-inner">
+    <p class="section-label">Professional Work</p>
+    <h2 class="section-title">Collaborative learning and implementation in the age of AI</h2>
+    <div class="about-content">
+      <p>
+        Through Cohort Learning Labs, I help professional teams understand their work, identify useful
+        AI opportunities, build practical workflows, and develop the shared capacity to use those systems
+        responsibly. The emphasis is not on novelty for its own sake, but on technology in the context of
+        language, group process, and human judgment.
+      </p>
+      <p><a class="work-link" href="https://www.cohortlearninglabs.org/">Visit Cohort Learning Labs →</a></p>
+    </div>
   </div>
 </section>
 
 <!-- Books -->
 <section id="books">
   <div class="section-inner">
-    <p class="section-label">Free Ebook</p>
-    <h2 class="section-title">Available Now</h2>
+    <p class="section-label">Free Chapter</p>
+    <h2 class="section-title">Read the opening</h2>
 
     <div class="book-card">
       <img src="emes-cover.png" alt="Emes: Translation Not Truth — Book Cover" class="book-cover">
@@ -304,51 +362,22 @@
           translation problem — and follows it into questions about existence, knowledge,
           disagreement, and what any human being can claim to know.
         </p>
-        <p class="book-chapters">17 chapters · 5 parts · Published by Cohort Learning Labs</p>
+        <p class="book-chapters">A free excerpt · PDF</p>
 
-        <div class="email-form" id="emailForm">
-          <p>Enter your email to get the free ebook</p>
-          <form id="captureForm">
-            <div class="form-row">
-              <input type="email" name="email" placeholder="your@email.com" required>
-              <button type="submit">Send Me the Book</button>
-            </div>
-            <p class="form-note">Free download. No spam. Unsubscribe anytime.</p>
-          </form>
-          <div class="success-msg" id="successMsg">
-            Check your inbox — the ebook is on its way.
-          </div>
+        <div class="download-panel">
+          <p>Read the opening chapter as a free PDF.</p>
+          <a class="download-button" href="Emes_Chapter1_Free.pdf" download>Download Chapter 1</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- About -->
-<section id="about">
-  <div class="section-inner">
-    <p class="section-label">About</p>
-    <h2 class="section-title">Elie Schulman</h2>
-    <div class="about-content">
-      <p>
-        I run <strong>Cohort Learning Labs</strong>, where I build tools and frameworks for
-        people who teach and lead. I've spent years studying the intersection of Jewish
-        intellectual tradition and modern practice — how ancient texts speak to questions
-        we're still asking, and how translation shapes (and sometimes distorts) the answers.
-      </p>
-      <p>
-        My books are free because the ideas in them shouldn't have a price gate. If something
-        I wrote changed how you think, that's the return I'm looking for.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- Coming Soon -->
+<!-- Lines of Inquiry -->
 <section id="coming">
   <div class="section-inner">
-    <p class="section-label">In Progress</p>
-    <h2 class="section-title">Coming Soon</h2>
+    <p class="section-label">Writing</p>
+    <h2 class="section-title">Lines of inquiry</h2>
     <div class="coming-grid">
       <div class="coming-card">
         <h4>Ezer Knegdo</h4>
@@ -362,12 +391,13 @@
       </div>
       <div class="coming-card">
         <h4>More to come</h4>
-        <p>Sign up above to be notified when new books and essays are published.
-        Everything stays free.</p>
+        <p>Essays and longer projects on Jewish thought, human judgment, group life, and the language
+        through which people understand change.</p>
       </div>
     </div>
   </div>
 </section>
+</main>
 
 <!-- Footer -->
 <footer>
@@ -375,36 +405,6 @@
 </footer>
 
 <script>
-  // Email capture — stores locally for now, ready to wire up to any backend
-  const form = document.getElementById('captureForm');
-  const successMsg = document.getElementById('successMsg');
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const email = form.querySelector('input[type="email"]').value;
-
-    // Store email (replace this with your email service endpoint later)
-    // Options: Mailchimp, ConvertKit, Buttondown, or a Vercel serverless function
-    try {
-      // For now: save to localStorage and show success
-      const emails = JSON.parse(localStorage.getItem('es_captured_emails') || '[]');
-      emails.push({ email, date: new Date().toISOString() });
-      localStorage.setItem('es_captured_emails', JSON.stringify(emails));
-
-      // Hide form, show success
-      form.style.display = 'none';
-      successMsg.style.display = 'block';
-
-      // Auto-download Chapter 1
-      const link = document.createElement('a');
-      link.href = 'Emes_Chapter1_Free.pdf';
-      link.download = 'Emes_Chapter1_Free.pdf';
-      link.click();
-    } catch (err) {
-      alert('Something went wrong. Please try again.');
-    }
-  });
-
   // Smooth nav background
   const nav = document.querySelector('nav');
   window.addEventListener('scroll', () => {
