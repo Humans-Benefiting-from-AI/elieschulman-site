@@ -1,0 +1,5 @@
+{
+  "name": "elieschulman-site",
+  "private": true,
+  "scripts": { "check": "node scripts/validate-site.mjs" }
+}
