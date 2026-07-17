@@ -10,9 +10,11 @@
   <meta property="og:description" content="Work at the intersection of language, judgment, learning, group process, AI, and Jewish thought.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://elieschulman.com">
+  <meta property="og:site_name" content="Elie Schulman">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Elie Schulman — Attorney, Educator, Facilitator & Writer">
   <meta name="twitter:description" content="Language, judgment, learning, group process, AI, and Jewish thought.">
+  <meta name="theme-color" content="#0f1b2d">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -193,6 +195,12 @@
     }
     .download-button:hover { background: var(--deep-navy); }
 
+    .resource-note {
+      margin-top: 1rem;
+      color: var(--text-light);
+      font-size: 0.8rem;
+    }
+
     /* ── About ── */
     #about { background: white; }
     .about-content {
@@ -209,8 +217,8 @@
       text-decoration-thickness: 1px; text-underline-offset: 3px;
     }
 
-    /* ── Coming Soon ── */
-    #coming { background: var(--cream); }
+    /* ── Writing themes ── */
+    #writing { background: var(--cream); }
     .coming-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -245,12 +253,21 @@
 
     /* ── Mobile ── */
     @media (max-width: 768px) {
-      nav { padding: 0.75rem 1rem; }
-      nav .nav-links { gap: 1rem; }
+      nav {
+        padding: 0.65rem 1rem;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.35rem;
+      }
+      nav .nav-links { gap: 1rem; width: 100%; }
       nav .nav-links a { font-size: 0.8rem; }
+      .hero { padding-top: 8.5rem; }
+      section { padding: 4rem 1.25rem; }
       .book-card {
         grid-template-columns: 1fr;
         text-align: center;
+        padding: 1.5rem;
+        gap: 2rem;
       }
       .book-cover { max-width: 220px; margin: 0 auto; }
       .download-button { width: 100%; text-align: center; }
@@ -269,6 +286,13 @@
     "url": "https://elieschulman.com/",
     "email": "mailto:elie@cohortlearninglabs.org",
     "jobTitle": "Attorney, educator, group facilitator, writer, and founder",
+    "knowsAbout": [
+      "Language and translation",
+      "Professional judgment",
+      "Group process",
+      "Learning",
+      "Jewish thought"
+    ],
     "worksFor": {
       "@type": "Organization",
       "name": "Cohort Learning Labs",
@@ -282,12 +306,13 @@
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
 <!-- Navigation -->
-<nav>
+<nav aria-label="Primary navigation">
   <a href="#main-content" class="logo">Elie Schulman</a>
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#work">Work</a>
-    <a href="#books">Writing</a>
+    <a href="#books">Read</a>
+    <a href="#writing">Writing</a>
   </div>
 </nav>
 
@@ -367,32 +392,40 @@
         <div class="download-panel">
           <p>Read the opening chapter as a free PDF.</p>
           <a class="download-button" href="Emes_Chapter1_Free.pdf" download>Download Chapter 1</a>
+          <p class="resource-note">Direct PDF download · No email address required</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Lines of Inquiry -->
-<section id="coming">
+<!-- Writing themes -->
+<section id="writing">
   <div class="section-inner">
     <p class="section-label">Writing</p>
     <h2 class="section-title">Lines of inquiry</h2>
+    <div class="about-content">
+      <p>
+        My writing returns to a connected set of questions: how translation carries assumptions,
+        how inherited categories guide judgment, and how people learn to see the structures shaping
+        an argument, a relationship, or a group.
+      </p>
+    </div>
     <div class="coming-grid">
       <div class="coming-card">
-        <h4>Ezer Knegdo</h4>
-        <p>A book about partnership, marriage, and what the Torah actually means when it describes
-        the creation of Eve — and why the standard translations got it wrong.</p>
+        <h4>Jewish texts and translation</h4>
+        <p>What becomes visible when familiar translations are tested against Hebrew vocabulary,
+        context, and the intellectual worlds in which a text was written.</p>
       </div>
       <div class="coming-card">
-        <h4>The Grammar of Mind</h4>
-        <p>How the structure of language shapes thought, and what happens when we inherit
-        frameworks that were built for a different set of questions.</p>
+        <h4>Language and judgment</h4>
+        <p>How words, categories, and unstated assumptions organize professional and intellectual
+        decisions without determining them.</p>
       </div>
       <div class="coming-card">
-        <h4>More to come</h4>
-        <p>Essays and longer projects on Jewish thought, human judgment, group life, and the language
-        through which people understand change.</p>
+        <h4>Learning and group life</h4>
+        <p>How people think together, how groups respond to uncertainty, and how technology changes
+        the conditions under which shared understanding develops.</p>
       </div>
     </div>
   </div>
