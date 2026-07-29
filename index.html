@@ -3,281 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Elie Schulman — Educator, Group Facilitator, Writer &amp; Founder</title>
-  <meta name="description" content="Elie Schulman is an educator, group facilitator, writer, and founder of Cohort Learning Labs. His work examines how people think and learn together—especially when familiar roles, inherited language, or rapid technological change make adaptation difficult.">
+  <title>Elie Schulman — Writer on Language, Judgment, and Learning</title>
+  <meta name="description" content="Books, essays, and translations examining how language carries assumptions, how inherited categories guide judgment, and how people learn to see the structures shaping an argument, a relationship, or a group.">
   <link rel="canonical" href="https://elieschulman.com/">
-  <meta property="og:title" content="Elie Schulman — Educator, Group Facilitator, Writer & Founder">
-  <meta property="og:description" content="Work at the intersection of group process, professional judgment, technology, inheritance conflict, and Jewish learning.">
+  <meta property="og:title" content="Elie Schulman — Writer on Language, Judgment, and Learning">
+  <meta property="og:description" content="Books, essays, and translations on language, judgment, learning, group process, and Jewish thought.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://elieschulman.com">
   <meta property="og:site_name" content="Elie Schulman">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Elie Schulman — Educator, Group Facilitator, Writer & Founder">
-  <meta name="twitter:description" content="Group process, professional judgment, technology, inheritance conflict, Jewish learning, and the human challenge of adapting to AI.">
   <meta name="theme-color" content="#0f1b2d">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --midnight: #0f1b2d;
-      --deep-navy: #1a2744;
-      --warm-ivory: #f5f0e8;
-      --cream: #faf7f2;
-      --gold: #c9a84c;
-      --gold-dim: #a88a3a;
-      --text-primary: #1a1a1a;
-      --text-secondary: #4a4a4a;
-      --text-light: #8a8a8a;
-      --serif: 'Cormorant Garamond', Georgia, serif;
-      --sans: 'Inter', -apple-system, sans-serif;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    .skip-link {
-      position: fixed; top: 0.5rem; left: 0.5rem; z-index: 200;
-      padding: 0.65rem 1rem; border-radius: 4px;
-      background: white; color: var(--midnight);
-      transform: translateY(-150%); transition: transform 0.2s;
-    }
-    .skip-link:focus { transform: translateY(0); }
-
-    body {
-      font-family: var(--sans);
-      color: var(--text-primary);
-      background: var(--cream);
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ── Navigation ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(15, 27, 45, 0.95);
-      backdrop-filter: blur(10px);
-      padding: 0.75rem 2rem;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    nav .logo {
-      font-family: var(--serif);
-      font-size: 1.25rem; font-weight: 600;
-      color: var(--warm-ivory);
-      text-decoration: none;
-    }
-    nav .nav-links { display: flex; gap: 2rem; }
-    nav .nav-links a {
-      color: rgba(245,240,232,0.7);
-      text-decoration: none; font-size: 0.875rem;
-      font-weight: 500; letter-spacing: 0.02em;
-      transition: color 0.2s;
-    }
-    nav .nav-links a:hover { color: var(--gold); }
-    a:focus-visible {
-      outline: 3px solid var(--gold);
-      outline-offset: 3px;
-    }
-
-    /* ── Hero ── */
-    .hero {
-      min-height: 100vh;
-      display: flex; align-items: center; justify-content: center;
-      background: linear-gradient(135deg, var(--midnight) 0%, var(--deep-navy) 50%, #1e3050 100%);
-      padding: 6rem 2rem 4rem;
-      text-align: center;
-    }
-    .hero-inner { max-width: 680px; }
-    .hero h1 {
-      font-family: var(--serif);
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      font-weight: 700;
-      color: var(--warm-ivory);
-      line-height: 1.15;
-      margin-bottom: 1.5rem;
-    }
-    .hero .subtitle {
-      font-size: 1.125rem;
-      color: rgba(245,240,232,0.7);
-      line-height: 1.8;
-      margin-bottom: 2.5rem;
-    }
-    .hero .eyebrow {
-      color: var(--gold); font-size: 0.8rem; font-weight: 600;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      margin-bottom: 1rem;
-    }
-    .hero .cta {
-      display: inline-block;
-      background: var(--gold);
-      color: var(--midnight);
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 0.875rem 2rem;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: background 0.2s, transform 0.2s;
-    }
-    .hero .cta:hover { background: var(--gold-dim); transform: translateY(-1px); }
-
-    /* ── Section Shared ── */
-    section { padding: 5rem 2rem; }
-    .section-inner { max-width: 960px; margin: 0 auto; }
-    .section-label {
-      font-size: 0.75rem; font-weight: 600;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 0.75rem;
-    }
-    .section-title {
-      font-family: var(--serif);
-      font-size: clamp(1.75rem, 4vw, 2.5rem);
-      font-weight: 700; line-height: 1.2;
-      margin-bottom: 1.5rem;
-    }
-
-    /* ── Book Feature ── */
-    #books { background: var(--cream); }
-    .book-card {
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 3rem;
-      align-items: start;
-      background: white;
-      border-radius: 12px;
-      padding: 2.5rem;
-      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
-    }
-    .book-cover {
-      width: 100%;
-      border-radius: 4px;
-      box-shadow: 4px 6px 20px rgba(0,0,0,0.15);
-    }
-    .book-info h3 {
-      font-family: var(--serif);
-      font-size: 1.75rem; font-weight: 700;
-      margin-bottom: 0.25rem;
-    }
-    .book-info .book-author {
-      font-size: 0.9rem; color: var(--text-light);
-      margin-bottom: 1rem;
-    }
-    .book-info .book-desc {
-      color: var(--text-secondary);
-      font-size: 0.95rem; line-height: 1.8;
-      margin-bottom: 1.5rem;
-    }
-    .book-info .book-chapters {
-      font-size: 0.85rem; color: var(--text-light);
-      margin-bottom: 1.5rem;
-    }
-
-    /* ── Book Download ── */
-    .download-panel {
-      background: var(--warm-ivory);
-      border-radius: 8px;
-      padding: 1.5rem;
-    }
-    .download-panel p {
-      font-size: 0.9rem; font-weight: 500;
-      margin-bottom: 0.75rem;
-    }
-    .download-button {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      background: var(--midnight);
-      color: var(--warm-ivory);
-      border: none; border-radius: 6px;
-      font-size: 0.9rem; font-weight: 600;
-      font-family: var(--sans);
-      text-decoration: none;
-      transition: background 0.2s;
-    }
-    .download-button:hover { background: var(--deep-navy); }
-
-    .resource-note {
-      margin-top: 1rem;
-      color: var(--text-light);
-      font-size: 0.8rem;
-    }
-
-    /* ── About ── */
-    #about { background: white; }
-    .about-content {
-      max-width: 640px;
-    }
-    .about-content p {
-      color: var(--text-secondary);
-      font-size: 0.95rem;
-      line-height: 1.8;
-      margin-bottom: 1rem;
-    }
-    .work-link {
-      color: var(--deep-navy); font-weight: 600;
-      text-decoration-thickness: 1px; text-underline-offset: 3px;
-    }
-
-    /* ── Writing themes ── */
-    #writing { background: var(--cream); }
-    .coming-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-    .coming-card {
-      background: white;
-      border-radius: 8px;
-      padding: 1.5rem;
-      border-left: 3px solid var(--gold);
-    }
-    .coming-card h4 {
-      font-family: var(--serif);
-      font-size: 1.1rem; font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-    .coming-card p {
-      font-size: 0.85rem; color: var(--text-secondary);
-      line-height: 1.6;
-    }
-
-    /* ── Footer ── */
-    footer {
-      background: var(--midnight);
-      color: rgba(245,240,232,0.5);
-      text-align: center;
-      padding: 2.5rem 2rem;
-      font-size: 0.8rem;
-    }
-    footer a { color: var(--gold); text-decoration: none; }
-
-    /* ── Mobile ── */
-    @media (max-width: 768px) {
-      nav {
-        padding: 0.65rem 1rem;
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 0.35rem;
-      }
-      nav .nav-links { gap: 1rem; width: 100%; }
-      nav .nav-links a { font-size: 0.8rem; }
-      .hero { padding-top: 8.5rem; }
-      section { padding: 4rem 1.25rem; }
-      .book-card {
-        grid-template-columns: 1fr;
-        text-align: center;
-        padding: 1.5rem;
-        gap: 2rem;
-      }
-      .book-cover { max-width: 220px; margin: 0 auto; }
-      .download-button { width: 100%; text-align: center; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { transition: none !important; }
-    }
-  </style>
+  <link rel="stylesheet" href="/site.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -285,20 +24,9 @@
     "name": "Elie Schulman",
     "url": "https://elieschulman.com/",
     "email": "mailto:elie@cohortlearninglabs.org",
-    "jobTitle": "Educator, group facilitator, writer, and founder",
-    "knowsAbout": [
-      "Group process",
-      "Group learning",
-      "Professional judgment",
-      "Human adaptation to artificial intelligence",
-      "Language and translation",
-      "Jewish thought"
-    ],
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Cohort Learning Labs",
-      "url": "https://www.cohortlearninglabs.org/"
-    }
+    "jobTitle": "Writer, educator, and translator",
+    "knowsAbout": ["Translation", "Jewish thought", "Philosophy of language", "Maimonides", "Group learning", "Artificial intelligence"],
+    "worksFor": { "@type": "Organization", "name": "Cohort Learning Labs", "url": "https://www.cohortlearninglabs.org/" }
   }
   </script>
 </head>
@@ -306,152 +34,179 @@
 
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
-<!-- Navigation -->
-<nav aria-label="Primary navigation">
-  <a href="#main-content" class="logo">Elie Schulman</a>
+<nav class="site-nav" aria-label="Primary navigation">
+  <a href="/" class="logo">Elie Schulman</a>
   <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#work">Work</a>
-    <a href="/writing/emes-translation-not-truth/">Read</a>
-    <a href="/writing/">Writing</a>
+    <a href="/writing/">Writing Map</a>
+    <a href="/maimonides/">Maimonides</a>
+    <a href="/about/">About</a>
+    <a href="https://emesnewsletter.substack.com">Subscribe</a>
   </div>
 </nav>
 
-<!-- Hero -->
 <main id="main-content">
+
+<!-- Hero -->
 <section class="hero">
   <div class="hero-inner">
-    <p class="eyebrow">Educator · Group Facilitator · Writer</p>
+    <p class="eyebrow">Writer · Educator · Translator</p>
     <h1>Making the hidden structure of language, judgment, and learning visible.</h1>
     <p class="subtitle">
-      I work where group process, professional judgment, technology, inheritance conflict, and Jewish
-      learning meet. Across these fields, I return to one question: what becomes possible when people
-      can see the language, relationships, and patterns already organizing how they think and act?
+      Books, essays, and translations that examine how words carry assumptions,
+      how inherited categories guide judgment, and how people learn to see the
+      structures already organizing how they think and act.
     </p>
-    <a href="#about" class="cta">About My Work</a>
+    <a href="/writing/" class="cta">Enter the Writing Map</a>
+    <a href="/writing/emes-translation-not-truth/" class="cta-secondary">Read Emes Chapter 1 — free PDF</a>
   </div>
 </section>
 
-<!-- About -->
-<section id="about">
+<!-- Featured Books -->
+<section class="bg-cream">
   <div class="section-inner">
-    <p class="section-label">About</p>
-    <h2 class="section-title">Elie Schulman</h2>
-    <div class="about-content">
-      <p>
-        I am an educator, group facilitator, writer, and founder of
-        <strong>Cohort Learning Labs</strong>. My work examines how people think and learn together—especially
-        when familiar roles, inherited language, or rapid technological change make adaptation difficult.
-      </p>
-      <p>
-        I am particularly interested in problems that return after intelligent people have already tried
-        to solve them. Repetition is not merely proof that the last solution failed. It may reveal something
-        about how a group distributes authority, protects identity, manages uncertainty, or prevents itself
-        from learning what it does not yet know.
-      </p>
-      <p>
-        Through Cohort Learning Labs, I work with businesses, professional teams, organizations, families,
-        and group leaders. My writing explores related questions through Jewish texts, translation,
-        intellectual history, law, and the changing meaning of intelligence.
-      </p>
-      <p>Based in Beit Shemesh, Israel, I work with people and organizations in Israel and the United States.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Professional Work -->
-<section id="work">
-  <div class="section-inner">
-    <p class="section-label">Artificial Intelligence</p>
-    <h2 class="section-title">AI is a human adaptation problem</h2>
-    <div class="about-content">
-      <p>
-        Artificial intelligence is arriving as a tsunami of change. Its speed is unprecedented; human
-        adaptation is not. Groups are being asked to revise how they work, learn, decide, and exercise
-        authority faster than they know how to absorb.
-      </p>
-      <p>
-        The hardest questions are therefore not only technological. They concern what people fear losing,
-        which roles and identities the old system protected, who is permitted to know, and how a group
-        responds when familiar expertise no longer provides stable ground.
-      </p>
-      <p><a class="work-link" href="https://www.cohortlearninglabs.org/">Visit Cohort Learning Labs →</a></p>
-    </div>
-  </div>
-</section>
-
-<!-- Books -->
-<section id="books">
-  <div class="section-inner">
-    <p class="section-label">Free Chapter</p>
-    <h2 class="section-title">Read the opening</h2>
-
-    <div class="book-card">
-      <img src="emes-cover.png" alt="Emes: Translation Not Truth — Book Cover" class="book-cover">
-      <div class="book-info">
-        <h3>Emes: Translation Not Truth</h3>
-        <p class="book-author">By Elie Schulman</p>
-        <p class="book-desc">
-          Every English translation of Maimonides renders the Hebrew word אֱמֶת as "truth."
-          That rendering sends you somewhere you didn't intend to go. This book begins with a
-          translation problem — and follows it into questions about existence, knowledge,
-          disagreement, and what any human being can claim to know.
-        </p>
-        <p class="book-chapters">A free excerpt · PDF</p>
-
-        <div class="download-panel">
-          <p>Read the opening chapter as a free PDF.</p>
-          <p><a class="work-link" href="/writing/emes-translation-not-truth/">About the excerpt →</a></p>
-          <a class="download-button" href="Emes_Chapter1_Free.pdf" download>Download Chapter 1</a>
-          <p class="resource-note">Direct PDF download · No email address required</p>
-        </div>
+    <p class="section-label">Featured</p>
+    <h2 class="section-title">Books</h2>
+    <div class="featured-grid">
+      <div class="featured-card">
+        <h4>Emes: Translation Not Truth</h4>
+        <p class="featured-type">Published · 17 chapters</p>
+        <p class="note">A translation problem in Maimonides opens into questions about existence, knowledge, and disagreement.</p>
+        <p><a class="featured-link" href="/writing/emes-translation-not-truth/">Read Chapter 1 free →</a></p>
+      </div>
+      <div class="featured-card">
+        <h4>Everything Changes</h4>
+        <p class="featured-type">Published · PDF + EPUB</p>
+        <p class="note">Rambam's doctrine of divine changelessness applied to the instability of human description.</p>
+        <p><a class="featured-link" href="/maimonides/books/">View in library →</a></p>
+      </div>
+      <div class="featured-card">
+        <h4>Intelligence Is Artificial</h4>
+        <p class="featured-type">Upcoming · 15 chapters</p>
+        <p class="note">AI, intelligence, consciousness, and the changing meaning of what it means to think.</p>
+        <p><a class="featured-link" href="/writing/self/">Read more →</a></p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Writing themes -->
-<section id="writing">
+<!-- Writing Map Preview -->
+<section class="bg-white">
   <div class="section-inner">
-    <p class="section-label">Writing</p>
-    <h2 class="section-title">Lines of inquiry</h2>
-    <div class="about-content">
-      <p>
-        My writing returns to a connected set of questions: how translation carries assumptions,
-        how inherited categories guide judgment, and how people learn to see the structures shaping
-        an argument, a relationship, or a group.
-      </p>
+    <p class="section-label">The Writing Map</p>
+    <h2 class="section-title">A body of work organized by relationship</h2>
+    <p class="section-intro">
+      The writing moves from the inner life of a person, through intimate
+      relationships, into teaching and community. Each section is a relationship
+      that the writing examines.
+    </p>
+    <div class="category-preview">
+      <a href="/writing/self/">
+        <div class="cat-label">Self</div>
+        <div class="cat-count">28 pieces</div>
+        <div class="cat-desc">Intelligence, consciousness, language, silent sitting</div>
+      </a>
+      <a href="/writing/marriage/">
+        <div class="cat-label">Marriage</div>
+        <div class="cat-count">11 pieces</div>
+        <div class="cat-desc">Marriage as mirror, couples as co-founders</div>
+      </a>
+      <a href="/writing/family/">
+        <div class="cat-label">Family</div>
+        <div class="cat-count">4 pieces</div>
+        <div class="cat-desc">Generations, biography, family history</div>
+      </a>
+      <a href="/writing/teaching/">
+        <div class="cat-label">Teaching</div>
+        <div class="cat-count">26 pieces</div>
+        <div class="cat-desc">Source sheets, T-groups, learning architecture</div>
+      </a>
+      <a href="/writing/community/">
+        <div class="cat-label">Community</div>
+        <div class="cat-count">13 pieces</div>
+        <div class="cat-desc">Jew and Jew, Jew and non-Jew, translation as bridge</div>
+      </a>
     </div>
-    <div class="coming-grid">
-      <div class="coming-card">
-        <h4>Jewish texts and translation</h4>
-        <p>What becomes visible when familiar translations are tested against Hebrew vocabulary,
-        context, and the intellectual worlds in which a text was written.</p>
-      </div>
-      <div class="coming-card">
-        <h4>Language and judgment</h4>
-        <p>How words, categories, and unstated assumptions organize professional and intellectual
-        decisions without determining them.</p>
-      </div>
-      <div class="coming-card">
-        <h4>Learning and group life</h4>
-        <p>How people think together, how groups respond to uncertainty, and how technology changes
-        the conditions under which shared understanding develops.</p>
-      </div>
-    </div>
-    <p style="margin-top: 2rem;"><a class="work-link" href="/writing/">Visit the writing archive →</a></p>
+    <p style="margin-top: 1.5rem;"><a class="work-link" href="/writing/">Explore the full writing map →</a></p>
   </div>
 </section>
+
+<!-- Maimonides Library Preview -->
+<section class="bg-cream">
+  <div class="section-inner">
+    <p class="section-label">Maimonides Library</p>
+    <h2 class="section-title">A writing project organized around Rambam's words</h2>
+    <p class="section-intro">
+      Three published books, twenty-two completed ebook volumes on Yesodei HaTorah,
+      and a series of standalone essays examining what translation reveals.
+    </p>
+    <div class="featured-grid">
+      <div class="featured-card">
+        <h4>3 Published Books</h4>
+        <p class="featured-type">PDF + EPUB</p>
+        <p class="note">Emes, Everything Changes, Davar</p>
+      </div>
+      <div class="featured-card">
+        <h4>22 Ebook Volumes</h4>
+        <p class="featured-type">Foundations Project</p>
+        <p class="note">Yesodei HaTorah 1:1–1:12 and 2:1–2:10</p>
+      </div>
+      <div class="featured-card">
+        <h4>13 Standalone Essays</h4>
+        <p class="featured-type">Rambam essays</p>
+        <p class="note">Abraham, dialogue, language, attributes</p>
+      </div>
+    </div>
+    <p style="margin-top: 1.5rem;"><a class="work-link" href="/maimonides/">Enter the Maimonides Library →</a></p>
+  </div>
+</section>
+
+<!-- Reading Paths -->
+<section class="bg-white">
+  <div class="section-inner">
+    <p class="section-label">Reading Paths</p>
+    <h2 class="section-title">Cross-cutting through-lines</h2>
+    <p class="section-intro">
+      Themed reading journeys that cut across the relational categories —
+      following a question wherever it leads.
+    </p>
+    <div class="featured-grid">
+      <div class="featured-card">
+        <h4>Pain & the Cannon</h4>
+        <p class="note">Rabbi Akiva and beloved suffering</p>
+        <p><a class="featured-link" href="/writing/paths/">Follow this path →</a></p>
+      </div>
+      <div class="featured-card">
+        <h4>Silent Sitting</h4>
+        <p class="note">Pausing before what appears</p>
+        <p><a class="featured-link" href="/writing/paths/">Follow this path →</a></p>
+      </div>
+      <div class="featured-card">
+        <h4>AI as Catalyst</h4>
+        <p class="note">Thought, word, and productivity</p>
+        <p><a class="featured-link" href="/writing/paths/">Follow this path →</a></p>
+      </div>
+      <div class="featured-card">
+        <h4>Language & Translation</h4>
+        <p class="note">How words carry assumptions</p>
+        <p><a class="featured-link" href="/writing/paths/">Follow this path →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
 </main>
 
-<!-- Footer -->
 <footer>
-  <p>&copy; 2026 Elie Schulman · <a href="mailto:elie@cohortlearninglabs.org">elie@cohortlearninglabs.org</a></p>
+  <div class="footer-links">
+    <a href="https://emesnewsletter.substack.com">Substack</a>
+    <a href="mailto:elie@cohortlearninglabs.org">Email</a>
+    <a href="https://www.cohortlearninglabs.org/">Cohort Learning Labs</a>
+  </div>
+  <p>&copy; 2026 Elie Schulman</p>
 </footer>
 
 <script>
-  // Smooth nav background
-  const nav = document.querySelector('nav');
+  const nav = document.querySelector('.site-nav');
   window.addEventListener('scroll', () => {
     nav.style.background = window.scrollY > 50
       ? 'rgba(15, 27, 45, 0.98)'
