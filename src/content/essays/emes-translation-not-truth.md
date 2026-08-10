@@ -1,5 +1,5 @@
 ---
-layout: ../../../layouts/MarkdownLayout.astro
+order: 7
 title: ""
 description: "Access the preserved earlier public excerpt of Emes: Translation Not Truth by Elie Schulman, with its current manuscript status clearly identified."
 eyebrow: "Earlier Public Excerpt"

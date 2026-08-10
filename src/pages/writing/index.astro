@@ -1,28 +1,32 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
-const posts = Object.values(import.meta.glob('./*/*.md', { eager: true })) as any[];
+import SectionHeader from '../../components/SectionHeader.astro';
+import ResourceCard from '../../components/ResourceCard.astro';
+
+const essays = (await getCollection('essays'))
+  .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
 ---
 
-<Layout 
-  title="Writing — Elie Schulman" 
+<Layout
+  title="Writing — Elie Schulman"
   description="Essays on language, judgment, and learning."
 >
-<header class="page-header">
-  <div class="page-header-inner">
-    <p class="eyebrow">Essays & Articles</p>
-    <h1>Writing</h1>
-    <p class="lede">Essays examining how words carry assumptions, how inherited categories guide judgment, and how people learn to see the structures organizing how they think and act.</p>
-  </div>
-</header>
+  <SectionHeader
+    eyebrow="Essays & Articles"
+    title="Writing"
+    lede="Essays examining how words carry assumptions, how inherited categories guide judgment, and how people learn to see the structures organizing how they think and act."
+  />
 
-<div class="content">
-  <div class="featured-grid">
-    {posts.map((post) => (
-      <div class="featured-card">
-        <h4><a class="featured-link" href={post.url}>{post.frontmatter.title}</a></h4>
-        <p class="note" style="margin-top: 0.5rem;">{post.frontmatter.description || post.frontmatter.lede}</p>
-      </div>
-    ))}
+  <div class="content">
+    <div class="featured-grid">
+      {essays.map((essay) => (
+        <ResourceCard
+          href={`/writing/${essay.id}/`}
+          title={essay.data.title}
+          note={essay.data.description || essay.data.lede}
+        />
+      ))}
+    </div>
   </div>
-</div>
 </Layout>

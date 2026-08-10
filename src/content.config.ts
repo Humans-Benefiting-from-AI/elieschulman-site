@@ -14,7 +14,7 @@ const teachings = defineCollection({
     meta: z.string().optional(),
     coverImage: z.string().optional(),
     back_link: z.string().optional(),
-    
+
     // Multi-modal formats
     text_epub: z.string().optional(),
     text_pdf: z.string().optional(),
@@ -24,6 +24,18 @@ const teachings = defineCollection({
   }),
 });
 
+const essays = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/essays' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    eyebrow: z.string().optional(),
+    lede: z.string().optional(),
+    order: z.number().optional(),
+  }),
+});
+
 export const collections = {
   teachings,
+  essays,
 };

@@ -1,5 +1,5 @@
 ---
-layout: ../../../layouts/MarkdownLayout.astro
+order: 1
 title: "The Written and Spoken Word"
 description: "The need to establish a common vocabulary. The limitations of words and language to describe phenomenon and lived experience."
 eyebrow: "Branch 1"

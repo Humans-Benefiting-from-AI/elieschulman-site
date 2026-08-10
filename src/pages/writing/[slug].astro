@@ -1,0 +1,26 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+
+export async function getStaticPaths() {
+  const essays = await getCollection('essays');
+  return essays.map(entry => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<Layout
+  title={`${entry.data.title} — Elie Schulman`}
+  description={entry.data.description}
+>
+  <SectionHeader eyebrow={entry.data.eyebrow} title={entry.data.title} lede={entry.data.lede} />
+  <div class="content">
+    <Content />
+  </div>
+</Layout>
