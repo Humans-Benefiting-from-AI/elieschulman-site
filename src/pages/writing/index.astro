@@ -1,28 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Writing Map — Elie Schulman</title>
-  <meta name="description" content="Six content branches and two learning vehicles organizing the full body of work.">
-  <link rel="canonical" href="https://elieschulman.com/writing/">
-  <meta name="theme-color" content="#0f1b2d">
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/site.css">
-</head>
-<body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav class="site-nav" aria-label="Primary navigation">
-  <a href="/" class="logo">Elie Schulman</a>
-  <div class="nav-links">
-    <a href="/writing/" aria-current="page">Writing Map</a>
-    <a href="/maimonides/">Maimonides</a>
-    <a href="/about/">About</a>
-    <a href="https://emesnewsletter.substack.com">Subscribe</a>
-  </div>
-</nav>
+---
+import Layout from '../../layouts/Layout.astro';
+---
 
-<main id="main-content">
+<Layout 
+  title="The Writing Map — Elie Schulman" 
+  description="Six content branches and two learning vehicles organizing the full body of work."
+>
 <header class="page-header">
   <div class="page-header-inner">
     <p class="eyebrow">Writing</p>
@@ -33,7 +16,7 @@
 
 <div class="content">
   <h2>Content Branches</h2>
-
+  
   <div class="arc">
     <a class="arc-item" href="/writing/the-written-word/">
       <div class="arc-label">1. The Written Word</div>
@@ -62,8 +45,8 @@
       <div class="arc-desc">Language as the only bridge between souls</div>
     </a>
     <div class="arc-arrow">→</div>
-    <a class="arc-item" href="/maimonides/">
-      <div class="arc-label">6. Maimonides</div>
+    <a class="arc-item" href="/writing/emes-translation-not-truth/">
+      <div class="arc-label">6. Emes</div>
       <div class="arc-desc">Commentary for various audiences</div>
     </a>
   </div>
@@ -85,15 +68,4 @@
 
   <p class="note">The <a class="work-link" href="/maimonides/">Maimonides Library</a> — books, manuscripts, twenty-two ebook volumes, and standalone essays — is a first-class section of the writing. Its three audience editions share one chronological source spine while using different registers.</p>
 </div>
-</main>
-
-<footer>
-  <div class="footer-links">
-    <a href="https://emesnewsletter.substack.com">Substack</a>
-    <a href="mailto:elie@cohortlearninglabs.org">Email</a>
-    <a href="https://www.cohortlearninglabs.org/">Cohort Learning Labs</a>
-  </div>
-  <p>&copy; 2026 Elie Schulman</p>
-</footer>
-</body>
-</html>
+</Layout>

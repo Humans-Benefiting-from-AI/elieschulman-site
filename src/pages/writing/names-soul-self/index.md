@@ -1,38 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Names, Soul, and Self — Elie Schulman</title>
-  <meta name="description" content="Maimonides on equivocal names. Be careful with the names for the soul, because it is easy to get confused. What is even meant by self.">
-  <link rel="canonical" href="https://elieschulman.com/writing/names-soul-self/">
-  <meta name="theme-color" content="#0f1b2d">
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/site.css">
-</head>
-<body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav class="site-nav" aria-label="Primary navigation">
-  <a href="/" class="logo">Elie Schulman</a>
-  <div class="nav-links">
-    <a href="/writing/" aria-current="page">Writing Map</a>
-    <a href="/maimonides/">Maimonides</a>
-    <a href="/about/">About</a>
-    <a href="https://emesnewsletter.substack.com">Subscribe</a>
-  </div>
-</nav>
+---
+layout: ../../../layouts/MarkdownLayout.astro
+title: "Names, Soul, and Self"
+description: "Maimonides on equivocal names. Be careful with the names for the soul, because it is easy to get confused. What is even meant by self."
+eyebrow: "Branch 4"
+lede: "Maimonides warned: be careful with the names for the soul, because it is easy to get confused. The same name can point to different realities, and each use must be understood from its context. This branch follows that warning into the question: what is even meant by \"self\"? If the names we use are equivocal — if \"soul\" means one thing in one context and something else in another — then the thing we think we're describing may not be what we think it is."
+---
 
-<main id="main-content">
-<header class="page-header">
-  <div class="page-header-inner">
-    <p class="eyebrow">Branch 4</p>
-    <h1>Names, Soul, and Self</h1>
-    <p class="lede">Maimonides warned: be careful with the names for the soul, because it is easy to get confused. The same name can point to different realities, and each use must be understood from its context. This branch follows that warning into the question: what is even meant by "self"? If the names we use are equivocal — if "soul" means one thing in one context and something else in another — then the thing we think we're describing may not be what we think it is.</p>
-  </div>
-</header>
-
-<div class="content">
-  <a href="/writing/" class="back-link">← Writing Map</a>
+<a href="/writing/" class="back-link">← Writing Map</a>
 
   <h2>Books &amp; Manuscripts</h2>
 
@@ -86,16 +60,3 @@
     <a href="/writing/one-soul-to-another/"><span class="tag tag-torah">One Soul to Another</span></a>
     <a href="/writing/turning-toward-pain/"><span class="tag tag-torah">Turning Toward Pain</span></a>
   </div>
-</div>
-</main>
-
-<footer>
-  <div class="footer-links">
-    <a href="https://emesnewsletter.substack.com">Substack</a>
-    <a href="mailto:elie@cohortlearninglabs.org">Email</a>
-    <a href="https://www.cohortlearninglabs.org/">Cohort Learning Labs</a>
-  </div>
-  <p>&copy; 2026 Elie Schulman</p>
-</footer>
-</body>
-</html>

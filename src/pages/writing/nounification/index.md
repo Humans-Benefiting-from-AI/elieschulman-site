@@ -1,38 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Nounification of English — Elie Schulman</title>
-  <meta name="description" content="How English turns processes into things. The trouble began when we turned an adjective into a noun.">
-  <link rel="canonical" href="https://elieschulman.com/writing/nounification/">
-  <meta name="theme-color" content="#0f1b2d">
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/site.css">
-</head>
-<body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav class="site-nav" aria-label="Primary navigation">
-  <a href="/" class="logo">Elie Schulman</a>
-  <div class="nav-links">
-    <a href="/writing/" aria-current="page">Writing Map</a>
-    <a href="/maimonides/">Maimonides</a>
-    <a href="/about/">About</a>
-    <a href="https://emesnewsletter.substack.com">Subscribe</a>
-  </div>
-</nav>
+---
+layout: ../../../layouts/MarkdownLayout.astro
+title: "The Nounification of English"
+description: "How English turns processes into things. The trouble began when we turned an adjective into a noun."
+eyebrow: "Branch 2"
+lede: "The trouble began when we turned an adjective into a noun. \"Intelligent\" was an adjective describing an action before it became \"intelligence\" — a substance you could possess, measure, and eventually make artificial. The Hebrew word דבר means both \"word\" and \"thing.\" This branch examines what happens when a verb becomes a noun, when a quality becomes a substance, and when language forgets that it built the container."
+---
 
-<main id="main-content">
-<header class="page-header">
-  <div class="page-header-inner">
-    <p class="eyebrow">Branch 2</p>
-    <h1>The Nounification of English</h1>
-    <p class="lede">The trouble began when we turned an adjective into a noun. "Intelligent" was an adjective describing an action before it became "intelligence" — a substance you could possess, measure, and eventually make artificial. The Hebrew word דבר means both "word" and "thing." This branch examines what happens when a verb becomes a noun, when a quality becomes a substance, and when language forgets that it built the container.</p>
-  </div>
-</header>
-
-<div class="content">
-  <a href="/writing/" class="back-link">← Writing Map</a>
+<a href="/writing/" class="back-link">← Writing Map</a>
 
   <h2>Books &amp; Manuscripts</h2>
 
@@ -84,16 +58,3 @@
     <a href="/writing/the-written-word/"><span class="tag tag-torah">The Written Word</span></a>
     <a href="/writing/names-soul-self/"><span class="tag tag-torah">Names, Soul, Self</span></a>
   </div>
-</div>
-</main>
-
-<footer>
-  <div class="footer-links">
-    <a href="https://emesnewsletter.substack.com">Substack</a>
-    <a href="mailto:elie@cohortlearninglabs.org">Email</a>
-    <a href="https://www.cohortlearninglabs.org/">Cohort Learning Labs</a>
-  </div>
-  <p>&copy; 2026 Elie Schulman</p>
-</footer>
-</body>
-</html>

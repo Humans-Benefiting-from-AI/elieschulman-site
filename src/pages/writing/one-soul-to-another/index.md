@@ -1,38 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>One Soul to Another — Elie Schulman</title>
-  <meta name="description" content="The word is the only way for one soul to contact another. Every relationship is first a language problem.">
-  <link rel="canonical" href="https://elieschulman.com/writing/one-soul-to-another/">
-  <meta name="theme-color" content="#0f1b2d">
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/site.css">
-</head>
-<body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav class="site-nav" aria-label="Primary navigation">
-  <a href="/" class="logo">Elie Schulman</a>
-  <div class="nav-links">
-    <a href="/writing/" aria-current="page">Writing Map</a>
-    <a href="/maimonides/">Maimonides</a>
-    <a href="/about/">About</a>
-    <a href="https://emesnewsletter.substack.com">Subscribe</a>
-  </div>
-</nav>
+---
+layout: ../../../layouts/MarkdownLayout.astro
+title: "One Soul to Another"
+description: "The word is the only way for one soul to contact another. Every relationship is first a language problem."
+eyebrow: "Branch 5"
+lede: "In the Guide for the Perplexed, Maimonides writes that the word is the only way for one soul to contact another. Every interpersonal relationship is mediated by language — which means every relationship is first a translation problem. This branch examines what happens between souls when the words they share do not guarantee shared meaning."
+---
 
-<main id="main-content">
-<header class="page-header">
-  <div class="page-header-inner">
-    <p class="eyebrow">Branch 5</p>
-    <h1>One Soul to Another</h1>
-    <p class="lede">In the Guide for the Perplexed, Maimonides writes that the word is the only way for one soul to contact another. Every interpersonal relationship is mediated by language — which means every relationship is first a translation problem. This branch examines what happens between souls when the words they share do not guarantee shared meaning.</p>
-  </div>
-</header>
-
-<div class="content">
-  <a href="/writing/" class="back-link">← Writing Map</a>
+<a href="/writing/" class="back-link">← Writing Map</a>
 
   <h2>Husband and Wife</h2>
   <p>Marriage as mirror — how the closest relationship reveals what a person cannot see alone. The shared life as a practice of noticing that the word each partner uses may not mean what the other hears.</p>
@@ -131,16 +105,3 @@
     <a href="/writing/the-written-word/"><span class="tag tag-torah">The Written Word</span></a>
     <a href="/writing/names-soul-self/"><span class="tag tag-torah">Names, Soul, Self</span></a>
   </div>
-</div>
-</main>
-
-<footer>
-  <div class="footer-links">
-    <a href="https://emesnewsletter.substack.com">Substack</a>
-    <a href="mailto:elie@cohortlearninglabs.org">Email</a>
-    <a href="https://www.cohortlearninglabs.org/">Cohort Learning Labs</a>
-  </div>
-  <p>&copy; 2026 Elie Schulman</p>
-</footer>
-</body>
-</html>

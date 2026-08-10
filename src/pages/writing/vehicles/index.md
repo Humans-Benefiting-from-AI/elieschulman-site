@@ -1,38 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Learning Vehicles — Elie Schulman</title>
-  <meta name="description" content="The two practices through which all the writing was learned. Not content, but method.">
-  <link rel="canonical" href="https://elieschulman.com/writing/vehicles/">
-  <meta name="theme-color" content="#0f1b2d">
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/site.css">
-</head>
-<body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav class="site-nav" aria-label="Primary navigation">
-  <a href="/" class="logo">Elie Schulman</a>
-  <div class="nav-links">
-    <a href="/writing/" aria-current="page">Writing Map</a>
-    <a href="/maimonides/">Maimonides</a>
-    <a href="/about/">About</a>
-    <a href="https://emesnewsletter.substack.com">Subscribe</a>
-  </div>
-</nav>
+---
+layout: ../../../layouts/MarkdownLayout.astro
+title: "Learning Vehicles"
+description: "The two practices through which all the writing was learned. Not content, but method."
+eyebrow: "Vehicles"
+lede: "The two practices through which all of the writing was learned. Not content, but method. Each vehicle cross-cuts every content branch — they are where the questions were tested, not where they were answered."
+---
 
-<main id="main-content">
-<header class="page-header">
-  <div class="page-header-inner">
-    <p class="eyebrow">Vehicles</p>
-    <h1>Learning Vehicles</h1>
-    <p class="lede">The two practices through which all of the writing was learned. Not content, but method. Each vehicle cross-cuts every content branch — they are where the questions were tested, not where they were answered.</p>
-  </div>
-</header>
-
-<div class="content">
-  <a href="/writing/" class="back-link">← Writing Map</a>
+<a href="/writing/" class="back-link">← Writing Map</a>
 
   <h2 id="groups">Psychoanalytic Groups</h2>
   <p>Eighteen years of training in group psychoanalytic process — with Louis Ormont, PhD; Michael Brook, PhD; and Sean Grover, MSW. T-group methodology in the Carl Rogers tradition. The group as the primary learning technology: not the content, not the platform, but the quality of attention between people.</p>
@@ -91,16 +65,3 @@
     <p>Verbs, agents, and the illusion of a doer. The grammar book as the silent-sitting vehicle's philosophical expression — what "self" means when the noun is allowed to melt back into the verb.</p>
     <div class="tags"><span class="tag tag-sitting">Silent Sitting</span></div>
   </div>
-</div>
-</main>
-
-<footer>
-  <div class="footer-links">
-    <a href="https://emesnewsletter.substack.com">Substack</a>
-    <a href="mailto:elie@cohortlearninglabs.org">Email</a>
-    <a href="https://www.cohortlearninglabs.org/">Cohort Learning Labs</a>
-  </div>
-  <p>&copy; 2026 Elie Schulman</p>
-</footer>
-</body>
-</html>

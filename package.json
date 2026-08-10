@@ -1,5 +1,15 @@
 {
   "name": "elieschulman-site",
   "private": true,
-  "scripts": { "check": "node scripts/validate-site.mjs" }
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "check": "node scripts/validate-site.mjs"
+  },
+  "dependencies": {
+    "astro": "^5.0.0"
+  }
 }

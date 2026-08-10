@@ -1,0 +1,22 @@
+---
+import Layout from './Layout.astro';
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout 
+  title={frontmatter.title + " — Elie Schulman"} 
+  description={frontmatter.description || ''}
+>
+  <header class="page-header">
+    <div class="page-header-inner">
+      {frontmatter.eyebrow && <p class="eyebrow">{frontmatter.eyebrow}</p>}
+      <h1>{frontmatter.title}</h1>
+      {frontmatter.lede && <p class="lede">{frontmatter.lede}</p>}
+    </div>
+  </header>
+
+  <div class="content">
+    <slot />
+  </div>
+</Layout>

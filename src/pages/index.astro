@@ -1,35 +1,11 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Elie Schulman — Writer on Language, Judgment, and Learning</title>
-  <meta name="description" content="Books, essays, and translations examining how words carry assumptions, how inherited categories guide judgment, and how people learn to see the structures shaping an argument, a relationship, or a group.">
-  <link rel="canonical" href="https://elieschulman.com/">
-  <meta property="og:title" content="Elie Schulman — Writer on Language, Judgment, and Learning">
-  <meta property="og:description" content="Books, essays, and translations on language, judgment, learning, group process, and Jewish thought.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://elieschulman.com">
-  <meta name="theme-color" content="#0f1b2d">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/site.css">
-</head>
-<body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav class="site-nav" aria-label="Primary navigation">
-  <a href="/" class="logo">Elie Schulman</a>
-  <div class="nav-links">
-    <a href="/writing/">Writing Map</a>
-    <a href="/maimonides/">Maimonides</a>
-    <a href="/about/">About</a>
-    <a href="https://emesnewsletter.substack.com">Subscribe</a>
-  </div>
-</nav>
+---
+import Layout from '../layouts/Layout.astro';
+---
 
-<main id="main-content">
-
+<Layout 
+  title="Elie Schulman — Writer on Language, Judgment, and Learning" 
+  description="Books, essays, and translations examining how words carry assumptions, how inherited categories guide judgment, and how people learn to see the structures shaping an argument, a relationship, or a group."
+>
 <section class="hero">
   <div class="hero-inner">
     <p class="eyebrow">Writer · Educator · Translator</p>
@@ -107,26 +83,4 @@
     </div>
   </div>
 </section>
-
-</main>
-
-<footer>
-  <div class="footer-links">
-    <a href="https://emesnewsletter.substack.com">Substack</a>
-    <a href="mailto:elie@cohortlearninglabs.org">Email</a>
-    <a href="https://www.cohortlearninglabs.org/">Cohort Learning Labs</a>
-  </div>
-  <p>&copy; 2026 Elie Schulman</p>
-</footer>
-
-<script>
-  const nav = document.querySelector('.site-nav');
-  window.addEventListener('scroll', () => {
-    nav.style.background = window.scrollY > 50
-      ? 'rgba(15, 27, 45, 0.98)'
-      : 'rgba(15, 27, 45, 0.95)';
-  });
-</script>
-
-</body>
-</html>
+</Layout>

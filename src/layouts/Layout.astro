@@ -1,0 +1,65 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site || 'https://elieschulman.com').href}>
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site || 'https://elieschulman.com').href}>
+  <meta name="theme-color" content="#0f1b2d">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav class="site-nav" aria-label="Primary navigation">
+  <a href="/" class="logo">Elie Schulman</a>
+  <div class="nav-links">
+    <a href="/writing/" aria-current={Astro.url.pathname.startsWith('/writing') ? 'page' : undefined}>Writing Map</a>
+    <a href="/maimonides/" aria-current={Astro.url.pathname.startsWith('/maimonides') ? 'page' : undefined}>Maimonides</a>
+    <a href="/about/" aria-current={Astro.url.pathname.startsWith('/about') ? 'page' : undefined}>About</a>
+    <a href="https://emesnewsletter.substack.com">Subscribe</a>
+  </div>
+</nav>
+
+<main id="main-content">
+  <slot />
+</main>
+
+<footer>
+  <div class="footer-links">
+    <a href="https://emesnewsletter.substack.com">Substack</a>
+    <a href="mailto:elie@cohortlearninglabs.org">Email</a>
+    <a href="https://www.cohortlearninglabs.org/">Cohort Learning Labs</a>
+  </div>
+  <p>&copy; 2026 Elie Schulman</p>
+</footer>
+
+<script>
+  const nav = document.querySelector('.site-nav');
+  window.addEventListener('scroll', () => {
+    if(nav) {
+      nav.style.background = window.scrollY > 50
+        ? 'rgba(15, 27, 45, 0.98)'
+        : 'rgba(15, 27, 45, 0.95)';
+    }
+  });
+</script>
+
+</body>
+</html>
