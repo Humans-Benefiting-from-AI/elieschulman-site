@@ -1,0 +1,180 @@
+---
+import Layout from './Layout.astro';
+
+const { frontmatter, headings = [] } = Astro.props;
+
+// Filter out h1s if we only want h2 and h3 in the TOC
+const toc = headings.filter(heading => heading.depth > 1 && heading.depth < 4);
+---
+
+<Layout 
+  title={frontmatter.title + " — Elie Schulman"} 
+  description={frontmatter.description || ''}
+>
+  <style is:global>
+    /* 
+      We use is:global here so these styles apply to the Markdown content rendered in the <slot/> 
+    */
+    .teaching-layout { display: grid; grid-template-columns: 220px 1fr; gap: 3rem; max-width: 1040px; margin: 0 auto; padding: 3rem 2rem 4rem; align-items: start; }
+    
+    /* Table of Contents Sidebar */
+    .teaching-toc { position: sticky; top: 5.5rem; font-size: 0.82rem; }
+    .teaching-toc h3 { font-family: var(--serif); font-size: 0.95rem; margin-bottom: 0.6rem; color: var(--midnight); }
+    .teaching-toc ol { list-style: none; padding: 0; margin: 0; }
+    .teaching-toc li { margin-bottom: 0.4rem; line-height: 1.4; }
+    .teaching-toc li.depth-3 { padding-left: 1rem; font-size: 0.78rem; opacity: 0.85; }
+    .teaching-toc a { color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
+    .teaching-toc a:hover { color: var(--gold-dim); }
+    
+    /* Reading Pane (Markdown Content) */
+    .teaching-read { min-width: 0; font-size: 1.05rem; color: var(--text-primary); line-height: 1.85; }
+    
+    /* Typography automatically applied to Markdown elements */
+    .teaching-read h2 { font-family: var(--serif); font-size: 1.7rem; font-weight: 700; line-height: 1.2; margin: 3.5rem 0 1.25rem; color: var(--midnight); scroll-margin-top: 6rem; }
+    .teaching-read h3 { font-family: var(--serif); font-size: 1.35rem; font-weight: 600; color: var(--gold-dim); margin: 2.5rem 0 1rem; scroll-margin-top: 6rem; }
+    .teaching-read h4 { font-family: var(--sans); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin: 2rem 0 0.5rem; }
+    
+    .teaching-read p { margin-bottom: 1.25rem; }
+    .teaching-read strong { color: var(--midnight); font-weight: 600; }
+    
+    .teaching-read blockquote { 
+      margin: 2rem 0; 
+      padding-left: 1.5rem; 
+      border-left: 3px solid var(--gold); 
+      color: var(--text-secondary); 
+      font-style: italic; 
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      line-height: 1.7;
+    }
+    
+    .teaching-read hr { border: none; border-top: 1px solid rgba(0,0,0,0.1); width: 30%; margin: 3rem auto; }
+    .teaching-read ul, .teaching-read ol { margin-bottom: 1.25rem; padding-left: 1.5rem; }
+    .teaching-read li { margin-bottom: 0.5rem; }
+
+    /* Epigraphs (can be applied via raw HTML inside markdown) */
+    .teaching-epigraph { text-align: center; margin: 0 auto 3.5rem; max-width: 34rem; }
+    .teaching-epigraph .he { font-family: var(--serif); font-size: 1.6rem; color: var(--midnight); line-height: 1.9; margin-bottom: 0.5rem; }
+    .teaching-epigraph .en { font-style: italic; color: var(--text-light); font-size: 0.95rem; }
+
+    /* Media Players */
+    .media-players-container { margin: 2.5rem 0 3.5rem; border-bottom: 1px solid rgba(0,0,0,0.06); padding-bottom: 3.5rem; }
+    .media-player-card { margin-bottom: 1.5rem; padding: 1.5rem; background: rgba(255,255,255,0.6); border: 1px solid rgba(0,0,0,0.05); border-radius: 8px; }
+    .media-player-card:last-child { margin-bottom: 0; }
+    .media-player-card h4 { margin-top: 0; margin-bottom: 1rem; color: var(--midnight); font-size: 0.95rem; font-family: var(--sans); font-weight: 600; }
+    audio { width: 100%; height: 40px; }
+    .video-embed { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 6px; }
+    .video-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+    /* Header & Book Card overrides */
+    .bk-hero-cover { max-width: 190px; box-shadow: 0 12px 24px rgba(0,0,0,0.12); border-radius: 2px; }
+    .download-panel .download-button { margin-bottom: 0.5rem; display: block; text-align: center; }
+    .download-panel .download-button + .download-button { background: transparent; color: var(--midnight); border: 1px solid rgba(15,27,45,0.25); }
+    .download-panel .download-button + .download-button:hover { background: rgba(15,27,45,0.06); }
+
+    @media (max-width: 820px) {
+      .teaching-layout { grid-template-columns: 1fr; gap: 1.5rem; padding: 2rem 1.25rem 3rem; }
+      .teaching-toc { position: static; margin-bottom: 2rem; padding: 1.5rem; background: rgba(0,0,0,0.02); border-radius: 8px; }
+    }
+  </style>
+
+  <header class="page-header">
+    <div class="page-header-inner">
+      {frontmatter.eyebrow && <p class="eyebrow">{frontmatter.eyebrow}</p>}
+      <h1 set:html={frontmatter.title_html || frontmatter.title}></h1>
+      {frontmatter.lede && <p class="lede">{frontmatter.lede}</p>}
+    </div>
+  </header>
+
+  <section class="bg-cream">
+    <div class="section-inner">
+      <a class="back-link" href={frontmatter.back_link || "/writing/"}>← Back</a>
+      
+      <div class="book-card">
+        {frontmatter.coverImage && (
+          <img class="book-cover bk-hero-cover" src={frontmatter.coverImage} width="600" height="960"
+               alt={`Cover for ${frontmatter.title}`}>
+        )}
+        <div class="book-info">
+          <h3 set:html={frontmatter.title_html || frontmatter.title}></h3>
+          <p class="book-author">{frontmatter.author || 'Elie Schulman'}</p>
+          {frontmatter.meta && <p class="book-meta">{frontmatter.meta}</p>}
+          <p class="book-desc" set:html={frontmatter.description_html || frontmatter.description}></p>
+          
+          {(frontmatter.text_epub || frontmatter.text_pdf) && (
+            <div class="download-panel">
+              <p>Download the text:</p>
+              {frontmatter.text_epub && <a class="download-button" href={frontmatter.text_epub} download>Download EPUB</a>}
+              {frontmatter.text_pdf && <a class="download-button" href={frontmatter.text_pdf} download>Download PDF</a>}
+              <p class="note" style="margin-top:0.6rem;margin-bottom:0;">Free. No email required.</p>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Reading Experience -->
+  <div class="teaching-layout">
+    
+    <!-- Sidebar: Auto-Generated Table of Contents -->
+    <aside class="teaching-toc">
+      {toc.length > 0 ? (
+        <nav aria-label="Contents">
+          <h3>Contents</h3>
+          <ol>
+            {toc.map((heading) => (
+              <li class={`depth-${heading.depth}`}>
+                <a href={`#${heading.slug}`}>{heading.text}</a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      ) : (
+        <div style="height: 1px;"></div> <!-- Spacer if no TOC -->
+      )}
+    </aside>
+
+    <!-- Main Content Area -->
+    <article class="teaching-read">
+      
+      <!-- Multi-modal content sections injected at the top of the reading pane -->
+      {(frontmatter.audio_only || frontmatter.video_face || frontmatter.video_graphics) && (
+        <div class="media-players-container">
+          {frontmatter.audio_only && (
+            <div class="media-player-card">
+              <h4>🎧 Listen to the Audio</h4>
+              <audio controls src={frontmatter.audio_only}>
+                Your browser does not support the audio element.
+              </audio>
+            </div>
+          )}
+          
+          {frontmatter.video_face && (
+            <div class="media-player-card">
+              <h4>📺 Watch the Teaching</h4>
+              <div class="video-embed">
+                <iframe src={frontmatter.video_face} frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+              </div>
+            </div>
+          )}
+
+          {frontmatter.video_graphics && (
+            <div class="media-player-card">
+              <h4>📊 Visual Presentation</h4>
+              <div class="video-embed">
+                <iframe src={frontmatter.video_graphics} frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
+      <!-- Standard Markdown Rendered Here -->
+      <slot />
+
+    </article>
+
+  </div>
+
+</Layout>
