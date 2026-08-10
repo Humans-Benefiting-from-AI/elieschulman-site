@@ -30,7 +30,8 @@ const { title, description } = Astro.props;
 <nav class="site-nav" aria-label="Primary navigation">
   <a href="/" class="logo">Elie Schulman</a>
   <div class="nav-links">
-    <a href="/writing/" aria-current={Astro.url.pathname.startsWith('/writing') ? 'page' : undefined}>Writing Map</a>
+    <a href="/writing/" aria-current={Astro.url.pathname.startsWith('/writing') ? 'page' : undefined}>Writing</a>
+    <a href="/weekly-torah/" aria-current={Astro.url.pathname.startsWith('/weekly-torah') ? 'page' : undefined}>Weekly Torah</a>
     <a href="/maimonides/" aria-current={Astro.url.pathname.startsWith('/maimonides') ? 'page' : undefined}>Maimonides</a>
     <a href="/about/" aria-current={Astro.url.pathname.startsWith('/about') ? 'page' : undefined}>About</a>
     <a href="https://emesnewsletter.substack.com">Subscribe</a>
