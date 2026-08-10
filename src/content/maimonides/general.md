@@ -1,5 +1,4 @@
 ---
-layout: ../../../layouts/MarkdownLayout.astro
 title: "Maimonides — General Public"
 description: "The sixteen-position Maimonides source sequence in an accessible general-public register."
 eyebrow: "Maimonides / General Public"

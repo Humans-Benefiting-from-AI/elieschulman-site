@@ -1,5 +1,4 @@
 ---
-layout: ../../../layouts/MarkdownLayout.astro
 title: "Maimonides — Scholarly Edition"
 description: "The sixteen-position Maimonides source sequence in a scholarly register with primary-text anchors."
 eyebrow: "Maimonides / Scholarly Edition"

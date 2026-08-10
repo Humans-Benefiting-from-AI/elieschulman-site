@@ -1,30 +1,24 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import ResourceCard from '../../components/ResourceCard.astro';
 ---
 
-<Layout 
-  title="Audio & Talks — Elie Schulman" 
+<Layout
+  title="Audio & Talks — Elie Schulman"
   description="Podcasts, lectures, and interviews."
 >
-<header class="page-header">
-  <div class="page-header-inner">
-    <p class="eyebrow">Speaking</p>
-    <h1>Audio & Talks</h1>
-    <p class="lede">Recordings of lectures, podcast appearances, and interviews.</p>
-  </div>
-</header>
+<SectionHeader
+  eyebrow="Speaking"
+  title="Audio & Talks"
+  lede="Recordings of lectures, podcast appearances, and interviews."
+/>
 
 <div class="content">
   <div class="featured-grid">
-    <div class="featured-card">
-      <h4><a class="featured-link" href="/audio/podcasts/">Podcasts</a></h4>
-    </div>
-    <div class="featured-card">
-      <h4><a class="featured-link" href="/audio/lectures/">Lectures</a></h4>
-    </div>
-    <div class="featured-card">
-      <h4><a class="featured-link" href="/audio/interviews/">Interviews</a></h4>
-    </div>
+    <ResourceCard href="/audio/podcasts/" title="Podcasts" />
+    <ResourceCard href="/audio/lectures/" title="Lectures" />
+    <ResourceCard href="/audio/interviews/" title="Interviews" />
   </div>
 </div>
 </Layout>

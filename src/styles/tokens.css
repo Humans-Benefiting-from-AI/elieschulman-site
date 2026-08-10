@@ -23,10 +23,23 @@
   --fs-h1: 3rem;
   --lh-body: 1.7;
 
+  /* Living Text: per-section accent washes */
+  --accent-writing: #1a2744;
+  --accent-torah: #b4762a;
+  --accent-torah-deep: #5b3a10;
+  --accent-maimonides: #2e5d3f;
+  --accent-maimonides-deep: #14301f;
+  --tint-writing: #eef1f7;
+  --tint-torah: #f7efe2;
+  --tint-maimonides: #eaf2ec;
+
   /* Spacing & layout */
   --space-section: 5rem;
   --max-content: 720px;
   --max-wide: 1100px;
   --radius: 4px;
   --shadow-card: 0 4px 6px rgba(0, 0, 0, 0.05);
+
+  /* Display type — editorial scale */
+  --fs-display: clamp(3rem, 8vw, 5.5rem);
 }

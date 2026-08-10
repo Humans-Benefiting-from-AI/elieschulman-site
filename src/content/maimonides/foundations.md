@@ -1,5 +1,4 @@
 ---
-layout: ../../../layouts/MarkdownLayout.astro
 title: ""
 description: "Twenty-two completed ebook volumes on Yesodei HaTorah chapters 1:1–1:12 and 2:1–2:10."
 eyebrow: "Maimonides / Foundations"

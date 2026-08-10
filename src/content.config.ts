@@ -35,7 +35,32 @@ const essays = defineCollection({
   }),
 });
 
+const maimonides = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/maimonides' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    eyebrow: z.string().optional(),
+    lede: z.string().optional(),
+    order: z.number().optional(),
+  }),
+});
+
+const audio = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/audio' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    kind: z.enum(['podcasts', 'lectures', 'interviews']),
+    date: z.coerce.date().optional(),
+    url: z.string().optional(),
+    audio_file: z.string().optional(),
+  }),
+});
+
 export const collections = {
   teachings,
   essays,
+  maimonides,
+  audio,
 };

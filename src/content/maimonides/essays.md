@@ -1,5 +1,4 @@
 ---
-layout: ../../../layouts/MarkdownLayout.astro
 title: ""
 description: "Standalone essays examining Rambam's words: Abraham, dialogue, language, attributes, and progress."
 eyebrow: "Maimonides / Essays"

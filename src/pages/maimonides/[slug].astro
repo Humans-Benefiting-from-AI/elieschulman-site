@@ -1,0 +1,29 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+
+export async function getStaticPaths() {
+  const pages = await getCollection('maimonides');
+  return pages.map(entry => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+// Some hub pages intentionally leave the title empty (the eyebrow carries the label).
+const fallbackTitle = entry.data.eyebrow?.replace('Maimonides / ', '') ?? '';
+const heading = entry.data.title || fallbackTitle;
+---
+
+<Layout
+  title={`${heading ? heading + ' — ' : ''}Maimonides — Elie Schulman`}
+  description={entry.data.description}
+>
+  <SectionHeader eyebrow={entry.data.eyebrow} title={heading} lede={entry.data.lede} accent="maimonides" />
+  <div class="content">
+    <Content />
+  </div>
+</Layout>

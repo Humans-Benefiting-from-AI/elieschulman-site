@@ -1,5 +1,4 @@
 ---
-layout: ../../../layouts/MarkdownLayout.astro
 title: ""
 description: "Published work and manuscripts in the Maimonides series, including Emes, Everything Changes, and Davar."
 eyebrow: "Maimonides / Books"
