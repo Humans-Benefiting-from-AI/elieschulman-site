@@ -1,0 +1,162 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+// Verse data fetched from Sefaria API at build time (Deuteronomy 16:18)
+const res = await fetch('https://www.sefaria.org/api/texts/Deuteronomy.16.18?context=0&commentary=0');
+const data = await res.json();
+const heVerse: string = data.he;
+const enVerse: string = (data.text?.[0] ?? '').replace(/<[^>]+>/g, '');
+
+// Word-by-word spotlight: the four words the book is built on.
+const focusWords = [
+  { he: 'שֹׁפְטִים', tr: 'shoftim', en: 'judges', note: 'Not found. Made.' },
+  { he: 'וְשֹׁטְרִים', tr: 'v’shotrim', en: 'and officers', note: 'Authority on loan.' },
+  { he: 'תִּתֶּן', tr: 'titen', en: 'you shall give', note: 'The verb everyone skips.' },
+  { he: 'לְךָ', tr: 'lecha', en: 'for yourself', note: 'You are inside the verse.' },
+];
+---
+
+<Layout
+  title="Shoftim — Titen Lecha — Elie Schulman"
+  description="The judges you appoint, and the complaint that forgets you appointed them. An immersive reading of Devarim 16:18."
+>
+<header class="page-header accent-torah">
+  <div class="page-header-inner">
+    <p class="eyebrow">Parashat Shoftim · פרשת שופטים · Aug 15, 2026 · כ״ז אב</p>
+    <h1>Titen Lecha</h1>
+    <p class="lede">The judges you appoint, and the complaint that forgets you appointed them.</p>
+  </div>
+</header>
+
+<!-- Mode 1: Full verse display -->
+<section class="verse-display">
+  <p class="verse-he" dir="rtl" lang="he">{heVerse}</p>
+  <p class="verse-en">{enVerse}</p>
+  <p class="verse-ref">Devarim 16:18 · via Sefaria</p>
+</section>
+
+<!-- Mode 2: Word-by-word spotlight -->
+<section class="spotlight-section">
+  <p class="section-label" style="text-align:center;">Word by word</p>
+  <h2 class="section-title" style="text-align:center;">Four words, co-arising</h2>
+  <div class="spotlight" id="spotlight">
+    {focusWords.map((w, i) => (
+      <button class="spot-word" data-i={i} type="button">
+        <span class="spot-he" dir="rtl" lang="he">{w.he}</span>
+        <span class="spot-tr">{w.tr}</span>
+      </button>
+    ))}
+  </div>
+  <p class="spot-note" id="spot-note">Tap a word.</p>
+</section>
+
+<!-- Mode 3: Interlinear -->
+<section class="interlinear-section">
+  <p class="section-label" style="text-align:center;">Interlinear</p>
+  <div class="interlinear">
+    {focusWords.map((w) => (
+      <div class="il-word">
+        <span class="il-he" dir="rtl" lang="he">{w.he}</span>
+        <span class="il-tr">{w.tr}</span>
+        <span class="il-en">{w.en}</span>
+      </div>
+    ))}
+  </div>
+</section>
+
+<div class="content" style="text-align:center;">
+  <p><a class="button" href="/read/shoftim/">Read the book in the browser →</a></p>
+  <p><a class="back-link" href="/weekly-torah/">← Weekly Torah</a></p>
+</div>
+
+<script>
+  const notes = [...document.querySelectorAll('.spot-word')].map(b => b.dataset.i);
+  const words = [...document.querySelectorAll('.spot-word')];
+  const noteEl = document.getElementById('spot-note')!;
+  const notesText = ['Not found. Made.', 'Authority on loan.', 'The verb everyone skips.', 'You are inside the verse.'];
+  words.forEach((btn, i) => {
+    btn.addEventListener('click', () => {
+      const active = btn.classList.contains('active');
+      words.forEach(w => w.classList.remove('active', 'dim'));
+      if (!active) {
+        btn.classList.add('active');
+        words.forEach((w, j) => j !== i && w.classList.add('dim'));
+        noteEl.textContent = notesText[i];
+      } else {
+        noteEl.textContent = 'Tap a word.';
+      }
+    });
+  });
+</script>
+</Layout>
+
+<style>
+  .verse-display {
+    background: var(--midnight);
+    padding: 6rem 2rem;
+    text-align: center;
+  }
+  .verse-he {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 5.5vw, 3.5rem);
+    color: var(--warm-ivory);
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 0 auto 2rem;
+  }
+  .verse-en {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    color: rgba(245,240,232,0.75);
+    max-width: 640px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.8;
+  }
+  .verse-ref {
+    color: var(--gold);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .spotlight-section { padding: 5rem 2rem; background: var(--tint-torah); }
+  .spotlight {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem;
+    max-width: 900px; margin: 3rem auto 2rem;
+  }
+  .spot-word {
+    background: none; border: none; cursor: pointer;
+    display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+    padding: 1rem 1.5rem; border-radius: 8px;
+    transition: opacity 0.25s, transform 0.25s, background 0.25s;
+  }
+  .spot-he {
+    font-family: var(--serif);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: var(--midnight);
+    line-height: 1.2;
+  }
+  .spot-tr {
+    font-style: italic; font-family: var(--serif);
+    font-size: 1.1rem; color: var(--accent-torah);
+  }
+  .spot-word.dim { opacity: 0.15; }
+  .spot-word.active { background: white; transform: scale(1.08); box-shadow: var(--shadow-card); }
+  .spot-note {
+    text-align: center;
+    font-family: var(--serif); font-style: italic;
+    font-size: 1.3rem; color: var(--text-secondary);
+    min-height: 2rem;
+  }
+
+  .interlinear-section { padding: 5rem 2rem; background: white; }
+  .interlinear {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 2.5rem;
+    max-width: 900px; margin: 2.5rem auto 0;
+  }
+  .il-word { display: flex; flex-direction: column; align-items: center; gap: 0.2rem; }
+  .il-he { font-family: var(--serif); font-size: 2rem; color: var(--midnight); }
+  .il-tr { font-size: 0.85rem; font-style: italic; color: var(--accent-torah); }
+  .il-en { font-size: 0.8rem; color: var(--text-light); }
+</style>
