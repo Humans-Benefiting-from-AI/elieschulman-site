@@ -33,6 +33,24 @@ let frontmatter = {
 let bodyContent = "";
 let customStyle = "";
 
+// Helper to extract yaml frontmatter from markdown
+function extractYamlFrontmatter(mdContent) {
+  const match = mdContent.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+  if (match) {
+    const yamlString = match[1];
+    bodyContent = match[2].trim();
+    
+    // Simple naive parsing for title and description
+    const titleMatch = yamlString.match(/title:\s*"?([^"\n]+)"?/);
+    if (titleMatch) frontmatter.title = titleMatch[1];
+    
+    const descMatch = yamlString.match(/description:\s*"?([^"\n]+)"?/);
+    if (descMatch) frontmatter.description = descMatch[1];
+  } else {
+    bodyContent = mdContent.trim();
+  }
+}
+
 // Look for an HTML file to extract metadata (since Claude often generates index.html)
 const htmlFile = files.find(f => f.endsWith('.html'));
 if (htmlFile) {
@@ -74,7 +92,8 @@ if (htmlFile) {
    // Fallback: Read a markdown file if present
    const mdFile = files.find(f => f.endsWith('.md'));
    if (mdFile) {
-      bodyContent = fs.readFileSync(path.join(sourceDir, mdFile), 'utf-8');
+      const mdContent = fs.readFileSync(path.join(sourceDir, mdFile), 'utf-8');
+      extractYamlFrontmatter(mdContent);
    }
 }
 
