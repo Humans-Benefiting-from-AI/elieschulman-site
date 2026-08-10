@@ -1,0 +1,333 @@
+---
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const teachings = await getCollection('teachings');
+  return teachings.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const title = entry.data.title;
+const backUrl = `/books/${entry.slug}/`;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title} — Reader</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --reader-bg: #faf7f2;
+      --reader-text: #1a1a1a;
+      --reader-accent: #0f1b2d;
+      --reader-gold: #c9a84c;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--reader-bg);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden; 
+    }
+    
+    /* Top Navigation Bar */
+    .reader-header {
+      flex-shrink: 0;
+      background: rgba(250, 247, 242, 0.95);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 1rem 2rem;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+    }
+    
+    .book-title {
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin: 0;
+      color: #8a8a8a;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .close-btn {
+      color: var(--reader-accent);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      background: rgba(0,0,0,0.05);
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      transition: background 0.2s;
+    }
+    .close-btn:hover { background: rgba(0,0,0,0.09); }
+    
+    /* Reader Workspace */
+    .reader-workspace {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      position: relative;
+      width: 100%;
+      height: calc(100vh - 60px);
+      background: var(--reader-bg);
+    }
+    
+    .book-container {
+      width: 100%;
+      height: 100%;
+      padding: 4rem 10vw; /* Padding matches the arrow areas */
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      box-sizing: border-box;
+    }
+    
+    /* --- THE TWO PAGE SPREAD MAGIC --- */
+    .reader-content {
+      height: calc(100vh - 140px); /* Height minus header and padding */
+      column-width: 35vw;
+      column-gap: 10vw; /* Gap between the two pages */
+      column-fill: auto;
+      
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.35rem;
+      line-height: 1.85;
+      color: var(--reader-text);
+      
+      orphans: 3;
+      widows: 3;
+    }
+    
+    /* Hide scrollbar */
+    .book-container::-webkit-scrollbar { display: none; }
+    .book-container { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* Typography fixes to ensure they don't break across pages weirdly */
+    .reader-content > * {
+      scroll-snap-align: start;
+    }
+
+    .reader-content h1, 
+    .reader-content h2, 
+    .reader-content h3 {
+      color: var(--reader-accent);
+      line-height: 1.2;
+      break-after: avoid-column;
+      margin-top: 0;
+    }
+    
+    .reader-content h2 { font-size: 2.2rem; padding-top: 1.5rem; margin-bottom: 1.5rem; font-weight: 600; }
+    .reader-content h3 { font-size: 1.6rem; padding-top: 1rem; margin-bottom: 1rem; font-weight: 600; }
+    
+    .reader-content p { margin-bottom: 1.5rem; }
+    
+    .reader-content blockquote {
+      margin: 2rem 0;
+      padding-left: 2rem;
+      border-left: 3px solid var(--reader-gold);
+      color: #4a4a4a;
+      font-style: italic;
+      font-size: 1.45rem;
+      break-inside: avoid-column;
+    }
+
+    .reader-content img {
+      max-width: 100%;
+      height: auto;
+      break-inside: avoid-column;
+    }
+
+    .teaching-epigraph { text-align: center; margin: 0 auto 3rem; break-inside: avoid-column; }
+    .teaching-epigraph .he { font-size: 2rem; color: var(--reader-accent); line-height: 1.9; margin-bottom: 0.5rem; }
+    .teaching-epigraph .en { font-style: italic; color: #8a8a8a; font-size: 1.1rem; }
+    
+    /* Navigation Arrows */
+    .nav-area {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 10vw;
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .nav-area:hover { opacity: 1; }
+    
+    .nav-arrow {
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(0,0,0,0.1);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--reader-accent);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    .nav-left { left: 0; justify-content: center; }
+    .nav-right { right: 0; justify-content: center; }
+    
+    /* Highlight Tooling */
+    ::selection { background: rgba(201, 168, 76, 0.4); }
+    .user-highlight {
+      background-color: rgba(201, 168, 76, 0.3);
+      border-radius: 2px;
+      cursor: pointer;
+    }
+    .user-highlight:hover { background-color: rgba(201, 168, 76, 0.5); }
+    
+    #highlight-tooltip {
+      position: fixed;
+      background: var(--reader-accent);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: none;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transform: translate(-50%, -10px);
+    }
+    #highlight-tooltip::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 5px 5px 0;
+      border-style: solid;
+      border-color: var(--reader-accent) transparent transparent transparent;
+    }
+
+    @media (max-width: 768px) {
+      .reader-header { padding: 0.8rem 1rem; }
+      .book-container { padding: 2rem 1.5rem; }
+      .reader-content { column-width: 100vw; column-gap: 3rem; font-size: 1.2rem; }
+      .nav-area { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="reader-header">
+    <h2 class="book-title">{title}</h2>
+    <a href={backUrl} class="close-btn">Done</a>
+  </header>
+  
+  <main class="reader-workspace">
+    <div class="nav-area nav-left" id="prev-btn">
+      <div class="nav-arrow">‹</div>
+    </div>
+    
+    <div class="book-container" id="book-scroll">
+      <article class="reader-content" id="content">
+        <slot />
+      </article>
+    </div>
+    
+    <div class="nav-area nav-right" id="next-btn">
+      <div class="nav-arrow">›</div>
+    </div>
+  </main>
+
+  <div id="highlight-tooltip">Highlight</div>
+
+  <script>
+    // Force a re-calculation of the CSS columns on load to fix rendering bugs
+    window.addEventListener('load', () => {
+      const content = document.getElementById('content');
+      content.style.display = 'none';
+      content.offsetHeight; // force reflow
+      content.style.display = 'block';
+    });
+
+    const scroller = document.getElementById('book-scroll');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    
+    function turnPage(forward) {
+      // Scroll by exactly one "spread" (column width + gap)
+      const spreadWidth = window.innerWidth * 0.8; 
+      if (forward) {
+        scroller.scrollBy({ left: spreadWidth, behavior: 'smooth' });
+      } else {
+        scroller.scrollBy({ left: -spreadWidth, behavior: 'smooth' });
+      }
+    }
+    
+    nextBtn.addEventListener('click', () => turnPage(true));
+    prevBtn.addEventListener('click', () => turnPage(false));
+    
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') turnPage(true);
+      if (e.key === 'ArrowLeft') turnPage(false);
+    });
+
+    const tooltip = document.getElementById('highlight-tooltip');
+    let currentSelection = null;
+    let currentRange = null;
+
+    document.addEventListener('selectionchange', () => {
+      const selection = window.getSelection();
+      
+      if (selection.isCollapsed || selection.rangeCount === 0 || selection.toString().trim() === '') {
+        tooltip.style.display = 'none';
+        return;
+      }
+      
+      const range = selection.getRangeAt(0);
+      const rect = range.getBoundingClientRect();
+      
+      if (document.getElementById('content').contains(range.commonAncestorContainer)) {
+        currentSelection = selection;
+        currentRange = range;
+        
+        tooltip.style.display = 'block';
+        tooltip.style.top = `${rect.top - 35}px`;
+        tooltip.style.left = `${rect.left + (rect.width / 2)}px`;
+      }
+    });
+
+    tooltip.addEventListener('click', () => {
+      if (!currentRange) return;
+      const span = document.createElement('span');
+      span.className = 'user-highlight';
+      try {
+        currentRange.surroundContents(span);
+      } catch(e) {
+        console.log("Cross-paragraph highlight blocked.");
+      }
+      window.getSelection().removeAllRanges();
+      tooltip.style.display = 'none';
+      currentRange = null;
+    });
+  </script>
+</body>
+</html>

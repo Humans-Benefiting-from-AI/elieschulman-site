@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import TeachingLayout from '../../layouts/TeachingLayout.astro';
+import Layout from '../../layouts/Layout.astro';
 
 export async function getStaticPaths() {
   const teachings = await getCollection('teachings');
@@ -11,10 +11,206 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-// render() returns Content (the component) and headings (for our TOC)
-const { Content, headings } = await entry.render();
+const frontmatter = entry.data;
 ---
 
-<TeachingLayout frontmatter={entry.data} headings={headings}>
-  <Content />
-</TeachingLayout>
+<Layout 
+  title={frontmatter.title + " — Elie Schulman"} 
+  description={frontmatter.description || ''}
+>
+  <style>
+    .storefront-container { 
+      max-width: 900px; 
+      margin: 4rem auto; 
+      padding: 0 1.5rem; 
+      display: grid; 
+      grid-template-columns: 320px 1fr; 
+      gap: 4rem; 
+      align-items: start; 
+    }
+    
+    /* Left Column: Cover */
+    .cover-wrapper {
+      position: relative;
+    }
+    
+    .back-link { 
+      display: inline-block; 
+      margin-bottom: 2rem; 
+      color: var(--text-light); 
+      text-decoration: none; 
+      font-family: var(--sans); 
+      font-size: 0.95rem;
+    }
+    .back-link:hover { color: var(--midnight); }
+    
+    .book-cover { 
+      width: 100%; 
+      aspect-ratio: 2/3; 
+      object-fit: cover; 
+      border-radius: 4px; 
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2), 0 0 1px rgba(0,0,0,0.1); 
+      background: linear-gradient(135deg, #1a2744, #0f1b2d); 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      padding: 2rem; 
+      text-align: center;
+      position: relative;
+    }
+    
+    /* Glare/Spine effect */
+    .book-cover::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0) 15%, rgba(0,0,0,0.1) 100%);
+      pointer-events: none;
+      border-radius: 4px;
+    }
+    
+    .book-cover-title { 
+      color: white; 
+      font-family: var(--serif); 
+      font-size: 1.8rem; 
+      line-height: 1.2;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5); 
+    }
+    
+    /* Right Column: Details & Actions */
+    .book-details {
+      padding-top: 3.5rem; /* Align with top of book cover */
+    }
+    
+    .eyebrow { 
+      color: var(--gold); 
+      font-weight: 600; 
+      font-size: 0.85rem; 
+      text-transform: uppercase; 
+      letter-spacing: 0.05em; 
+      margin-bottom: 0.5rem;
+    }
+    
+    .book-details h1 { 
+      font-family: var(--serif); 
+      font-size: 2.8rem; 
+      line-height: 1.1; 
+      margin-bottom: 0.5rem; 
+      color: var(--midnight); 
+    }
+    
+    .author { 
+      font-family: var(--sans); 
+      color: var(--text-light); 
+      font-size: 1.1rem;
+      margin-bottom: 2rem; 
+    }
+    
+    .description { 
+      font-size: 1.1rem; 
+      line-height: 1.7; 
+      margin-bottom: 3rem; 
+      color: var(--text-secondary); 
+    }
+    
+    /* Action Buttons */
+    .actions { 
+      display: flex; 
+      flex-direction: column; 
+      gap: 1rem; 
+      max-width: 280px; 
+    }
+    
+    .btn { 
+      display: inline-flex; 
+      align-items: center; 
+      justify-content: center; 
+      padding: 1rem 1.5rem; 
+      border-radius: 8px; 
+      font-family: var(--sans); 
+      font-size: 1.05rem;
+      font-weight: 500; 
+      text-decoration: none; 
+      transition: all 0.2s; 
+      cursor: pointer;
+    }
+    
+    .btn-primary { 
+      background: var(--deep-navy); 
+      color: var(--warm-ivory); 
+      box-shadow: 0 4px 6px rgba(15, 27, 45, 0.2);
+    }
+    .btn-primary:hover { 
+      background: var(--midnight); 
+      transform: translateY(-1px); 
+      box-shadow: 0 6px 12px rgba(15, 27, 45, 0.25);
+    }
+    
+    .btn-secondary { 
+      background: rgba(0,0,0,0.04); 
+      color: var(--midnight); 
+      font-size: 0.95rem;
+      padding: 0.8rem 1.5rem;
+    }
+    .btn-secondary:hover { 
+      background: rgba(0,0,0,0.08); 
+    }
+    
+    .downloads-label {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin: 1.5rem 0 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 768px) {
+      .storefront-container { 
+        grid-template-columns: 1fr; 
+        gap: 2rem; 
+        margin: 2rem auto; 
+      }
+      .book-cover { max-width: 260px; margin: 0 auto; }
+      .book-details { padding-top: 0; text-align: center; }
+      .actions { margin: 0 auto; }
+      .eyebrow, .description, .downloads-label { text-align: left; }
+      .book-details h1 { font-size: 2.2rem; }
+    }
+  </style>
+
+  <div class="storefront-container">
+    <div class="cover-wrapper">
+      <a href="/books/" class="back-link">← Back to Library</a>
+      {frontmatter.coverImage ? (
+        <img src={frontmatter.coverImage} alt={`Cover for ${frontmatter.title}`} class="book-cover" />
+      ) : (
+        <div class="book-cover">
+          <span class="book-cover-title" set:html={frontmatter.title_html || frontmatter.title}></span>
+        </div>
+      )}
+    </div>
+    
+    <div class="book-details">
+      {frontmatter.eyebrow && <p class="eyebrow">{frontmatter.eyebrow}</p>}
+      <h1 set:html={frontmatter.title_html || frontmatter.title}></h1>
+      <p class="author">{frontmatter.author || 'Elie Schulman'}</p>
+      
+      <div class="description" set:html={frontmatter.description_html || frontmatter.description}></div>
+      
+      <div class="actions">
+        <!-- Read Now button goes to the immersive reader -->
+        <a href={`/books/${entry.slug}/read/`} class="btn btn-primary">Read Book</a>
+        
+        {(frontmatter.text_epub || frontmatter.text_pdf) && (
+          <div style="margin-top: 1rem;">
+            <p class="downloads-label">Also Available For Download</p>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+              {frontmatter.text_epub && <a class="btn btn-secondary" href={frontmatter.text_epub} download>EPUB Version</a>}
+              {frontmatter.text_pdf && <a class="btn btn-secondary" href={frontmatter.text_pdf} download>PDF Version</a>}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+</Layout>

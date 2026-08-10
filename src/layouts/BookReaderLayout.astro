@@ -1,0 +1,137 @@
+---
+const { title, backUrl } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title} — Reader</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/site.css">
+  <style>
+    body { 
+      background: #faf7f2; 
+      color: #1a1a1a; 
+      margin: 0; 
+      padding: 0; 
+      font-family: var(--sans);
+    }
+    
+    /* Top Navigation Bar */
+    .reader-header {
+      position: sticky; 
+      top: 0; 
+      background: rgba(250, 247, 242, 0.92);
+      backdrop-filter: blur(8px); 
+      -webkit-backdrop-filter: blur(8px);
+      padding: 1rem 2rem; 
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      z-index: 100;
+    }
+    
+    .book-title { 
+      font-family: var(--sans); 
+      font-size: 0.9rem; 
+      font-weight: 500;
+      margin: 0; 
+      color: #8a8a8a;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .close-btn { 
+      color: #1a2744; 
+      text-decoration: none; 
+      font-family: var(--sans); 
+      font-size: 0.9rem; 
+      font-weight: 600; 
+      background: rgba(0,0,0,0.05);
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      transition: background 0.2s;
+    }
+    .close-btn:hover { background: rgba(0,0,0,0.09); }
+    
+    /* Main Reading Area */
+    .reader-container { 
+      max-width: 680px; 
+      margin: 4rem auto 8rem; 
+      padding: 0 1.5rem; 
+    }
+    
+    /* Immersive Typography */
+    .reader-content { 
+      font-family: var(--serif); 
+      font-size: 1.35rem; 
+      line-height: 1.85; 
+      color: #1a1a1a; 
+    }
+    
+    .reader-content h1, 
+    .reader-content h2, 
+    .reader-content h3 {
+      font-family: var(--serif);
+      color: #0f1b2d;
+      line-height: 1.2;
+    }
+    
+    .reader-content h2 { font-size: 2.2rem; margin: 4rem 0 1.5rem; font-weight: 600; }
+    .reader-content h3 { font-size: 1.6rem; margin: 3rem 0 1rem; font-weight: 600; }
+    
+    .reader-content p { margin-bottom: 1.5rem; }
+    
+    .reader-content blockquote {
+      margin: 2.5rem 0;
+      padding-left: 2rem;
+      border-left: 3px solid #c9a84c;
+      color: #4a4a4a;
+      font-style: italic;
+      font-size: 1.45rem;
+    }
+    
+    .reader-content hr {
+      border: none;
+      border-top: 1px solid rgba(0,0,0,0.1);
+      width: 25%;
+      margin: 4rem auto;
+    }
+    
+    .reader-content ul, 
+    .reader-content ol { 
+      margin-bottom: 1.5rem; 
+      padding-left: 2rem; 
+    }
+    
+    .reader-content li { margin-bottom: 0.5rem; }
+    
+    /* Custom classes from your content */
+    .teaching-epigraph { text-align: center; margin: 0 auto 4rem; max-width: 34rem; }
+    .teaching-epigraph .he { font-family: var(--serif); font-size: 2rem; color: #0f1b2d; line-height: 1.9; margin-bottom: 0.5rem; }
+    .teaching-epigraph .en { font-style: italic; color: #8a8a8a; font-size: 1.1rem; }
+
+    @media (max-width: 768px) {
+      .reader-header { padding: 0.8rem 1rem; }
+      .reader-content { font-size: 1.2rem; }
+      .reader-container { margin-top: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="reader-header">
+    <h2 class="book-title">{title}</h2>
+    <a href={backUrl} class="close-btn">Done</a>
+  </header>
+  
+  <main class="reader-container">
+    <article class="reader-content">
+      <slot />
+    </article>
+  </main>
+</body>
+</html>

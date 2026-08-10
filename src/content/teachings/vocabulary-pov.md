@@ -1,12 +1,12 @@
 ---
-title: "vocabulary of a particular human's first person point of view"
-title_html: "vocabulary of a particular human&nbsp;'s first person point of view"
+title: "Vocabulary of a particular human's first person point of view"
+title_html: "Vocabulary of a particular human&nbsp;'s first person point of view"
 description: "Thirteen short chapters on Ein HaLev — the eye of the heart. The title is not a title. It is a sentence taken apart, and each word is a door."
 description_html: "One term runs the whole book: <em>Ein HaLev</em>, the eye of the heart — not a metaphor for feelings, but the inner point your attention actually looks from. Nine short chapters take the title apart one word at a time, including the two letters most people read past. Then the sentence gets put back together, and <em>point of view</em> stops being a dead metaphor."
-eyebrow: "The Mind's Eye · The Knowing Project"
+eyebrow: "The Mind's Eye"
 lede: "The title is not a title. It is a sentence taken apart, and each word is a door."
 author: "Elie Schulman"
-meta: "Thirteen chapters · ~7,000 words · 52 pages · The Mind's Eye, The Knowing Project"
+meta: "Thirteen chapters · ~7,000 words · 52 pages · The Mind's Eye"
 coverImage: "/books/vocabulary-pov/cover.jpg"
 text_epub: "/books/vocabulary-pov/vocabulary-pov.epub"
 text_pdf: "/books/vocabulary-pov/vocabulary-pov.pdf"
@@ -205,7 +205,7 @@ back_link: "/books/"
     <hr>
     <p class="note">
       <em>vocabulary of a particular human 's first person point of view</em> — a book of
-      The Mind's Eye, a series of The Knowing Project. The epigraph is the author's own line.
+      The Mind's Eye. The epigraph is the author's own line.
       No external sources are cited; <em>Ein HaLev</em> is defined functionally, as this book's
       operative term. © 2026 Elie Schulman.
     </p>
