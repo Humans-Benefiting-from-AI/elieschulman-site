@@ -1,0 +1,28 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const posts = await Astro.glob('./*/*.md');
+---
+
+<Layout 
+  title="Writing — Elie Schulman" 
+  description="Essays on language, judgment, and learning."
+>
+<header class="page-header">
+  <div class="page-header-inner">
+    <p class="eyebrow">Essays & Articles</p>
+    <h1>Writing</h1>
+    <p class="lede">Essays examining how words carry assumptions, how inherited categories guide judgment, and how people learn to see the structures organizing how they think and act.</p>
+  </div>
+</header>
+
+<div class="content">
+  <div class="featured-grid">
+    {posts.map((post) => (
+      <div class="featured-card">
+        <h4><a class="featured-link" href={post.url}>{post.frontmatter.title}</a></h4>
+        <p class="note" style="margin-top: 0.5rem;">{post.frontmatter.description || post.frontmatter.lede}</p>
+      </div>
+    ))}
+  </div>
+</div>
+</Layout>
