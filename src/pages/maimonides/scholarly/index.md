@@ -1,26 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maimonides — Scholarly Edition — Elie Schulman</title>
-  <meta name="description" content="The sixteen-position Maimonides source sequence in a scholarly register with primary-text anchors.">
-  <link rel="canonical" href="https://elieschulman.com/maimonides/scholarly/">
-  <meta name="theme-color" content="#0f1b2d">
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/site.css">
-</head>
-<body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav class="site-nav" aria-label="Primary navigation"><a href="/" class="logo">Elie Schulman</a><div class="nav-links"><a href="/writing/">Writing Map</a><a href="/maimonides/" aria-current="page">Maimonides</a><a href="/about/">About</a><a href="https://emesnewsletter.substack.com">Subscribe</a></div></nav>
-<main id="main-content">
-<header class="page-header"><div class="page-header-inner">
-  <p class="eyebrow">Maimonides / Scholarly Edition</p>
-  <h1>The source spine in chronological order</h1>
-  <p class="lede">Primary texts, original-language citations, philosophical analysis, and close reading. The order is shared with the General Public and Children's editions; the apparatus is not.</p>
-</div></header>
-<div class="content">
-  <a href="/maimonides/" class="back-link">← Maimonides in Order</a>
+---
+layout: ../../../layouts/MarkdownLayout.astro
+title: "Maimonides — Scholarly Edition"
+description: "The sixteen-position Maimonides source sequence in a scholarly register with primary-text anchors."
+eyebrow: "Maimonides / Scholarly Edition"
+lede: "Primary texts, original-language citations, philosophical analysis, and close reading. The order is shared with the General Public and Children's editions; the apparatus is not."
+---
+
+<a href="/maimonides/" class="back-link">← Maimonides in Order</a>
 
   <h2>I. Early works</h2>
   <div class="resource-card"><p class="eyebrow">1 · Treatise on Logic, Ch. 10</p><h3>Kinds of Predication in the Treatise on Logic</h3><p>Four classes of predication, definition versus description, and the conflation that distorts.</p></div>
@@ -50,8 +36,3 @@
 
   <h2>Separate existing series</h2>
   <p>The <a class="work-link" href="/maimonides/foundations/">Foundations Ebook Project</a> preserves twenty-two completed law-specific volumes. Those works remain canonical within their own series and are not retrofitted into the three-audience format.</p>
-</div>
-</main>
-<footer><div class="footer-links"><a href="https://emesnewsletter.substack.com">Substack</a><a href="mailto:elie@cohortlearninglabs.org">Email</a><a href="https://www.cohortlearninglabs.org/">Cohort Learning Labs</a></div><p>&copy; 2026 Elie Schulman</p></footer>
-</body>
-</html>

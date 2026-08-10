@@ -1,39 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Books &amp; Manuscripts — Maimonides Library</title>
-  <meta name="description" content="Published work and manuscripts in the Maimonides series, including Emes, Everything Changes, and Davar.">
-  <link rel="canonical" href="https://elieschulman.com/maimonides/books/">
-  <meta property="og:title" content="Books &amp; Manuscripts — Maimonides Library"><meta property="og:type" content="website">
-  <meta name="theme-color" content="#0f1b2d">
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/site.css">
-</head>
-<body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav class="site-nav" aria-label="Primary navigation">
-  <a href="/" class="logo">Elie Schulman</a>
-  <div class="nav-links">
-    <a href="/writing/">Writing Map</a>
-    <a href="/maimonides/" aria-current="page">Maimonides</a>
-    <a href="/about/">About</a>
-    <a href="https://emesnewsletter.substack.com">Subscribe</a>
-  </div>
-</nav>
+---
+layout: ../../../layouts/MarkdownLayout.astro
+title: ""
+description: "Published work and manuscripts in the Maimonides series, including Emes, Everything Changes, and Davar."
+eyebrow: "Maimonides / Books"
+lede: "Published work and manuscripts at different stages of the Maimonides series pipeline. Status labels distinguish released work from material still under governed development."
+---
 
-<main id="main-content">
-<header class="page-header">
-  <div class="page-header-inner">
-    <p class="eyebrow">Maimonides / Books</p>
-    <h1>Books &amp; Manuscripts</h1>
-    <p class="lede">Published work and manuscripts at different stages of the Maimonides series pipeline. Status labels distinguish released work from material still under governed development.</p>
-  </div>
-</header>
-
-<div class="content">
-  <a href="/maimonides/" class="back-link">← Maimonides Library</a>
+<a href="/maimonides/" class="back-link">← Maimonides Library</a>
 
   <h2>Book 1</h2>
   <div class="book-card">
@@ -67,16 +40,3 @@
     <p>The Hebrew word דבר (davar) means both "word" and "thing." This book explores what that double meaning reveals about the relationship between language and reality — and about the moment when a word becomes a thing that cannot be taken back.</p>
     <div class="tags"><span class="tag tag-torah">Torah</span></div>
   </div>
-</div>
-</main>
-
-<footer>
-  <div class="footer-links">
-    <a href="https://emesnewsletter.substack.com">Substack</a>
-    <a href="mailto:elie@cohortlearninglabs.org">Email</a>
-    <a href="https://www.cohortlearninglabs.org/">Cohort Learning Labs</a>
-  </div>
-  <p>&copy; 2026 Elie Schulman</p>
-</footer>
-</body>
-</html>

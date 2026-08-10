@@ -1,39 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Foundations Ebook Project — Maimonides Library</title>
-  <meta name="description" content="Twenty-two completed ebook volumes on Yesodei HaTorah chapters 1:1–1:12 and 2:1–2:10.">
-  <link rel="canonical" href="https://elieschulman.com/maimonides/foundations/">
-  <meta property="og:title" content="Foundations Ebook Project — Maimonides Library"><meta property="og:type" content="website">
-  <meta name="theme-color" content="#0f1b2d">
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/site.css">
-</head>
-<body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav class="site-nav" aria-label="Primary navigation">
-  <a href="/" class="logo">Elie Schulman</a>
-  <div class="nav-links">
-    <a href="/writing/">Writing Map</a>
-    <a href="/maimonides/" aria-current="page">Maimonides</a>
-    <a href="/about/">About</a>
-    <a href="https://emesnewsletter.substack.com">Subscribe</a>
-  </div>
-</nav>
+---
+layout: ../../../layouts/MarkdownLayout.astro
+title: ""
+description: "Twenty-two completed ebook volumes on Yesodei HaTorah chapters 1:1–1:12 and 2:1–2:10."
+eyebrow: "Maimonides / Foundations"
+lede: "Twenty-two completed volumes covering Yesodei HaTorah — the opening chapters of Rambam's Mishneh Torah. Each volume takes a single halakha and examines what translation reveals about the conceptual structure a word carries."
+---
 
-<main id="main-content">
-<header class="page-header">
-  <div class="page-header-inner">
-    <p class="eyebrow">Maimonides / Foundations</p>
-    <h1>Foundations Ebook Project</h1>
-    <p class="lede">Twenty-two completed volumes covering Yesodei HaTorah — the opening chapters of Rambam's Mishneh Torah. Each volume takes a single halakha and examines what translation reveals about the conceptual structure a word carries.</p>
-  </div>
-</header>
-
-<div class="content">
-  <a href="/maimonides/" class="back-link">← Maimonides Library</a>
+<a href="/maimonides/" class="back-link">← Maimonides Library</a>
 
   <h2>Book 1 — Yesodei HaTorah, Chapter 1</h2>
   <div class="volume-grid">
@@ -65,16 +38,3 @@
   </div>
 
   <p class="note">Each volume was built through a six-stage pipeline: source extraction, comparative translation, reframing curation, assembly, pressure-testing, and EPUB/PDF build. Primary-text citations were verified via Sefaria before drafting.</p>
-</div>
-</main>
-
-<footer>
-  <div class="footer-links">
-    <a href="https://emesnewsletter.substack.com">Substack</a>
-    <a href="mailto:elie@cohortlearninglabs.org">Email</a>
-    <a href="https://www.cohortlearninglabs.org/">Cohort Learning Labs</a>
-  </div>
-  <p>&copy; 2026 Elie Schulman</p>
-</footer>
-</body>
-</html>

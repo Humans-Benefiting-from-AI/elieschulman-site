@@ -1,26 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maimonides — Children's Edition — Elie Schulman</title>
-  <meta name="description" content="The sixteen-position Maimonides source sequence for younger readers, in the same chronological order.">
-  <link rel="canonical" href="https://elieschulman.com/maimonides/children/">
-  <meta name="theme-color" content="#0f1b2d">
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/site.css">
-</head>
-<body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav class="site-nav" aria-label="Primary navigation"><a href="/" class="logo">Elie Schulman</a><div class="nav-links"><a href="/writing/">Writing Map</a><a href="/maimonides/" aria-current="page">Maimonides</a><a href="/about/">About</a><a href="https://emesnewsletter.substack.com">Subscribe</a></div></nav>
-<main id="main-content">
-<header class="page-header"><div class="page-header-inner">
-  <p class="eyebrow">Maimonides / Children's Edition</p>
-  <h1>The same difficulty, in clearer words.</h1>
-  <p class="lede">These books follow the same sources, in the same order, as the other two editions. The examples are concrete and the sentences are simpler. The ideas are not reduced.</p>
-</div></header>
-<div class="content">
-  <a href="/maimonides/" class="back-link">← Maimonides in Order</a>
+---
+layout: ../../../layouts/MarkdownLayout.astro
+title: "Maimonides — Children's Edition"
+description: "The sixteen-position Maimonides source sequence for younger readers, in the same chronological order."
+eyebrow: "Maimonides / Children's Edition"
+lede: "These books follow the same sources, in the same order, as the other two editions. The examples are concrete and the sentences are simpler. The ideas are not reduced."
+---
+
+<a href="/maimonides/" class="back-link">← Maimonides in Order</a>
   <h2>The sequence</h2>
   <ol>
     <li><strong>When a Word Pretends to Be a Thing</strong> — Treatise on Logic, Chapter 10</li>
@@ -48,8 +34,3 @@
   <div class="resource-card"><p class="eyebrow">Approved complete draft · 8 chapters</p><h3>The Translator Who Admitted It Was Hard</h3><p>The Children's Ibn Tibbon preface ebook is complete and preserved as a style reference.</p></div>
 
   <p class="note">The separate <a class="work-link" href="/maimonides/foundations/">Foundations Ebook Project</a> contains twenty-two completed law-specific volumes. It remains available and is not replaced by this audience edition.</p>
-</div>
-</main>
-<footer><div class="footer-links"><a href="https://emesnewsletter.substack.com">Substack</a><a href="mailto:elie@cohortlearninglabs.org">Email</a><a href="https://www.cohortlearninglabs.org/">Cohort Learning Labs</a></div><p>&copy; 2026 Elie Schulman</p></footer>
-</body>
-</html>

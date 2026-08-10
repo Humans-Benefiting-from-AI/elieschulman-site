@@ -1,29 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maimonides — General Public — Elie Schulman</title>
-  <meta name="description" content="The sixteen-position Maimonides source sequence in an accessible general-public register.">
-  <link rel="canonical" href="https://elieschulman.com/maimonides/general/">
-  <meta name="theme-color" content="#0f1b2d">
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/site.css">
-</head>
-<body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav class="site-nav" aria-label="Primary navigation">
-  <a href="/" class="logo">Elie Schulman</a>
-  <div class="nav-links"><a href="/writing/">Writing Map</a><a href="/maimonides/" aria-current="page">Maimonides</a><a href="/about/">About</a><a href="https://emesnewsletter.substack.com">Subscribe</a></div>
-</nav>
-<main id="main-content">
-<header class="page-header"><div class="page-header-inner">
-  <p class="eyebrow">Maimonides / General Public</p>
-  <h1>The question is the doorway.</h1>
-  <p class="lede">The same chronological source sequence as the Scholarly and Children's editions, written for readers who enter through a problem rather than through the apparatus.</p>
-</div></header>
-<div class="content">
-  <a href="/maimonides/" class="back-link">← Maimonides in Order</a>
+---
+layout: ../../../layouts/MarkdownLayout.astro
+title: "Maimonides — General Public"
+description: "The sixteen-position Maimonides source sequence in an accessible general-public register."
+eyebrow: "Maimonides / General Public"
+lede: "The same chronological source sequence as the Scholarly and Children's editions, written for readers who enter through a problem rather than through the apparatus."
+---
+
+<a href="/maimonides/" class="back-link">← Maimonides in Order</a>
   <h2>The sequence</h2>
   <div class="resource-card"><p class="eyebrow">1 · Treatise on Logic, Ch. 10</p><h3>A Word Feels Like Knowledge</h3><p>When naming feels like knowing—and what happens when the label is mistaken for the thing.</p></div>
   <div class="resource-card"><p class="eyebrow">2 · Treatise on Logic, Ch. 14</p><h3>In Any Language Whatsoever</h3><p>What gets lost between thought and utterance, in every language.</p></div>
@@ -45,8 +28,3 @@
 
   <h2>Completed reference draft</h2>
   <div class="resource-card"><p class="eyebrow">Approved · 8 chapters</p><h3>The Translator's Confession</h3><p>The complete General Public edition of the Ibn Tibbon preface ebook is preserved as an approved style reference. Its translation-process argument remains separate from <em>Emes</em>.</p></div>
-</div>
-</main>
-<footer><div class="footer-links"><a href="https://emesnewsletter.substack.com">Substack</a><a href="mailto:elie@cohortlearninglabs.org">Email</a><a href="https://www.cohortlearninglabs.org/">Cohort Learning Labs</a></div><p>&copy; 2026 Elie Schulman</p></footer>
-</body>
-</html>
