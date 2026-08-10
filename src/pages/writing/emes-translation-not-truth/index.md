@@ -9,10 +9,8 @@ lede: "This public PDF preserves an earlier translation-focused version of the o
 <p><a href="/writing/names-soul-self/" class="back-link">← Names, Soul, Self</a></p>
 
   <div class="resource-card">
-    <h2>Read the preserved excerpt</h2>
-    <p>This historical excerpt mixes the <em>Emes</em> inquiry with translation-process material now governed separately in the Ibn Tibbon project. It remains available for provenance while the current manuscript proceeds through controlled reconciliation.</p>
-    <p><a class="button" href="/Emes_Chapter1_Free.pdf" download>Download earlier excerpt</a></p>
-    <p class="note">PDF · Direct download · No email address required</p>
+    <h2>The preserved excerpt</h2>
+    <p>This historical excerpt mixed the <em>Emes</em> inquiry with translation-process material now governed separately in the Ibn Tibbon project. The public PDF has been retired while the current manuscript proceeds through controlled reconciliation.</p>
   </div>
 
   <h2>About the excerpt</h2>

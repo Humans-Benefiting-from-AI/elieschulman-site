@@ -17,10 +17,8 @@ lede: "Published work and manuscripts at different stages of the Maimonides seri
       <p class="book-desc">Every English translation of Maimonides renders the Hebrew word אֱמֶת as "truth." That rendering sends you somewhere you didn't intend to go. This book begins with a translation problem — and follows it into questions about existence, knowledge, disagreement, and what any human being can claim to know.</p>
       <p class="book-meta">In development · 17-chapter architecture · Chapters 1–2 approved</p>
       <div class="download-panel">
-        <p>This earlier public PDF is preserved as a historical, translation-focused excerpt. It is not the current canonical Chapter 1 manuscript.</p>
+        <p>This earlier public PDF was a historical, translation-focused excerpt and has been retired. It is not the current canonical Chapter 1 manuscript.</p>
         <p><a class="work-link" href="/writing/emes-translation-not-truth/">About the excerpt →</a></p>
-        <a class="download-button" href="/Emes_Chapter1_Free.pdf" download>Download earlier excerpt</a>
-        <p class="note">Direct PDF download · No email address required</p>
       </div>
     </div>
   </div>

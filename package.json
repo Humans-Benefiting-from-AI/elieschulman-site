@@ -11,7 +11,9 @@
     "ingest": "node scripts/ingest-teaching.mjs"
   },
   "dependencies": {
-    "astro": "^5.0.0",
-    "epubjs": "^0.3.93"
+    "@astrojs/sitemap": "^3.7.3",
+    "astro": "^7.2.0",
+    "epubjs": "^0.3.93",
+    "sharp": "^0.35.3"
   }
 }

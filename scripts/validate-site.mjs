@@ -2,7 +2,10 @@ import { existsSync, readFileSync } from 'node:fs'
 
 const pages = ['index.html', 'writing/index.html', 'writing/emes-translation-not-truth/index.html']
 const failures = []
-const sitemap = readFileSync('sitemap.xml', 'utf8')
+const sitemap = ['sitemap-index.xml', 'sitemap-0.xml']
+  .filter(existsSync)
+  .map((f) => readFileSync(f, 'utf8'))
+  .join('\n')
 for (const file of pages) {
   const html = readFileSync(file, 'utf8')
   for (const required of ['<title>', 'name="description"', 'rel="canonical"', '<main', 'Skip to main content']) {
