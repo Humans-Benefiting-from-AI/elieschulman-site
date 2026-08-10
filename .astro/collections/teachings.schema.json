@@ -1,65 +1,59 @@
 {
-  "$ref": "#/definitions/teachings",
-  "definitions": {
-    "teachings": {
-      "type": "object",
-      "properties": {
-        "title": {
-          "type": "string"
-        },
-        "title_html": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "description_html": {
-          "type": "string"
-        },
-        "eyebrow": {
-          "type": "string"
-        },
-        "lede": {
-          "type": "string"
-        },
-        "author": {
-          "type": "string",
-          "default": "Elie Schulman"
-        },
-        "meta": {
-          "type": "string"
-        },
-        "coverImage": {
-          "type": "string"
-        },
-        "back_link": {
-          "type": "string"
-        },
-        "text_epub": {
-          "type": "string"
-        },
-        "text_pdf": {
-          "type": "string"
-        },
-        "audio_only": {
-          "type": "string"
-        },
-        "video_face": {
-          "type": "string"
-        },
-        "video_graphics": {
-          "type": "string"
-        },
-        "$schema": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "title",
-        "description"
-      ],
-      "additionalProperties": false
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "title_html": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "description_html": {
+      "type": "string"
+    },
+    "eyebrow": {
+      "type": "string"
+    },
+    "lede": {
+      "type": "string"
+    },
+    "author": {
+      "default": "Elie Schulman",
+      "type": "string"
+    },
+    "meta": {
+      "type": "string"
+    },
+    "coverImage": {
+      "type": "string"
+    },
+    "back_link": {
+      "type": "string"
+    },
+    "text_epub": {
+      "type": "string"
+    },
+    "text_pdf": {
+      "type": "string"
+    },
+    "audio_only": {
+      "type": "string"
+    },
+    "video_face": {
+      "type": "string"
+    },
+    "video_graphics": {
+      "type": "string"
+    },
+    "$schema": {
+      "type": "string"
     }
   },
-  "$schema": "http://json-schema.org/draft-07/schema#"
+  "required": [
+    "title",
+    "description"
+  ]
 }
