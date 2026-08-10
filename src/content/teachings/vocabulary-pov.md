@@ -13,38 +13,17 @@ text_pdf: "/books/vocabulary-pov/vocabulary-pov.pdf"
 back_link: "/books/"
 ---
 
-<div class="bk-layout">
 
-  <nav class="bk-toc" aria-label="Chapters">
-    <h3>Contents</h3>
-    <ol>
-      <li><a href="#ch0">A Word Before: Ein HaLev</a></li>
-      <li class="bk-toc-part">Part I · Nine Words</li>
-      <li><a href="#ch1">Chapter 1 · vocabulary</a></li>
-      <li><a href="#ch2">Chapter 2 · particular</a></li>
-      <li><a href="#ch3">Chapter 3 · human</a></li>
-      <li><a href="#ch4">Chapter 4 · ’s</a></li>
-      <li><a href="#ch5">Chapter 5 · first</a></li>
-      <li><a href="#ch6">Chapter 6 · person</a></li>
-      <li><a href="#ch7">Chapter 7 · point</a></li>
-      <li><a href="#ch8">Chapter 8 · of</a></li>
-      <li><a href="#ch9">Chapter 9 · view</a></li>
-      <li class="bk-toc-part">Part II · First Person</li>
-      <li><a href="#ch10">Chapter 10 · The Indoor View</a></li>
-      <li class="bk-toc-part">Part III · Point of View</li>
-      <li><a href="#ch11">Chapter 11 · The Point and the View</a></li>
-      <li class="bk-toc-part">Close</li>
-      <li><a href="#ch12">Chapter 12 · The Sentence, Reassembled</a></li>
-    </ol>
-  </nav>
 
-  <article class="bk-read">
-    <div class="bk-epigraph">
+  
+
+  
+    <div class="teaching-epigraph">
       <p class="he" lang="he" dir="rtl">עין הלב היא הנקודה שממנה הכל נראה</p>
       <p class="en">The eye of the heart is the point from which everything is seen.</p>
     </div>
 
-<section class="bk-chapter" id="ch0"><h2>A Word Before: Ein HaLev</h2>
+## A Word Before: Ein HaLev
 <p>This book runs on one term, so take it now, before anything else.</p>
 <p>Ein HaLev. עין הלב. The eye of the heart.</p>
 <p>Say it plainly first: <em>ayin</em> is an eye. <em>Lev</em> is the heart. The eye of the heart is the inner point from which your attention actually looks.</p>
@@ -58,9 +37,11 @@ back_link: "/books/"
 <p>That last sentence is the book. Everything after this page is just taking it apart, one word at a time.</p>
 <p>The title has a strange gap in it — <em>human ’s</em> — and the gap is not a typo. Every word in that title earns its own chapter, including the two letters most people read past. Nine words, nine doors.</p>
 <p>Start with the first one.</p>
-</section>
-<div class="bk-part"><h2>Part I · Nine Words</h2><p>The title is not a title. It is a sentence taken apart, and each word is a door.</p></div>
-<section class="bk-chapter" id="ch1"><h2>Chapter 1 · vocabulary</h2>
+
+## Part: Part I · Nine Words
+*The title is not a title. It is a sentence taken apart, and each word is a door.*
+
+## Chapter 1 · vocabulary
 <p>Nobody speaks a language. Not the whole thing. You speak a few thousand words of one, and which few thousand is not an accident.</p>
 <p>The dictionary is not your vocabulary. The dictionary is everyone’s storehouse; your vocabulary is what you actually carry. It is the working set — the words that come when you reach without looking. And a working set is a record of work. You carry the words for the things you handle.</p>
 <p>Listen to anyone for an hour and you will hear the shape of their days. A carpenter’s hour has <em>plumb</em> and <em>proud</em> and <em>out of square</em> in it. A daf learner’s hour has <em>machlokes</em> and <em>shittah</em> and <em>how do we know</em>. A person in pain has an hour full of weather — pressure, waves, something coming. None of them chose those words that morning. The words are sediment. They settled out of years of attention.</p>
@@ -71,8 +52,8 @@ back_link: "/books/"
 <p>This is why the book starts here. Before we can talk about a point of view, we need the evidence for one, and vocabulary is the evidence. You cannot audit another person’s inner life. You can hear their words. The words are the visible wake of an invisible ship — the trail the Ein HaLev leaves as it moves through a life, resting here, returning there, never once landing somewhere else.</p>
 <p>So the title’s first word is a claim about method. If you want to know where a particular human’s inner eye has been, count their words. What they name finely, they have watched closely. What they have no word for, their eye has never held.</p>
 <p>Your vocabulary is not what you know. It is where you have looked.</p>
-</section>
-<section class="bk-chapter" id="ch2"><h2>Chapter 2 · particular</h2>
+
+## Chapter 2 · particular
 <p>The title does not say <em>the human</em>. It says <em>a particular human</em>, and the little word <em>a</em> is doing the picking.</p>
 <p><em>A</em> human — one, indefinite, could be anyone. Then <em>particular</em> slams the door on “anyone.” One human, picked out of everyone, unrepeatable. The grammar performs the point before the chapter can make it: you start with the whole species and end up holding a single case.</p>
 <p>Here is what most people believe about particularity, usually without noticing they believe it: that it is a limitation. The general view would be better — the view from nowhere, the objective one — and a particular perspective is what you are stuck with instead. Particularity as a defect of access. If only you could get outside your one vantage, you would finally see properly.</p>
@@ -83,8 +64,8 @@ back_link: "/books/"
 <p>And notice what <em>particular</em> does to the word that follows it. <em>Human</em> alone is a category. <em>A particular human</em> is an address. The title is not promising an essay about perspective in general — there is no such thing, that is the whole argument. It is promising the only kind of perspective that exists: this one, some one’s, ground by one history, aimed from one interior point.</p>
 <p>The Ein HaLev is always a particular eye. It opened in one crib, learned one mother tongue, got hurt in specific places and healed crooked in specific ways. That crookedness is not the flaw in its seeing. It is the signature.</p>
 <p>You do not have a worse version of the true view. You have the only kind there is — a particular one. So does everyone you will ever disagree with. Hold both halves of that and this chapter is done with you.</p>
-</section>
-<section class="bk-chapter" id="ch3"><h2>Chapter 3 · human</h2>
+
+## Chapter 3 · human
 <p>The view we are describing does not float. It is installed in a body, and the body is not a neutral stand.</p>
 <p>Say <em>point of view</em> and people picture a camera position — a clean geometric spot you could put anything at. A camera at the window sees the street. Swap the camera, same street. The position is the whole story; the equipment is interchangeable.</p>
 <p>A human is not interchangeable equipment. The title’s third word is there to make sure the perspective stays incarnate: this view comes with senses that top out, attention that tires, a stomach that votes, a heart rate with opinions. The body is not the tripod the view sits on. The body is in the view, everywhere, before the mind gets a word in.</p>
@@ -95,8 +76,8 @@ back_link: "/books/"
 <p>But do not read the confession as an apology. The same body that limits the view is what gives it stakes. A camera sees the street; it has no dog in the street. A human sees the street knowing ice can break a hip on it. That knowledge is in the <em>seeing</em> — the human view is saturated with mattering, because the viewer can be hurt, can hunger, will die. Take away the vulnerable body and you do not get a clearer view of the world. You get a view in which nothing matters, which is a strange thing to call clearer.</p>
 <p>The Ein HaLev looks out through all of this. Not past it — through it. The heart’s eye wears the body like a lens it cannot remove.</p>
 <p>It never sees around its own flesh. Neither will you. That is not the sad part of being human. That is the seeing part.</p>
-</section>
-<section class="bk-chapter" id="ch4"><h2>Chapter 4 · ’s</h2>
+
+## Chapter 4 · ’s
 <p>Two letters. One of them silent. The smallest word in the title owns the whole book.</p>
 <p>The title holds it at arm’s length — <em>human ’s</em> — with a space no editor would allow, so you cannot read past it. Good. Everyone reads past it. The possessive is the most skipped word in English, and it answers the only question that matters about any account of anything: <em>whose is this?</em></p>
 <p>Take the ’s out and watch what happens. <em>Vocabulary of a particular human</em> — fine, a specimen description, something a linguist could file. Put the ’s back and the specimen acquires an owner. This vocabulary is not just <em>of</em> the human the way bark is of a tree. It is <em>hers</em>. Held. Claimed. Answered for.</p>
@@ -107,8 +88,8 @@ back_link: "/books/"
 <p>And the silent letter — sit with that detail. The apostrophe marks where something was dropped out centuries ago and never came back, a contraction healed over. Ownership works the same way. It does not announce itself. It is the quietest fact about your experience: present in every thought you have ever had, pronounced in none of them. You do not go around saying <em>my</em> seeing, <em>my</em> framing, <em>my</em> view. You just see, frame, view — and the ’s rides along, silent, holding title.</p>
 <p>This book is an account of one interior. The ’s is the reminder that an interior is never just <em>an</em> interior. It is someone’s.</p>
 <p>Every view in the world has a deed on file. The rest of the title is just the property description.</p>
-</section>
-<section class="bk-chapter" id="ch5"><h2>Chapter 5 · first</h2>
+
+## Chapter 5 · first
 <p><em>First</em> is an ordering claim. Something comes before something else. The question is what, and before what.</p>
 <p>The standard reading is grammatical: first person, second person, third — I, you, he. A numbering of slots. Nothing at stake, just bookkeeping.</p>
 <p>Read it with stakes. <em>First</em> means your direct experience is prior to every report about it. Before anyone describes you, diagnoses you, summarizes you, narrates you — you were there. The experience happened to its owner first. Everything anyone else says about it arrives second, working from the outside, reconstructing.</p>
@@ -118,8 +99,8 @@ back_link: "/books/"
 <p>There is a quiet obligation hiding in this. If you are permanently first on the scene of your own life, then you are the only witness who was always there — and a witness who was always present and never testifies has buried something. Attending to your own experience, honestly, in your own words, is not self-indulgence. It is deposing the only firsthand source that exists. Skip it, and the record of this particular life gets written entirely by people who arrived second.</p>
 <p>The Ein HaLev stands at that front position. It is not the best-informed eye on you — often it is the worst. It is the <em>earliest</em>. Everything else ever known about you starts as a guess about what it saw.</p>
 <p>First does not mean right. It means there. And <em>there</em> is the one thing no other account of you will ever be.</p>
-</section>
-<section class="bk-chapter" id="ch6"><h2>Chapter 6 · person</h2>
+
+## Chapter 6 · person
 <p>Somebody is doing the seeing. The title calls that somebody a <em>person</em>, and the word is stranger than it looks.</p>
 <p>Grammar found the strangeness first. Every language humans have built carries a slot for <em>I</em> — a word whose meaning changes with every mouth that says it, and which every speaker uses flawlessly by age three. No one teaches a toddler indexicals. The slot was waiting. Language arrives already shaped around the fact that someone particular is talking, the way a glove arrives already shaped around a hand.</p>
 <p>So who is the somebody? Watch what happens when you talk about yourself. “I told myself it was fine.” “I caught myself hoping.” “I’m not myself today.” One sentence, two of you: the <em>I</em> doing the telling and the <em>myself</em> being told. The person is not one thing. The person is a narrator and a character wearing the same name — the one looking, and the one being described by the one looking.</p>
@@ -131,8 +112,8 @@ back_link: "/books/"
 <p>This is why <em>person</em> had to come sixth in the title, after <em>first</em> and before <em>point</em>. First established that the inside view is original. Person establishes that the view has a viewer — not a description, not a bundle of traits, but the unlisted one who reads the descriptions and holds the traits up to the light.</p>
 <p>The character in your story can be revised. The narrator is the one holding the pen.</p>
 <p>You have spent your whole life being both. The title is about the one you keep forgetting you are.</p>
-</section>
-<section class="bk-chapter" id="ch7"><h2>Chapter 7 · point</h2>
+
+## Chapter 7 · point
 <p>Here is the hinge. Everything before this chapter was approach; everything after it is consequence.</p>
 <p><em>Point</em> is the most abused word in the title. It has been flattened into idiom — the point of the story, missing the point, what’s your point — until nobody hears it as a noun with a referent anymore. This chapter restores the referent.</p>
 <p>The point is a location.</p>
@@ -145,8 +126,8 @@ back_link: "/books/"
 <p>And if the point is a location, it is <em>small</em>. This is the strange comfort. Your view feels enormous — a whole world wide — but it issues from a point, the way an entire projected image issues from one small aperture. Vast output, tiny origin. Guarding one point turns out to be the same work as guarding an entire world, which is why the tradition speaks of watching over the lev with more vigilance than anything else a person guards. It is not sentiment. It is engineering. Whoever holds the point holds everything downstream of it.</p>
 <p>So stop reading <em>point of view</em> as a dead idiom meaning “opinion.” An opinion is an output. The point is the aperture it came through.</p>
 <p>You have carried this point your whole life without an address for it. Now it has one. The remaining chapters are about what it sees.</p>
-</section>
-<section class="bk-chapter" id="ch8"><h2>Chapter 8 · of</h2>
+
+## Chapter 8 · of
 <p>The title uses it twice. It gets one chapter, because both times it is doing the same job, and the job is the most overlooked one in the sentence.</p>
 <p><em>Of</em> is a connector. It owns nothing, describes nothing, sees nothing. It just stands between two nouns holding them together: vocabulary <em>of</em> a human, point <em>of</em> view. Pull both instances out and the title collapses into a pile of parts — vocabulary, human, point, view — true words with no relationships. Every load-bearing wall in the sentence is a two-letter preposition nobody reads.</p>
 <p>That is worth slowing down for, because it is also true off the page.</p>
@@ -157,8 +138,8 @@ back_link: "/books/"
 <p>You can hear this in people. Someone describes their week as raw items — this happened, then this happened — and you can feel the flatness; nothing is <em>of</em> anything. Someone else connects the same items to a life, a pattern, a story, and the week suddenly signifies. Same nouns. Different prepositions. Depression, people who have been there will tell you, is not the loss of things; the things are all still present. It is the loss of <em>of</em> — the joints go, and the world turns into a heap.</p>
 <p>So the humblest word in the title names the eye’s actual work. Anyone can collect nouns. The seeing that matters is the joining.</p>
 <p>The title’s two <em>of</em>s hold its world together. So do yours.</p>
-</section>
-<section class="bk-chapter" id="ch9"><h2>Chapter 9 · view</h2>
+
+## Chapter 9 · view
 <p>Last word. It looks like the simplest one — everybody knows what a view is. It is the one the whole title has been waiting to correct.</p>
 <p>A view, in ordinary speech, is what the eyes deliver. The view from the porch. A room with a view. Optical, external, aimed outward at scenery. If the title meant that, this would be a book about eyesight.</p>
 <p>The eyes are real and they matter; nothing here demotes the gift of physical sight. But run the tests, and watch how little of viewing they turn out to do.</p>
@@ -170,9 +151,11 @@ back_link: "/books/"
 <p>And what it beholds, it keeps. You will forget almost every optical image from this year — but the <em>view</em> of the year, how it stood, what it meant, who you were in it — that stays, and that is the version you will consult forever after. The lasting record of a life is written entirely in mind’s-eye views. Your past, right now, exists nowhere else.</p>
 <p>Nine words, and the sentence is complete: the vocabulary was the evidence, the particular human was the case, the ’s was the deed, first was the ordering, person was the seer, point was the address — and view is the verdict. What a life amounts to, from inside, is what its inner eye beheld.</p>
 <p>Which leaves the two big assemblies the title builds from these parts. <em>First person.</em> <em>Point of view.</em> Part Two and Part Three, and then you can have the sentence back.</p>
-</section>
-<div class="bk-part"><h2>Part II · First Person</h2><p>The indoor view — what is accessible only from inside.</p></div>
-<section class="bk-chapter" id="ch10"><h2>Chapter 10 · The Indoor View</h2>
+
+## Part: Part II · First Person
+*The indoor view — what is accessible only from inside.*
+
+## Chapter 10 · The Indoor View
 <p><em>First person</em> — assembled now, both words — does not name a grammatical category. It names a location: indoors.</p>
 <p>Every other view of you is taken from the yard. Your family, your friends, your critics, your biographer if you get one — all of them stand outside the house and work from the windows: your face, your tone, your patterns, your outputs. Some of them are excellent observers. It does not matter how excellent. They are in the yard. The first person is the view from <em>inside the house</em> — and you are the only one who has ever been inside.</p>
 <p>Take the inventory of what is in there, because it is larger than people admit.</p>
@@ -184,9 +167,11 @@ back_link: "/books/"
 <p>This is why the tradition insists that the deepest work — teshuvah, kavanah, the guarding of the heart — happens where no one can check it. Rachmana liba ba’i: the Merciful One wants the heart. Not because the outside doesn’t count, but because the inside is the only place where what-you-are and what-you-show can be reconciled, and the reconciling can only be done by the one resident.</p>
 <p>The indoor view is occupied around the clock, by exactly one person, for exactly one lifetime. The lease does not transfer, and the house is never empty.</p>
 <p>You are not the person best positioned to describe you. You are the only person positioned <em>in</em> you. First person means: the one reporting from inside the house. Everything the rest of the world will ever know about that house, it learned through your windows.</p>
-</section>
-<div class="bk-part"><h2>Part III · Point of View</h2><p>Ein HaLev, and the seeing it does.</p></div>
-<section class="bk-chapter" id="ch11"><h2>Chapter 11 · The Point and the View</h2>
+
+## Part: Part III · Point of View
+*Ein HaLev, and the seeing it does.*
+
+## Chapter 11 · The Point and the View
 <p>Now assemble the second phrase, the famous one. <em>Point of view.</em> Say it slowly, with everything the nine words established still in hand.</p>
 <p>The point is the Ein HaLev — an actual interior location, the convergence spot of one particular human’s attention. The <em>of</em> is load-bearing — it declares the view belongs to the point, issues from it, is unintelligible without it. And the view is the mind’s-eye seeing — the beholding, not the optics.</p>
 <p>So the phrase everyone uses to mean <em>opinion</em> turns out to be an anatomy lesson. A point of view is not a position you hold. It is a position you <em>see from</em>. The difference sounds small. It is the difference between furniture and a window.</p>
@@ -200,9 +185,11 @@ back_link: "/books/"
 <p>And this is also why the aiming of the inner eye is the closest thing a person has to authorship of their own life. You mostly cannot choose your circumstances. You can — slowly, with practice, against resistance — retrain what your heart’s eye rests on, what it joins things to, what it lets count. The tradition has a word for that retraining of the inner organ; it calls the whole project avodah. Work. The work.</p>
 <p>One warning, before the close. None of this means the world is whatever you decide to see. The point does not invent the scenery; it selects and joins it, and reality pushes back hard on bad joinings — ask anyone whose Ein HaLev insisted a marriage was fine. The claim is not that seeing makes truth. The claim is that <em>your access</em> to truth runs entirely through one small, trainable, wound-shaped, particular point — so the state of that point is not one factor in your life. It is the lens all the factors pass through.</p>
 <p>Point of view. A point — one, interior, yours. A view — a world’s worth. And a two-letter word between them, holding your everything to your somewhere.</p>
-</section>
-<div class="bk-part"><h2>Close</h2><p>The sentence, put back together.</p></div>
-<section class="bk-chapter" id="ch12"><h2>Chapter 12 · The Sentence, Reassembled</h2>
+
+## Part: Close
+*The sentence, put back together.*
+
+## Chapter 12 · The Sentence, Reassembled
 <p>Read the title again. All of it, at ordinary speed.</p>
 <p><em>Vocabulary of a particular human ’s first person point of view.</em></p>
 <p>It cannot be the string of filler it was when you started. The words have been opened, and opened words do not close.</p>
@@ -213,7 +200,7 @@ back_link: "/books/"
 <p>You will hear it about yourself, too, which is less comfortable and more useful. Every time you catch yourself saying <em>the way I see it</em> — there it is: the way. The seeing. The it. A point, an of, a view. The idiom will keep confessing, now that you know what it is confessing to.</p>
 <p>This book took apart eleven words to say one thing. The heart has an eye. The eye has an address. The address is yours.</p>
 <p>What it looks at next is the only question the title left open.</p>
-</section>
+
 
     <hr>
     <p class="note">
@@ -222,6 +209,6 @@ back_link: "/books/"
       No external sources are cited; <em>Ein HaLev</em> is defined functionally, as this book's
       operative term. © 2026 Elie Schulman.
     </p>
-  </article>
+  
 
 </div>
