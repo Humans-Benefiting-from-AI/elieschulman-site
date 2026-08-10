@@ -1,0 +1,65 @@
+{
+  "$ref": "#/definitions/teachings",
+  "definitions": {
+    "teachings": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "title_html": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "description_html": {
+          "type": "string"
+        },
+        "eyebrow": {
+          "type": "string"
+        },
+        "lede": {
+          "type": "string"
+        },
+        "author": {
+          "type": "string",
+          "default": "Elie Schulman"
+        },
+        "meta": {
+          "type": "string"
+        },
+        "coverImage": {
+          "type": "string"
+        },
+        "back_link": {
+          "type": "string"
+        },
+        "text_epub": {
+          "type": "string"
+        },
+        "text_pdf": {
+          "type": "string"
+        },
+        "audio_only": {
+          "type": "string"
+        },
+        "video_face": {
+          "type": "string"
+        },
+        "video_graphics": {
+          "type": "string"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "description"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

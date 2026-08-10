@@ -1,88 +1,20 @@
 ---
-import Layout from '../../../layouts/Layout.astro';
+title: "vocabulary of a particular human's first person point of view"
+title_html: "vocabulary of a particular human&nbsp;'s first person point of view"
+description: "Thirteen short chapters on Ein HaLev — the eye of the heart. The title is not a title. It is a sentence taken apart, and each word is a door."
+description_html: "One term runs the whole book: <em>Ein HaLev</em>, the eye of the heart — not a metaphor for feelings, but the inner point your attention actually looks from. Nine short chapters take the title apart one word at a time, including the two letters most people read past. Then the sentence gets put back together, and <em>point of view</em> stops being a dead metaphor."
+eyebrow: "The Mind's Eye · The Knowing Project"
+lede: "The title is not a title. It is a sentence taken apart, and each word is a door."
+author: "Elie Schulman"
+meta: "Thirteen chapters · ~7,000 words · 52 pages · The Mind's Eye, The Knowing Project"
+coverImage: "/books/vocabulary-pov/cover.jpg"
+text_epub: "/books/vocabulary-pov/vocabulary-pov.epub"
+text_pdf: "/books/vocabulary-pov/vocabulary-pov.pdf"
+back_link: "/books/"
 ---
 
-<Layout 
-  title="vocabulary of a particular human &#x27;s first person point of view" 
-  description="Thirteen short chapters on Ein HaLev — the eye of the heart. The title is not a title. It is a sentence taken apart, and each word is a door."
->
-  <style>
-
-    /* page-scoped only — nothing here overrides site.css globals */
-    .bk-layout { display: grid; grid-template-columns: 220px 1fr; gap: 3rem; max-width: 1040px; margin: 0 auto; padding: 3rem 2rem 4rem; align-items: start; }
-    .bk-toc { position: sticky; top: 5.5rem; font-size: 0.82rem; }
-    .bk-toc h3 { font-family: var(--serif); font-size: 0.95rem; margin-bottom: 0.6rem; }
-    .bk-toc ol { list-style: none; padding: 0; margin: 0; }
-    .bk-toc li { margin-bottom: 0.28rem; line-height: 1.4; }
-    .bk-toc a { color: var(--text-secondary); text-decoration: none; }
-    .bk-toc a:hover { color: var(--gold-dim); }
-    .bk-toc a.is-current { color: var(--gold-dim); font-weight: 600; }
-    .bk-toc-part { margin-top: 0.85rem !important; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
-
-    .bk-read { min-width: 0; font-size: 1.02rem; }
-    .bk-part { margin: 4rem 0 2rem; padding: 1.75rem 0; border-top: 1px solid rgba(0,0,0,0.09); border-bottom: 1px solid rgba(0,0,0,0.09); text-align: center; }
-    .bk-part h2 { font-family: var(--serif); font-size: 1.35rem; font-weight: 600; color: var(--gold-dim); margin-bottom: 0.35rem; }
-    .bk-part p { font-size: 0.88rem; color: var(--text-light); font-style: italic; margin: 0; }
-    .bk-chapter { scroll-margin-top: 6rem; margin-bottom: 3.5rem; }
-    .bk-chapter h2 { font-family: var(--serif); font-size: 1.7rem; font-weight: 700; line-height: 1.2; margin: 2.5rem 0 1.25rem; }
-    .bk-chapter p { color: var(--text-primary); line-height: 1.85; margin-bottom: 1.1rem; }
-    .bk-chapter strong { color: var(--midnight); }
-    .bk-chapter blockquote { margin: 1.5rem 0; padding-left: 1.25rem; border-left: 3px solid var(--gold); color: var(--text-secondary); font-style: italic; }
-    .bk-chapter hr { border: none; border-top: 1px solid rgba(0,0,0,0.1); width: 30%; margin: 2.5rem auto; }
-
-    .bk-epigraph { text-align: center; margin: 0 auto 3rem; max-width: 34rem; }
-    .bk-epigraph .he { font-family: var(--serif); font-size: 1.5rem; color: var(--midnight); line-height: 1.9; margin-bottom: 0.5rem; }
-    .bk-epigraph .en { font-style: italic; color: var(--text-light); font-size: 0.92rem; }
-
-    .bk-hero-cover { max-width: 190px; }
-    .download-panel .download-button { margin-bottom: 0.5rem; }
-    .download-panel .download-button + .download-button { background: transparent; color: var(--midnight); border: 1px solid rgba(15,27,45,0.25); }
-    .download-panel .download-button + .download-button:hover { background: rgba(15,27,45,0.06); }
-
-    @media (max-width: 820px) {
-      .bk-layout { grid-template-columns: 1fr; gap: 1.5rem; padding: 2rem 1.25rem 3rem; }
-      .bk-toc { position: static; }
-    }
-  
-</style>
-  
-
-<header class="page-header">
-  <div class="page-header-inner">
-    <p class="eyebrow">The Mind's Eye · The Knowing Project</p>
-    <h1>vocabulary of a particular human&nbsp;'s first person point of view</h1>
-    <p class="lede">The title is not a title. It is a sentence taken apart, and each word is a door.</p>
-  </div>
-</header>
-
-<section class="bg-cream">
-  <div class="section-inner">
-    <a class="back-link" href="/writing/">← Back to the Writing Map</a>
-    <div class="book-card">
-      <img class="book-cover bk-hero-cover" src="/books/vocabulary-pov/cover.jpg" width="600" height="960"
-           alt="Cover: the Hebrew word עַיִן in gold on a midnight field, with the title set in three lines.">
-      <div class="book-info">
-        <h3>vocabulary of a particular human&nbsp;'s first person point of view</h3>
-        <p class="book-author">Elie Schulman</p>
-        <p class="book-meta">Thirteen chapters · ~7,000 words · 52 pages · The Mind's Eye, The Knowing Project</p>
-        <p class="book-desc">
-          One term runs the whole book: <em>Ein HaLev</em>, the eye of the heart — not a metaphor for
-          feelings, but the inner point your attention actually looks from. Nine short chapters take
-          the title apart one word at a time, including the two letters most people read past. Then
-          the sentence gets put back together, and <em>point of view</em> stops being a dead metaphor.
-        </p>
-        <div class="download-panel">
-          <p>Read the full book below, or take it with you:</p>
-          <a class="download-button" href="/books/vocabulary-pov/vocabulary-pov.epub" download>Download EPUB</a>
-          <a class="download-button" href="/books/vocabulary-pov/vocabulary-pov.pdf" download>Download PDF</a>
-          <p class="note" style="margin-top:0.6rem;margin-bottom:0;">Free. No email required.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <div class="bk-layout">
+
   <nav class="bk-toc" aria-label="Chapters">
     <h3>Contents</h3>
     <ol>
@@ -291,7 +223,5 @@ import Layout from '../../../layouts/Layout.astro';
       operative term. © 2026 Elie Schulman.
     </p>
   </article>
+
 </div>
-
-
-</Layout>
