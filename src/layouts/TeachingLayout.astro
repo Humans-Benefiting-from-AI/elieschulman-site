@@ -3,6 +3,10 @@ import Layout from './Layout.astro';
 
 const { frontmatter, headings = [] } = Astro.props;
 
+// Derive the online reader path from the EPUB path: /books/<slug>/<slug>.epub → /read/<slug>/
+const epubMatch = frontmatter.text_epub?.match(/^\/books\/([^/]+)\//);
+const readLink = epubMatch ? `/read/${epubMatch[1]}/` : null;
+
 // Filter out h1s if we only want h2 and h3 in the TOC
 const toc = headings.filter(heading => heading.depth > 1 && heading.depth < 4);
 ---
@@ -103,6 +107,7 @@ const toc = headings.filter(heading => heading.depth > 1 && heading.depth < 4);
           
           {(frontmatter.text_epub || frontmatter.text_pdf) && (
             <div class="download-panel">
+              {readLink && <a class="download-button" href={readLink}>Read online →</a>}
               <p>Download the text:</p>
               {frontmatter.text_epub && <a class="download-button" href={frontmatter.text_epub} download>Download EPUB</a>}
               {frontmatter.text_pdf && <a class="download-button" href={frontmatter.text_pdf} download>Download PDF</a>}

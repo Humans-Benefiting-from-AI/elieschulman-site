@@ -1,0 +1,149 @@
+---
+const { book = 'shoftim' } = Astro.params;
+
+export function getStaticPaths() {
+  return [{ params: { book: 'shoftim' } }];
+}
+
+const titles: Record<string, string> = {
+  shoftim: 'Shoftim',
+};
+const title = titles[book] ?? book;
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title} — Reader</title>
+  <style>
+    :root {
+      --bg: #fdfbf7; --fg: #1c1c1c; --chrome: #f3efe6; --accent: #7a5c2e;
+    }
+    [data-theme="dark"] { --bg: #141414; --fg: #e8e6e3; --chrome: #1f1f1f; --accent: #d3b97c; }
+    [data-theme="sepia"] { --bg: #f6f0e3; --fg: #3d3225; --chrome: #efe6d2; --accent: #8a6d3b; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--fg);
+           font-family: Georgia, 'Times New Roman', serif;
+           display: flex; flex-direction: column; height: 100dvh; }
+    header { display: flex; align-items: center; gap: .75rem; padding: .5rem 1rem;
+             background: var(--chrome); font-family: system-ui, sans-serif; flex-wrap: wrap; }
+    header h1 { font-size: 1rem; margin: 0; font-weight: 600; flex: 1; }
+    header a { color: var(--accent); text-decoration: none; font-size: .9rem; }
+    .controls { display: flex; gap: .4rem; align-items: center; }
+    button, select { font: inherit; font-size: .85rem; padding: .3rem .6rem; border-radius: 6px;
+                     border: 1px solid color-mix(in srgb, var(--fg) 25%, transparent);
+                     background: transparent; color: var(--fg); cursor: pointer; }
+    button:hover { background: color-mix(in srgb, var(--fg) 8%, transparent); }
+    #viewer { flex: 1; min-height: 0; }
+    footer { display: flex; align-items: center; gap: 1rem; padding: .5rem 1rem;
+             background: var(--chrome); font-family: system-ui, sans-serif; font-size: .8rem; }
+    #progress { flex: 1; height: 4px; background: color-mix(in srgb, var(--fg) 15%, transparent);
+                border-radius: 2px; cursor: pointer; }
+    #progress > div { height: 100%; width: 0; background: var(--accent); border-radius: 2px; }
+    .navzone { position: fixed; top: 15%; bottom: 15%; width: 18%; z-index: 5; cursor: pointer; }
+    #prev-zone { left: 0; } #next-zone { right: 0; }
+  </style>
+</head>
+<body data-book={book}>
+  <header>
+    <a href="/books">← Library</a>
+    <h1>{title}</h1>
+    <div class="controls">
+      <button id="font-down" title="Smaller text">A−</button>
+      <button id="font-up" title="Larger text">A+</button>
+      <select id="theme" title="Theme">
+        <option value="light">Light</option>
+        <option value="sepia">Sepia</option>
+        <option value="dark">Dark</option>
+      </select>
+    </div>
+  </header>
+
+  <div id="viewer"></div>
+  <div id="prev-zone" class="navzone" title="Previous page"></div>
+  <div id="next-zone" class="navzone" title="Next page"></div>
+
+  <footer>
+    <button id="prev">‹ Prev</button>
+    <div id="progress"><div></div></div>
+    <span id="loc"></span>
+    <button id="next">Next ›</button>
+  </footer>
+
+  <script>
+    import ePub from 'epubjs';
+
+    const bookSlug = document.body.dataset.book;
+    const storeKey = `reader:${bookSlug}`;
+    const prefsKey = `reader:prefs`;
+
+    const prefs = JSON.parse(localStorage.getItem(prefsKey) || '{}');
+    let fontSize = prefs.fontSize ?? 100;
+    let theme = prefs.theme ?? 'light';
+
+    const themeSelect = document.getElementById('theme') as HTMLSelectElement;
+    themeSelect.value = theme;
+    document.documentElement.dataset.theme = theme;
+
+    const book = ePub(`/books/${bookSlug}/${bookSlug}.epub`);
+    const rendition = book.renderTo('viewer', {
+      width: '100%', height: '100%', flow: 'paginated', spread: 'auto',
+    });
+
+    function applyPrefs() {
+      rendition.themes.override('font-size', fontSize + '%');
+      const colors = {
+        light: { bg: '#fdfbf7', fg: '#1c1c1c' },
+        sepia: { bg: '#f6f0e3', fg: '#3d3225' },
+        dark:  { bg: '#141414', fg: '#e8e6e3' },
+      }[theme];
+      rendition.themes.override('color', colors.fg);
+      rendition.themes.override('background', colors.bg);
+      document.documentElement.dataset.theme = theme;
+      localStorage.setItem(prefsKey, JSON.stringify({ fontSize, theme }));
+    }
+    applyPrefs();
+
+    // Restore last reading position
+    const saved = JSON.parse(localStorage.getItem(storeKey) || 'null');
+    rendition.display(saved?.cfi || undefined);
+
+    rendition.on('relocated', (loc: any) => {
+      localStorage.setItem(storeKey, JSON.stringify({ cfi: loc.start.cfi }));
+      const pct = loc.start.percentage ? Math.round(loc.start.percentage * 100) : 0;
+      (document.querySelector('#progress > div') as HTMLElement).style.width = pct + '%';
+      document.getElementById('loc')!.textContent = pct + '%';
+    });
+
+    const next = () => rendition.next();
+    const prev = () => rendition.prev();
+    document.getElementById('next')!.onclick = next;
+    document.getElementById('prev')!.onclick = prev;
+    document.getElementById('next-zone')!.onclick = next;
+    document.getElementById('prev-zone')!.onclick = prev;
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') next();
+      if (e.key === 'ArrowLeft') prev();
+    });
+    (rendition as any).on('keydown', (e: KeyboardEvent) => {
+      if (e.key === 'ArrowRight') next();
+      if (e.key === 'ArrowLeft') prev();
+    });
+
+    let touchX: number | null = null;
+    (rendition as any).on('touchstart', (e: TouchEvent) => { touchX = e.changedTouches[0].clientX; });
+    (rendition as any).on('touchend', (e: TouchEvent) => {
+      if (touchX === null) return;
+      const dx = e.changedTouches[0].clientX - touchX;
+      if (dx < -40) next(); else if (dx > 40) prev();
+      touchX = null;
+    });
+
+    document.getElementById('font-up')!.onclick = () => { fontSize = Math.min(200, fontSize + 10); applyPrefs(); };
+    document.getElementById('font-down')!.onclick = () => { fontSize = Math.max(60, fontSize - 10); applyPrefs(); };
+    themeSelect.onchange = () => { theme = themeSelect.value; applyPrefs(); };
+  </script>
+</body>
+</html>
