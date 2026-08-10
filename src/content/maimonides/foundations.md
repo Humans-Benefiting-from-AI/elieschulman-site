@@ -1,5 +1,5 @@
 ---
-title: ""
+title: "Foundations Ebook Project"
 description: "Twenty-two completed ebook volumes on Yesodei HaTorah chapters 1:1–1:12 and 2:1–2:10."
 eyebrow: "Maimonides / Foundations"
 lede: "Twenty-two completed volumes covering Yesodei HaTorah — the opening chapters of Rambam's Mishneh Torah. Each volume takes a single halakha and examines what translation reveals about the conceptual structure a word carries."

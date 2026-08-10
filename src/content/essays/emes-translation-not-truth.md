@@ -1,6 +1,6 @@
 ---
 order: 7
-title: ""
+title: "Emes: Translation Not Truth"
 description: "Access the preserved earlier public excerpt of Emes: Translation Not Truth by Elie Schulman, with its current manuscript status clearly identified."
 eyebrow: "Earlier Public Excerpt"
 lede: "This public PDF preserves an earlier translation-focused version of the opening chapter. It is not the current canonical <em>Emes</em> manuscript."
