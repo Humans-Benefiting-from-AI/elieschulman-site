@@ -11,9 +11,10 @@ const readLink = epubMatch ? `/read/${epubMatch[1]}/` : null;
 const toc = headings.filter(heading => heading.depth > 1 && heading.depth < 4);
 ---
 
-<Layout 
-  title={frontmatter.title + " — Elie Schulman"} 
+<Layout
+  title={frontmatter.title + " — Elie Schulman"}
   description={frontmatter.description || ''}
+  ogImage={frontmatter.coverImage || '/og-image.svg'}
 >
   <style is:global>
     /* 

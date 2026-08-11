@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f1b2d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a2744;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grad)"/>
+
+  <!-- Decorative elements -->
+  <circle cx="1100" cy="100" r="80" fill="#c9a84c" opacity="0.1"/>
+  <circle cx="150" cy="550" r="100" fill="#c9a84c" opacity="0.1"/>
+
+  <!-- Main text -->
+  <text x="600" y="200" font-size="72" font-weight="bold" text-anchor="middle" fill="#f5f0e8" font-family="Cormorant Garamond, serif">
+    Elie Schulman
+  </text>
+
+  <!-- Subtitle -->
+  <text x="600" y="300" font-size="42" text-anchor="middle" fill="#f5f0e8" opacity="0.9" font-family="Inter, sans-serif">
+    Writer · Educator · Translator
+  </text>
+
+  <!-- Tagline -->
+  <text x="600" y="380" font-size="28" text-anchor="middle" fill="#c9a84c" font-family="Inter, sans-serif">
+    Language, Judgment, and Learning
+  </text>
+
+  <!-- Bottom accent line -->
+  <line x1="250" y1="500" x2="950" y2="500" stroke="#c9a84c" stroke-width="3"/>
+</svg>
