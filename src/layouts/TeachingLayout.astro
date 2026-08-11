@@ -1,5 +1,6 @@
 ---
 import Layout from './Layout.astro';
+import { generateBookSchema } from '../lib/schema';
 
 const { frontmatter, headings = [] } = Astro.props;
 
@@ -9,11 +10,18 @@ const readLink = epubMatch ? `/read/${epubMatch[1]}/` : null;
 
 // Filter out h1s if we only want h2 and h3 in the TOC
 const toc = headings.filter(heading => heading.depth > 1 && heading.depth < 4);
+
+// Generate Book schema with full URL for cover image
+const siteUrl = 'https://elieschulman.com';
+const coverImageUrl = frontmatter.coverImage ? new URL(frontmatter.coverImage, siteUrl).href : undefined;
+const bookSchema = generateBookSchema(frontmatter.title, frontmatter.description || '', coverImageUrl);
 ---
 
-<Layout 
-  title={frontmatter.title + " — Elie Schulman"} 
+<Layout
+  title={frontmatter.title + " — Elie Schulman"}
   description={frontmatter.description || ''}
+  ogImage={frontmatter.coverImage || '/og-image.svg'}
+  schema={bookSchema}
 >
   <style is:global>
     /* 

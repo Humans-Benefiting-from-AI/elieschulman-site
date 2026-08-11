@@ -1,9 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { generatePersonSchema } from '../lib/schema';
+
+// Person schema is already added by Layout, but we can enhance it if needed
 ---
 
-<Layout 
-  title="Elie Schulman — Writer on Language, Judgment, and Learning" 
+<Layout
+  title="Elie Schulman — Writer on Language, Judgment, and Learning"
   description="Books, essays, and translations examining how words carry assumptions, how inherited categories guide judgment, and how people learn to see the structures shaping an argument, a relationship, or a group."
 >
 <section class="hero">
