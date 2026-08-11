@@ -1,14 +1,18 @@
 ---
+import { generatePersonSchema } from '../lib/schema';
+
 export interface Props {
   title: string;
   description: string;
   ogImage?: string;
+  schema?: string;
 }
 
-const { title, description, ogImage = '/og-image.svg' } = Astro.props;
+const { title, description, ogImage = '/og-image.svg', schema } = Astro.props;
 const siteUrl = Astro.site || 'https://elieschulman.com';
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
 const ogImageUrl = new URL(ogImage, siteUrl).href;
+const personSchema = generatePersonSchema();
 ---
 
 <!DOCTYPE html>
@@ -34,6 +38,9 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/site.css">
+  <!-- JSON-LD Schema Markup -->
+  <script type="application/ld+json" set:html={personSchema}></script>
+  {schema && <script type="application/ld+json" set:html={schema}></script>}
   <style>
     /* Dropdown Navigation Styles */
     .nav-item {
