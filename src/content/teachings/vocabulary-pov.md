@@ -11,6 +11,13 @@ coverImage: "/books/vocabulary-pov/cover.jpg"
 text_epub: "/books/vocabulary-pov/vocabulary-pov.epub"
 text_pdf: "/books/vocabulary-pov/vocabulary-pov.pdf"
 back_link: "/books/"
+section: knowing-project
+order: 10
+draft: false
+featured: true
+tags:
+  - knowing-project
+  - ein-halev
 ---
 
 

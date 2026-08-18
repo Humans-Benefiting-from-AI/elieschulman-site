@@ -1,10 +1,16 @@
 import { z, defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 
+const teachingSection = z.enum([
+  'ebook',
+  'weekly-torah',
+  'knowing-project',
+]);
+
 const teachings = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/teachings' }),
   schema: z.object({
-    title: z.string(),
+    title: z.string().min(1),
     title_html: z.string().optional(),
     description: z.string(),
     description_html: z.string().optional(),
@@ -14,13 +20,21 @@ const teachings = defineCollection({
     meta: z.string().optional(),
     coverImage: z.string().optional(),
     back_link: z.string().optional(),
-    
+
     // Multi-modal formats
     text_epub: z.string().optional(),
     text_pdf: z.string().optional(),
     audio_only: z.string().optional(),
     video_face: z.string().optional(),
     video_graphics: z.string().optional(),
+
+    // Site IA / publishing
+    section: teachingSection.default('ebook'),
+    order: z.number().optional(),
+    draft: z.boolean().default(false),
+    tags: z.array(z.string()).optional(),
+    date: z.coerce.date().optional(),
+    featured: z.boolean().default(false),
   }),
 });
 
