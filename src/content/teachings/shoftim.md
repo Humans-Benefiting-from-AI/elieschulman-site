@@ -8,5 +8,12 @@ author: "Elie Schulman"
 meta: "Weekly Parsha Series"
 text_epub: "/books/shoftim/shoftim.epub"
 text_pdf: "/books/shoftim/shoftim.pdf"
+coverImage: "/books/shoftim/cover.png"
 back_link: "/books/"
+section: weekly-torah
+order: 20
+draft: false
+tags:
+  - parsha
+  - torah
 ---

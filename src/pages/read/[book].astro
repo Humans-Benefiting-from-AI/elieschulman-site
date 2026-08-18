@@ -1,14 +1,27 @@
 ---
-const { book = 'shoftim' } = Astro.params;
+import {
+  getPublishedTeachings,
+  teachingsWithEpub,
+  teachingCoverUrl,
+} from '../../lib/teachings';
 
-export function getStaticPaths() {
-  return [{ params: { book: 'shoftim' } }];
+export async function getStaticPaths() {
+  const published = await getPublishedTeachings();
+  return teachingsWithEpub(published).map((entry) => ({
+    params: { book: entry.id },
+    props: {
+      title: entry.data.title,
+      coverImage: teachingCoverUrl(entry),
+      epubPath: entry.data.text_epub as string,
+    },
+  }));
 }
 
-const titles: Record<string, string> = {
-  shoftim: 'Shoftim',
-};
-const title = titles[book] ?? book;
+const { book } = Astro.params;
+const { title, coverImage, epubPath } = Astro.props;
+const ogImage = coverImage
+  ? `https://elieschulman.com${coverImage}`
+  : `https://elieschulman.com/books/${book}/cover.png`;
 ---
 <!doctype html>
 <html lang="en">
@@ -21,9 +34,9 @@ const title = titles[book] ?? book;
   <meta property="og:description" content={`Read ${title} free online — no app needed. Kindle-style reading in your browser.`} />
   <meta property="og:type" content="book" />
   <meta property="og:url" content={`https://elieschulman.com/read/${book}/`} />
-  <meta property="og:image" content={`https://elieschulman.com/books/${book}/cover.png`} />
+  <meta property="og:image" content={ogImage} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content={`https://elieschulman.com/books/${book}/cover.png`} />
+  <meta name="twitter:image" content={ogImage} />
   <style>
     :root {
       --bg: #fdfbf7; --fg: #1c1c1c; --chrome: #f3efe6; --accent: #7a5c2e;
@@ -76,7 +89,7 @@ const title = titles[book] ?? book;
     #prev-zone { left: 0; } #next-zone { right: 0; }
   </style>
 </head>
-<body data-book={book}>
+<body data-book={book} data-epub={epubPath}>
   <header>
     <a href="/books">← Library</a>
     <button id="toc-btn" title="Table of contents">☰</button>
@@ -121,7 +134,8 @@ const title = titles[book] ?? book;
     themeSelect.value = theme;
     document.documentElement.dataset.theme = theme;
 
-    const book = ePub(`/books/${bookSlug}/${bookSlug}.epub`);
+    const epubUrl = document.body.dataset.epub || `/books/${bookSlug}/${bookSlug}.epub`;
+    const book = ePub(epubUrl);
     const rendition = book.renderTo('viewer', {
       width: '100%', height: '100%', flow: 'paginated', spread: 'auto',
     });

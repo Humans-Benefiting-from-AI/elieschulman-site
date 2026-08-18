@@ -1,6 +1,15 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+<<<<<<< HEAD
 import SectionHeader from '../../components/SectionHeader.astro';
+=======
+import {
+  getPublishedTeachings,
+  teachingsInSection,
+} from '../../lib/teachings';
+
+const weekly = teachingsInSection(await getPublishedTeachings(), 'weekly-torah');
+>>>>>>> origin/main
 ---
 
 <Layout
@@ -15,6 +24,7 @@ import SectionHeader from '../../components/SectionHeader.astro';
 />
 
 <div class="content">
+<<<<<<< HEAD
   <div class="featured-grid">
     <div class="featured-card">
       <h4><a class="featured-link" href="/weekly-torah/shoftim/">Shoftim — Titen Lecha</a></h4>
@@ -23,7 +33,23 @@ import SectionHeader from '../../components/SectionHeader.astro';
     <div class="featured-card">
       <h4><a class="featured-link" href="/books/shoftim/">Shoftim ebook</a></h4>
       <p class="note" style="margin-top: 0.5rem;">Judges and officers you shall appoint. Available as a free EPUB and WhatsApp-formatted PDF download.</p>
+=======
+  {weekly.length === 0 ? (
+    <p class="note">Parsha teachings will appear here as they are published.</p>
+  ) : (
+    <div class="featured-grid">
+      {weekly.map((entry) => (
+        <div class="featured-card">
+          <h4>
+            <a class="featured-link" href={`/books/${entry.id}/`}>
+              {entry.data.title}
+            </a>
+          </h4>
+          <p class="note" style="margin-top: 0.5rem;">{entry.data.description}</p>
+        </div>
+      ))}
+>>>>>>> origin/main
     </div>
-  </div>
+  )}
 </div>
 </Layout>

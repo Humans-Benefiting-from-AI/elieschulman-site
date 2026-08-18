@@ -1,9 +1,12 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { getPublishedTeachings } from '../../lib/teachings';
+
+const teachings = await getPublishedTeachings();
 ---
 
-<Layout 
-  title="eBooks — Elie Schulman" 
+<Layout
+  title="eBooks — Elie Schulman"
   description="Downloadable ebooks and PDFs."
 >
 <header class="page-header">
@@ -15,15 +18,21 @@ import Layout from '../../layouts/Layout.astro';
 </header>
 
 <div class="content">
-  <div class="featured-grid">
-    <div class="featured-card">
-      <h4><a class="featured-link" href="/books/vocabulary-pov/">vocabulary of a particular human's first person point of view</a></h4>
-      <p class="note" style="margin-top: 0.5rem;">Thirteen short chapters on Ein HaLev — the eye of the heart.</p>
+  {teachings.length === 0 ? (
+    <p class="note">No ebooks published yet.</p>
+  ) : (
+    <div class="featured-grid">
+      {teachings.map((entry) => (
+        <div class="featured-card">
+          <h4>
+            <a class="featured-link" href={`/books/${entry.id}/`}>
+              {entry.data.title}
+            </a>
+          </h4>
+          <p class="note" style="margin-top: 0.5rem;">{entry.data.description}</p>
+        </div>
+      ))}
     </div>
-    <div class="featured-card">
-      <h4><a class="featured-link" href="/books/shoftim/">Shoftim</a></h4>
-      <p class="note" style="margin-top: 0.5rem;">Weekly Torah Portion parsha ebook.</p>
-    </div>
-  </div>
+  )}
 </div>
 </Layout>

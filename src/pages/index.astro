@@ -1,9 +1,15 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+<<<<<<< HEAD
 
 const essays = (await getCollection('essays'))
   .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
+=======
+import { generatePersonSchema } from '../lib/schema';
+
+// Person schema is already added by Layout, but we can enhance it if needed
+>>>>>>> origin/main
 ---
 
 <Layout
