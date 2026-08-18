@@ -3,7 +3,8 @@
   "type": "object",
   "properties": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "title_html": {
       "type": "string"
@@ -47,6 +48,36 @@
     },
     "video_graphics": {
       "type": "string"
+    },
+    "section": {
+      "default": "ebook",
+      "type": "string",
+      "enum": [
+        "ebook",
+        "weekly-torah",
+        "knowing-project"
+      ]
+    },
+    "order": {
+      "type": "number"
+    },
+    "draft": {
+      "default": false,
+      "type": "boolean"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "featured": {
+      "default": false,
+      "type": "boolean"
     },
     "$schema": {
       "type": "string"

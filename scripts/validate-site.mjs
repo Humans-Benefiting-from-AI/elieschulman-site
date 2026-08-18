@@ -84,8 +84,10 @@ if (!sitemap) failures.push('sitemap XML missing from dist')
 
 const requiredSnippets = ['<title>', 'name="description"', 'rel="canonical"', '<main', 'Skip to main content']
 
+const htmlByFile = new Map()
 for (const file of htmlFiles) {
   const html = readFileSync(file, 'utf8')
+  htmlByFile.set(file, html)
   const isReader = file.includes(`${path.sep}read${path.sep}`)
   const label = rel(file)
 
@@ -158,14 +160,14 @@ for (const t of teachings) {
   }
 }
 
-const sampleHtml = htmlFiles.map((f) => readFileSync(f, 'utf8')).join('\n')
+const sampleHtml = [...htmlByFile.values()].join('\n')
 for (const prohibited of ['captureForm', 'Check your inbox', 'Send Me the Book', 'Free ebook']) {
   if (sampleHtml.includes(prohibited)) failures.push(`prohibited text remains: ${prohibited}`)
 }
 // localStorage is allowed in the EPUB reader; ban it only outside /read/
-for (const file of htmlFiles) {
+for (const [file, html] of htmlByFile) {
   if (file.includes(`${path.sep}read${path.sep}`)) continue
-  if (readFileSync(file, 'utf8').includes('localStorage')) {
+  if (html.includes('localStorage')) {
     failures.push(`${rel(file)} contains localStorage outside reader`)
   }
 }

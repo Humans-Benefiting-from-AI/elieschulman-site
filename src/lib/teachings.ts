@@ -1,3 +1,5 @@
+import { existsSync } from 'node:fs';
+import path from 'node:path';
 import { getCollection, type CollectionEntry } from 'astro:content';
 
 export type Teaching = CollectionEntry<'teachings'>;
@@ -28,8 +30,19 @@ export function teachingsInSection(
   return entries.filter((t) => t.data.section === section);
 }
 
-/** Prefer collection coverImage; fall back to conventional cover paths. */
+/**
+ * Prefer collection coverImage; otherwise try conventional public cover files.
+ */
 export function teachingCoverUrl(entry: Teaching): string | undefined {
   if (entry.data.coverImage) return entry.data.coverImage;
+  const candidates = [
+    `/books/${entry.id}/cover.jpg`,
+    `/books/${entry.id}/cover.jpeg`,
+    `/books/${entry.id}/cover.png`,
+    `/books/${entry.id}/cover.webp`,
+  ];
+  for (const url of candidates) {
+    if (existsSync(path.join(process.cwd(), 'public', url.slice(1)))) return url;
+  }
   return undefined;
 }
