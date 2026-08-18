@@ -1,5 +1,4 @@
 ---
-layout: ../../../layouts/MarkdownLayout.astro
 title: "Maimonides — Children's Edition"
 description: "The sixteen-position Maimonides source sequence for younger readers, in the same chronological order."
 eyebrow: "Maimonides / Children's Edition"

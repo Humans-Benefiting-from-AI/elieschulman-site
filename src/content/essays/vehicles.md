@@ -1,5 +1,5 @@
 ---
-layout: ../../../layouts/MarkdownLayout.astro
+order: 6
 title: "Learning Vehicles"
 description: "The two practices through which all the writing was learned. Not content, but method."
 eyebrow: "Vehicles"

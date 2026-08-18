@@ -1,5 +1,5 @@
 ---
-layout: ../../../layouts/MarkdownLayout.astro
+order: 2
 title: "The Nounification of English"
 description: "How English turns processes into things. The trouble began when we turned an adjective into a noun."
 eyebrow: "Branch 2"

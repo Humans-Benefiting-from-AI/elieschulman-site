@@ -1,5 +1,5 @@
 ---
-layout: ../../../layouts/MarkdownLayout.astro
+order: 4
 title: "Names, Soul, and Self"
 description: "Maimonides on equivocal names. Be careful with the names for the soul, because it is easy to get confused. What is even meant by self."
 eyebrow: "Branch 4"

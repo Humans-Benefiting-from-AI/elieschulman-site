@@ -1,5 +1,5 @@
 ---
-layout: ../../../layouts/MarkdownLayout.astro
+order: 3
 title: "Turning Toward the Pain"
 description: "Chavivin Yisurin — beloved suffering. The cannon's call. The unconventional attitude of moving toward the problem."
 eyebrow: "Branch 3"

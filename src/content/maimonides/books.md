@@ -1,6 +1,5 @@
 ---
-layout: ../../../layouts/MarkdownLayout.astro
-title: ""
+title: "Books & Manuscripts"
 description: "Published work and manuscripts in the Maimonides series, including Emes, Everything Changes, and Davar."
 eyebrow: "Maimonides / Books"
 lede: "Published work and manuscripts at different stages of the Maimonides series pipeline. Status labels distinguish released work from material still under governed development."

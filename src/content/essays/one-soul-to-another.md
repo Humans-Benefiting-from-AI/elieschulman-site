@@ -1,5 +1,5 @@
 ---
-layout: ../../../layouts/MarkdownLayout.astro
+order: 5
 title: "One Soul to Another"
 description: "The word is the only way for one soul to contact another. Every relationship is first a language problem."
 eyebrow: "Branch 5"

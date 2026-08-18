@@ -1,6 +1,5 @@
 ---
-layout: ../../../layouts/MarkdownLayout.astro
-title: ""
+title: "Essays"
 description: "Standalone essays examining Rambam's words: Abraham, dialogue, language, attributes, and progress."
 eyebrow: "Maimonides / Essays"
 lede: "Essays that take a single question from Rambam and follow it: Abraham's discovery, the limits of language, the problem of attributes, and constructed dialogues between Maimonides and other thinkers."

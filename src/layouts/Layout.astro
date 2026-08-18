@@ -1,4 +1,5 @@
 ---
+import '../styles/tokens.css';
 import { generatePersonSchema } from '../lib/schema';
 
 export interface Props {
@@ -36,7 +37,7 @@ const personSchema = generatePersonSchema();
   <meta name="theme-color" content="#0f1b2d">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Frank+Ruhl+Libre:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/site.css">
   <!-- JSON-LD Schema Markup -->
   <script type="application/ld+json" set:html={personSchema}></script>

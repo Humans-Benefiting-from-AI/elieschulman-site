@@ -1,0 +1,13 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  note?: string;
+}
+const { href, title, note } = Astro.props;
+---
+
+<div class="featured-card">
+  <h4><a class="featured-link" href={href}>{title}</a></h4>
+  {note && <p class="note" style="margin-top: 0.5rem;">{note}</p>}
+</div>

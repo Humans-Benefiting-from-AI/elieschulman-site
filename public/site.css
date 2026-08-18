@@ -484,6 +484,30 @@ footer .footer-links {
 .bg-cream { background: var(--cream); }
 .bg-white { background: white; }
 
+/* ── Living Text: section accents & editorial elements ── */
+.page-header.accent-writing { background: linear-gradient(135deg, var(--midnight), var(--accent-writing)); }
+.page-header.accent-torah { background: linear-gradient(135deg, var(--accent-torah-deep), var(--accent-torah)); }
+.page-header.accent-maimonides { background: linear-gradient(135deg, var(--accent-maimonides-deep), var(--accent-maimonides)); }
+
+.wash-writing { background: var(--tint-writing); }
+.wash-torah { background: var(--tint-torah); }
+.wash-maimonides { background: var(--tint-maimonides); }
+
+.content blockquote {
+  font-family: var(--serif);
+  font-size: 1.4rem; font-style: italic; line-height: 1.5;
+  color: var(--midnight);
+  border-left: 3px solid var(--gold);
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  margin: 2.5rem 0;
+}
+
+.kicker-number {
+  font-family: var(--serif); font-style: italic;
+  font-size: clamp(4rem, 10vw, 7rem); line-height: 1;
+  color: var(--gold); opacity: 0.35;
+}
+
 /* ── Extra Small Phones (≤480px) ── */
 @media (max-width: 480px) {
   .site-nav { padding: 0.5rem 0.75rem; }

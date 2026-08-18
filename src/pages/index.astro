@@ -1,8 +1,9 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
-import { generatePersonSchema } from '../lib/schema';
 
-// Person schema is already added by Layout, but we can enhance it if needed
+const essays = (await getCollection('essays'))
+  .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
 ---
 
 <Layout
@@ -12,47 +13,67 @@ import { generatePersonSchema } from '../lib/schema';
 <section class="hero">
   <div class="hero-inner">
     <p class="eyebrow">Writer · Educator · Translator</p>
-    <h1>Making the hidden structure of language, judgment, and learning visible.</h1>
+    <h1 class="display">Making the <em>hidden structure</em> of language, judgment, and learning visible.</h1>
     <p class="subtitle">
       Books, essays, and translations that examine how words carry assumptions,
       how inherited categories guide judgment, and how people learn to see the
       structures already organizing how they think and act.
     </p>
     <a href="/writing/" class="cta">Read the Essays</a>
-    <a href="/books/vocabulary-pov/" class="cta-secondary">Read vocabulary of a particular human's first person point of view</a>
+    <a href="/books/vocabulary-pov/" class="cta-secondary">Read <em>vocabulary of a particular human's first person point of view</em></a>
   </div>
 </section>
 
-<section class="bg-cream">
+<section class="wash-writing">
   <div class="section-inner">
-    <p class="section-label">Writing & Torah</p>
-    <h2 class="section-title">Essays and Parsha</h2>
+    <p class="section-label">Writing</p>
+    <h2 class="section-title">Essays, in branches</h2>
     <p class="section-intro">
-      Read essays on language, judgment, and group process, or dive into weekly Torah portion commentary.
+      Seven branches of inquiry — each beginning where a word stopped meaning what we thought it meant.
     </p>
-    <div class="category-preview" style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 2rem;">
-      <a href="/writing/" style="text-decoration: none;">
-        <div class="cat-label" style="background: white; padding: 1.5rem 2rem; border-radius: 4px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); color: var(--midnight);">
-          <h3>General Writing →</h3>
-        </div>
-      </a>
-      <a href="/weekly-torah/" style="text-decoration: none;">
-        <div class="cat-label" style="background: white; padding: 1.5rem 2rem; border-radius: 4px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); color: var(--midnight);">
-          <h3>Weekly Torah Portion →</h3>
-        </div>
-      </a>
+    <div class="essay-index">
+      {essays.map((essay, i) => (
+        <a class="essay-row" href={`/writing/${essay.id}/`}>
+          <span class="essay-num">{String(i + 1).padStart(2, '0')}</span>
+          <span class="essay-title">{essay.data.title}</span>
+          <span class="essay-arrow">→</span>
+        </a>
+      ))}
+    </div>
+    <p style="margin-top: 1.5rem;"><a class="work-link" href="/writing/">All writing →</a></p>
+  </div>
+</section>
+
+<section class="wash-torah">
+  <div class="section-inner">
+    <p class="section-label">Weekly Torah</p>
+    <h2 class="section-title">Parsha commentary</h2>
+    <p class="section-intro">
+      Essays and ebooks on the weekly portion — beginning with Shoftim, available free to read online or download.
+    </p>
+    <div class="featured-grid">
+      <div class="featured-card">
+        <h4>Shoftim</h4>
+        <p class="note">Judges and officers you shall appoint. Read free in your browser or download EPUB/PDF.</p>
+        <p><a class="featured-link" href="/books/shoftim/">Open →</a></p>
+      </div>
+      <div class="featured-card">
+        <h4>Weekly Torah</h4>
+        <p class="note">Browse the parsha collection.</p>
+        <p><a class="featured-link" href="/weekly-torah/">Browse →</a></p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="bg-white">
+<section class="wash-maimonides">
   <div class="section-inner">
     <p class="section-label">Maimonides Library</p>
-    <h2 class="section-title">A writing project organized around Rambam's words</h2>
+    <h2 class="section-title">One source sequence. Three ways in.</h2>
     <p class="section-intro">
       Books and manuscripts, twenty-two completed ebook volumes on Yesodei HaTorah,
-      a Mada series of Ibn Tibbon reframings, and standalone essays — each taking a
-      single question from Maimonides and following it for different audiences.
+      and standalone essays — each taking a single question from Maimonides and following it
+      for scholarly, general, and younger readers.
     </p>
     <div class="featured-grid">
       <div class="featured-card">
@@ -74,3 +95,33 @@ import { generatePersonSchema } from '../lib/schema';
   </div>
 </section>
 </Layout>
+
+<style>
+  .hero h1.display {
+    font-size: var(--fs-display);
+  }
+  .hero h1.display em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .essay-index {
+    border-top: 1px solid rgba(15, 27, 45, 0.12);
+  }
+  .essay-row {
+    display: flex; align-items: baseline; gap: 1.25rem;
+    padding: 1rem 0.5rem;
+    border-bottom: 1px solid rgba(15, 27, 45, 0.12);
+    text-decoration: none;
+    transition: background 0.15s, padding-left 0.15s;
+  }
+  .essay-row:hover { background: rgba(255,255,255,0.6); padding-left: 1rem; }
+  .essay-num {
+    font-family: var(--serif); font-style: italic;
+    color: var(--gold-dim); font-size: 1rem; min-width: 2rem;
+  }
+  .essay-title {
+    font-family: var(--serif); font-size: 1.4rem; font-weight: 600;
+    color: var(--midnight); flex: 1;
+  }
+  .essay-arrow { color: var(--gold-dim); }
+</style>
