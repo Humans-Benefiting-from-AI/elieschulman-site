@@ -1,0 +1,17 @@
+{
+  "name": "elieschulman-site",
+  "install": "npm ci",
+  "terminals": [
+    {
+      "name": "dev",
+      "command": "npm run dev -- --host",
+      "description": "Astro dev server (http://localhost:4321) with live reload."
+    }
+  ],
+  "ports": [
+    {
+      "name": "astro dev",
+      "port": 4321
+    }
+  ]
+}
