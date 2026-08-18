@@ -12,5 +12,5 @@ jobs:
         with: { node-version: 22 }
       - run: npm ci
       - run: npm run build
-      - run: node ../scripts/validate-site.mjs
-        working-directory: dist
+      - run: npm run doctor
+      - run: npm run check

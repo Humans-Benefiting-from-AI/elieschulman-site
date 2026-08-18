@@ -4,10 +4,12 @@ import TeachingLayout from '../../layouts/TeachingLayout.astro';
 
 export async function getStaticPaths() {
   const teachings = await getCollection('teachings');
-  return teachings.map(entry => ({
-    params: { slug: entry.id },
-    props: { entry },
-  }));
+  return teachings
+    .filter((entry) => !entry.data.draft)
+    .map((entry) => ({
+      params: { slug: entry.id },
+      props: { entry },
+    }));
 }
 
 const { entry } = Astro.props;
