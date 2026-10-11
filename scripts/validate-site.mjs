@@ -34,6 +34,12 @@ function rel(p) {
   return path.relative(distRoot, p) || '.'
 }
 
+/** 404 and hidden coming-soon audio routes are built, but not listed. */
+function omittedFromSitemapOnPurpose(canonical) {
+  const pathname = new URL(canonical).pathname.replace(/\/$/, '') || '/'
+  return pathname === '/404' || pathname === '/audio' || pathname.startsWith('/audio/')
+}
+
 function walkHtml(dir, acc = []) {
   for (const name of readdirSync(dir)) {
     const full = path.join(dir, name)
@@ -86,6 +92,9 @@ for (const match of sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)) {
   if (!match[1].startsWith(`${canonicalOrigin}/`)) {
     failures.push(`sitemap URL does not use canonical origin: ${match[1]}`)
   }
+  if (omittedFromSitemapOnPurpose(match[1])) {
+    failures.push(`sitemap still lists a hidden page: ${match[1]}`)
+  }
 }
 
 const robotsPath = path.join(distRoot, 'robots.txt')
@@ -128,7 +137,7 @@ for (const file of htmlFiles) {
   if (canonical && !canonical.startsWith(`${canonicalOrigin}/`)) {
     failures.push(`${label} canonical does not use ${canonicalOrigin}: ${canonical}`)
   }
-  if (canonical && sitemap) {
+  if (canonical && sitemap && !omittedFromSitemapOnPurpose(canonical)) {
     if (!sitemap.includes(`<loc>${canonical}</loc>`) && !sitemap.includes(`<loc>${canonical.replace(/\/$/, '')}</loc>`)) {
       failures.push(`sitemap is missing ${canonical}`)
     }
@@ -143,7 +152,7 @@ for (const file of htmlFiles) {
     const href = match[1]
     if (href.startsWith('//')) continue
     const assetExt = path.extname(href).toLowerCase()
-    if (['.pdf', '.css', '.epub', '.jpg', '.jpeg', '.png', '.svg', '.webp', '.mp3', '.mp4'].includes(assetExt)) {
+    if (['.pdf', '.css', '.epub', '.jpg', '.jpeg', '.png', '.svg', '.webp', '.ico', '.mp3', '.mp4'].includes(assetExt)) {
       const assetPath = path.join(distRoot, href.slice(1))
       if (!existsSync(assetPath)) failures.push(`${label} links to missing ${href}`)
     } else {

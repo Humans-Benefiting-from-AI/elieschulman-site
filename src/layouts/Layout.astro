@@ -9,10 +9,13 @@ export interface Props {
   schema?: string;
 }
 
-const { title, description, ogImage = '/og-image.svg', schema } = Astro.props;
+// Listen (/audio/) stays out of the nav while those pages are still coming-soon placeholders.
+const defaultOgImage = '/og-image.png';
+const { title, description, ogImage = defaultOgImage, schema } = Astro.props;
 const siteUrl = Astro.site || 'https://www.elieschulman.com';
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
 const ogImageUrl = new URL(ogImage, siteUrl).href;
+const usesDefaultOgImage = ogImage === defaultOgImage;
 const personSchema = generatePersonSchema();
 ---
 
@@ -29,12 +32,21 @@ const personSchema = generatePersonSchema();
   <meta property="og:type" content="website">
   <meta property="og:url" content={canonicalUrl}>
   <meta property="og:image" content={ogImageUrl}>
+  {usesDefaultOgImage && (
+    <>
+      <meta property="og:image:type" content="image/png">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+    </>
+  )}
   <meta property="og:image:alt" content={title}>
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content={title}>
   <meta name="twitter:description" content={description}>
   <meta name="twitter:image" content={ogImageUrl}>
   <meta name="theme-color" content="#0f1b2d">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Frank+Ruhl+Libre:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -57,7 +69,6 @@ const personSchema = generatePersonSchema();
     <a href="/weekly-torah/" aria-current={Astro.url.pathname.startsWith('/weekly-torah') ? 'page' : undefined}>Torah</a>
     <a href="/maimonides/" aria-current={Astro.url.pathname.startsWith('/maimonides') ? 'page' : undefined}>Maimonides</a>
     <a href="/books/" aria-current={Astro.url.pathname.startsWith('/books') || Astro.url.pathname.startsWith('/read') ? 'page' : undefined}>Books</a>
-    <a href="/audio/" aria-current={Astro.url.pathname.startsWith('/audio') ? 'page' : undefined}>Listen</a>
     <a href="/about/" aria-current={Astro.url.pathname.startsWith('/about') ? 'page' : undefined}>About</a>
     <a href="https://emesnewsletter.substack.com">Newsletter ↗</a>
   </div>
