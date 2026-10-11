@@ -147,7 +147,9 @@ Ebooks are free with no email capture. The validator rejects lead-capture string
 The homepage highlights published, downloadable works from the teachings
 collection and offers direct reader/PDF links. Manuscripts and inquiry branches
 remain distinct from books available now. Navigation exposes Essays, Torah,
-Maimonides, Books, Listen and About directly, including on mobile. The mobile
+Maimonides, Books, and About directly, including on mobile. Listen stays out of
+the navigation and sitemap while the audio pages are still coming-soon
+placeholders; the routes and content remain in the repo. The mobile
 menu supports Escape, focus return and navigation without JavaScript.
 
 `@astrojs/check`, TypeScript and `tsconfig.json` are now explicit build inputs;

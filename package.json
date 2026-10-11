@@ -1,6 +1,9 @@
 {
   "name": "elieschulman-site",
   "private": true,
+  "engines": {
+    "node": ">=22.12"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -14,9 +17,8 @@
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
     "@xmldom/xmldom": "^0.9.12",
-    "astro": "^7.2.0",
-    "epubjs": "^0.3.93",
-    "sharp": "^0.35.3"
+    "astro": "^7.3.8",
+    "epubjs": "^0.3.93"
   },
   "overrides": {
     "@xmldom/xmldom": "^0.9.12"
