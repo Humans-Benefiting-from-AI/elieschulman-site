@@ -37,7 +37,12 @@ function rel(p) {
 /** 404 and hidden coming-soon audio routes are built, but not listed. */
 function omittedFromSitemapOnPurpose(canonical) {
   const pathname = new URL(canonical).pathname.replace(/\/$/, '') || '/'
-  return pathname === '/404' || pathname === '/audio' || pathname.startsWith('/audio/')
+  return pathname === '/404' || isHiddenAudioPath(pathname)
+}
+
+function isHiddenAudioPath(pathname) {
+  const path = pathname.replace(/\/$/, '') || '/'
+  return path === '/audio' || path.startsWith('/audio/')
 }
 
 function walkHtml(dir, acc = []) {
@@ -136,6 +141,18 @@ for (const file of htmlFiles) {
   const canonical = html.match(/rel="canonical"\s+href="([^"]+)"/i)?.[1]
   if (canonical && !canonical.startsWith(`${canonicalOrigin}/`)) {
     failures.push(`${label} canonical does not use ${canonicalOrigin}: ${canonical}`)
+  }
+  const robotsTag = html.match(/<meta\s+[^>]*name=["']robots["'][^>]*>/i)?.[0] || ''
+  const robotsValue = robotsTag.match(/content=["']([^"']*)["']/i)?.[1] || ''
+  const robotsNoindex = robotsValue.split(',').some((part) => part.trim().toLowerCase() === 'noindex')
+  if (canonical) {
+    const audio = isHiddenAudioPath(new URL(canonical).pathname)
+    if (audio && !robotsNoindex) {
+      failures.push(`${label} must include <meta name="robots" content="noindex">`)
+    }
+    if (!audio && robotsNoindex) {
+      failures.push(`${label} must not be noindex`)
+    }
   }
   if (canonical && sitemap && !omittedFromSitemapOnPurpose(canonical)) {
     if (!sitemap.includes(`<loc>${canonical}</loc>`) && !sitemap.includes(`<loc>${canonical.replace(/\/$/, '')}</loc>`)) {
