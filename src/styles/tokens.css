@@ -6,11 +6,12 @@
   --deep-navy: #1a2744;
   --warm-ivory: #f5f0e8;
   --cream: #faf7f2;
-  --gold: #c9a84c;
+  --gold: #c9a84c; /* labels on navy, buttons, decorative rules */
   --gold-dim: #a88a3a;
+  --gold-text: #7a6224; /* text and focus rings on cream, ivory, and white */
   --text-primary: #1a1a1a;
   --text-secondary: #4a4a4a;
-  --text-light: #8a8a8a;
+  --text-light: #666666; /* muted text on light backgrounds */
 
   /* Type */
   --serif: 'Cormorant Garamond', Georgia, serif;
@@ -26,9 +27,9 @@
 
   /* Living Text: per-section accent washes */
   --accent-writing: #1a2744;
-  --accent-torah: #b4762a;
+  --accent-torah: #543512; /* header bronze; gold labels stay at least 4.5:1 */
   --accent-torah-deep: #5b3a10;
-  --accent-maimonides: #2e5d3f;
+  --accent-maimonides: #1c4230; /* header green; gold labels stay at least 4.5:1 */
   --accent-maimonides-deep: #14301f;
   --tint-writing: #eef1f7;
   --tint-torah: #f7efe2;

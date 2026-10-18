@@ -7,11 +7,20 @@
   --deep-navy: #1a2744;
   --warm-ivory: #f5f0e8;
   --cream: #faf7f2;
-  --gold: #c9a84c;
+  --gold: #c9a84c; /* labels on navy, buttons, decorative rules */
   --gold-dim: #a88a3a;
+  --gold-text: #7a6224; /* text and focus rings on cream, ivory, and white */
   --text-primary: #1a1a1a;
   --text-secondary: #4a4a4a;
-  --text-light: #8a8a8a;
+  --text-light: #666666; /* muted text on light backgrounds */
+  --accent-writing: #1a2744;
+  --accent-torah: #543512; /* header bronze; gold labels stay at least 4.5:1 */
+  --accent-torah-deep: #5b3a10;
+  --accent-maimonides: #1c4230; /* header green; gold labels stay at least 4.5:1 */
+  --accent-maimonides-deep: #14301f;
+  --tint-writing: #eef1f7;
+  --tint-torah: #f7efe2;
+  --tint-maimonides: #eaf2ec;
   --serif: 'Cormorant Garamond', Georgia, serif;
   --sans: 'Inter', -apple-system, sans-serif;
 }
@@ -27,7 +36,7 @@ body {
 }
 
 a { color: var(--deep-navy); text-underline-offset: 3px; }
-a:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+:focus-visible { outline: 3px solid var(--gold-text); outline-offset: 3px; }
 
 /* ── Skip Link ── */
 .skip-link {
@@ -66,7 +75,8 @@ nav.site-nav, .site-nav {
 .hero {
   min-height: 100vh;
   display: flex; align-items: center; justify-content: center;
-  background: linear-gradient(135deg, var(--midnight) 0%, var(--deep-navy) 50%, #1e3050 100%);
+  background-color: var(--midnight);
+  background-image: linear-gradient(135deg, var(--midnight) 0%, var(--deep-navy) 50%, #1e3050 100%);
   padding: 6rem 2rem 4rem;
   text-align: center;
 }
@@ -111,7 +121,8 @@ nav.site-nav, .site-nav {
 
 /* ── Page Header (subpages) ── */
 .page-header {
-  background: linear-gradient(135deg, var(--midnight), var(--deep-navy));
+  background-color: var(--midnight);
+  background-image: linear-gradient(135deg, var(--midnight), var(--deep-navy));
   color: var(--warm-ivory);
   padding: 6rem 2rem 4rem;
   text-align: center;
@@ -139,7 +150,7 @@ section { padding: 5rem 2rem; }
 .section-label {
   font-size: 0.75rem; font-weight: 600;
   letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 0.75rem;
+  color: var(--gold-text); margin-bottom: 0.75rem;
 }
 .section-title {
   font-family: var(--serif);
@@ -238,7 +249,7 @@ section { padding: 5rem 2rem; }
   margin-bottom: 1.5rem;
 }
 .resource-card .eyebrow {
-  color: var(--gold); font-size: 0.7rem; font-weight: 600;
+  color: var(--gold-text); font-size: 0.7rem; font-weight: 600;
   letter-spacing: 0.1em; text-transform: uppercase;
   margin-bottom: 0.5rem;
 }
@@ -248,7 +259,7 @@ section { padding: 5rem 2rem; }
   margin-bottom: 0.5rem;
 }
 .resource-card h3 a { text-decoration: none; color: var(--text-primary); }
-.resource-card h3 a:hover { color: var(--gold-dim); }
+.resource-card h3 a:hover { color: var(--gold-text); }
 .resource-card p {
   font-size: 0.88rem; color: var(--text-secondary);
   line-height: 1.6; margin-bottom: 0.75rem;
@@ -263,7 +274,7 @@ section { padding: 5rem 2rem; }
   border-radius: 12px;
   letter-spacing: 0.03em;
 }
-.tag-torah { background: rgba(201,168,76,0.15); color: var(--gold-dim); }
+.tag-torah { background: rgba(201,168,76,0.15); color: var(--gold-text); }
 .tag-sitting { background: rgba(15,27,45,0.1); color: var(--midnight); }
 .tag-group { background: rgba(245,240,232,0.8); color: var(--text-secondary); border: 1px solid rgba(0,0,0,0.08); }
 .tag-ai { background: rgba(0,128,128,0.1); color: #006666; }
@@ -325,7 +336,7 @@ section { padding: 5rem 2rem; }
 }
 .arc-arrow {
   display: flex; align-items: center;
-  color: var(--gold); font-size: 1.2rem;
+  color: var(--gold-text); font-size: 1.2rem;
   padding: 0 0.25rem;
 }
 
@@ -353,7 +364,7 @@ section { padding: 5rem 2rem; }
   margin-right: 0.75rem;
 }
 .volume-item .vol-link {
-  font-size: 0.8rem; color: var(--gold-dim);
+  font-size: 0.8rem; color: var(--gold-text);
   text-decoration: none; font-weight: 500;
 }
 .volume-item .vol-link:hover { text-decoration: underline; }
@@ -440,7 +451,7 @@ section { padding: 5rem 2rem; }
   margin-bottom: 0.5rem;
 }
 .featured-card .featured-link {
-  font-size: 0.82rem; color: var(--gold-dim);
+  font-size: 0.82rem; color: var(--gold-text);
   text-decoration: none; font-weight: 500;
 }
 
@@ -464,7 +475,7 @@ section { padding: 5rem 2rem; }
   font-size: 0.85rem; color: var(--text-light);
   text-decoration: none; margin-bottom: 1.5rem;
 }
-.back-link:hover { color: var(--gold-dim); }
+.back-link:hover { color: var(--gold-text); }
 
 /* ── Footer ── */
 footer {
@@ -485,9 +496,9 @@ footer .footer-links {
 .bg-white { background: white; }
 
 /* ── Living Text: section accents & editorial elements ── */
-.page-header.accent-writing { background: linear-gradient(135deg, var(--midnight), var(--accent-writing)); }
-.page-header.accent-torah { background: linear-gradient(135deg, var(--accent-torah-deep), var(--accent-torah)); }
-.page-header.accent-maimonides { background: linear-gradient(135deg, var(--accent-maimonides-deep), var(--accent-maimonides)); }
+.page-header.accent-writing { background-color: var(--midnight); background-image: linear-gradient(135deg, var(--midnight), var(--accent-writing)); }
+.page-header.accent-torah { background-color: #3a240c; background-image: linear-gradient(135deg, #3a240c, var(--accent-torah)); }
+.page-header.accent-maimonides { background-color: var(--accent-maimonides-deep); background-image: linear-gradient(135deg, var(--accent-maimonides-deep), var(--accent-maimonides)); }
 
 .wash-writing { background: var(--tint-writing); }
 .wash-torah { background: var(--tint-torah); }
@@ -576,7 +587,12 @@ footer .footer-links {
 }
 
 /* Navigation stays usable without JavaScript; enhancement collapses it on mobile. */
-:focus-visible { outline: 3px solid var(--gold-dim); outline-offset: 4px; }
+.site-nav :focus-visible,
+.hero :focus-visible,
+.page-header :focus-visible,
+footer :focus-visible,
+.verse-display :focus-visible,
+.skip-link:focus-visible { outline-color: var(--gold); }
 [id] { scroll-margin-top: 6rem; }
 .site-nav .nav-links { align-items: center; gap: 1.5rem; }
 .site-nav .nav-links a { min-height: 44px; display: inline-flex; align-items: center; }

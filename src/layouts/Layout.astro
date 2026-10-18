@@ -14,6 +14,8 @@ const defaultOgImage = '/og-image.png';
 const { title, description, ogImage = defaultOgImage, schema } = Astro.props;
 const siteUrl = Astro.site || 'https://www.elieschulman.com';
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
+const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
+const noindex = pathname === '/audio' || pathname.startsWith('/audio/');
 const ogImageUrl = new URL(ogImage, siteUrl).href;
 const usesDefaultOgImage = ogImage === defaultOgImage;
 const personSchema = generatePersonSchema();
@@ -26,6 +28,7 @@ const personSchema = generatePersonSchema();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title}</title>
   <meta name="description" content={description}>
+  {noindex && <meta name="robots" content="noindex">}
   <link rel="canonical" href={canonicalUrl}>
   <meta property="og:title" content={title}>
   <meta property="og:description" content={description}>
