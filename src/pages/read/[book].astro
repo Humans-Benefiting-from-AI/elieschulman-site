@@ -62,7 +62,8 @@ const ogImage = coverImage
            overscroll-behavior: none; touch-action: pan-y;
            -webkit-tap-highlight-color: transparent; }
     html { touch-action: manipulation; }
-    header, footer { transition: transform .25s ease, opacity .25s ease; z-index: 10; }
+    header, footer { position: relative; z-index: 20;
+                     transition: transform .25s ease, opacity .25s ease; }
     body.chrome-hidden header { transform: translateY(-100%); opacity: 0; pointer-events: none; }
     body.chrome-hidden footer { transform: translateY(100%); opacity: 0; pointer-events: none; }
     /* TOC drawer. Chapter links are created in script, so their rules use :global
@@ -110,7 +111,8 @@ const ogImage = coverImage
     #progress { flex: 1; height: 4px; background: color-mix(in srgb, var(--fg) 15%, transparent);
                 border-radius: 2px; cursor: pointer; }
     #progress > div { height: 100%; width: 0; background: var(--accent); border-radius: 2px; }
-    .navzone { position: fixed; top: 15%; bottom: 15%; width: 18%; z-index: 5; cursor: pointer; }
+    .navzone { position: fixed; top: var(--reader-header-h, 4.5rem); bottom: var(--reader-footer-h, 3.5rem);
+               width: 18%; z-index: 5; cursor: pointer; }
     #prev-zone { left: 0; } #next-zone { right: 0; }
   </style>
 </head>
@@ -354,6 +356,9 @@ const ogImage = coverImage
     // ── Auto-hiding chrome (tap center to toggle) ──────────────────
     let chromeHidden = false;
     let hideTimer: number | undefined;
+    let pointerOnChrome = 0;
+    let ignoreToggleUntil = 0;
+
     function showChrome() {
       document.body.classList.remove('chrome-hidden');
       chromeHidden = false;
@@ -361,11 +366,35 @@ const ogImage = coverImage
       hideTimer = window.setTimeout(hideChrome, 4000);
     }
     function hideChrome() {
+      if (pointerOnChrome > 0) return;
       document.body.classList.add('chrome-hidden');
       chromeHidden = true;
     }
-    // Toggle on center-tap inside the book iframe
+    // Keep presses on the toolbars from falling through to the book, and don't
+    // slide the bars away while a finger or mouse button is still down on them.
+    for (const bar of [document.querySelector('header'), document.querySelector('footer')]) {
+      if (!bar) continue;
+      bar.addEventListener('pointerdown', (event) => {
+        pointerOnChrome += 1;
+        ignoreToggleUntil = Date.now() + 800;
+        event.stopPropagation();
+        clearTimeout(hideTimer);
+        document.body.classList.remove('chrome-hidden');
+        chromeHidden = false;
+        const release = () => {
+          pointerOnChrome = Math.max(0, pointerOnChrome - 1);
+          showChrome();
+          window.removeEventListener('pointerup', release);
+          window.removeEventListener('pointercancel', release);
+        };
+        window.addEventListener('pointerup', release);
+        window.addEventListener('pointercancel', release);
+      });
+      bar.addEventListener('click', (event) => event.stopPropagation());
+    }
+    // Toggle on a center tap in the book, never on a toolbar press.
     (rendition as any).on('click', (e: MouseEvent) => {
+      if (pointerOnChrome > 0 || Date.now() < ignoreToggleUntil) return;
       const w = window.innerWidth;
       if (e.clientX > w * 0.18 && e.clientX < w * 0.82) {
         chromeHidden ? showChrome() : hideChrome();
@@ -373,6 +402,23 @@ const ogImage = coverImage
     });
     rendition.on('relocated', showChrome);
     showChrome();
+
+    function placeTapZones() {
+      const header = document.querySelector('header');
+      const footer = document.querySelector('footer');
+      if (!header || !footer) return;
+      document.documentElement.style.setProperty('--reader-header-h', header.offsetHeight + 'px');
+      document.documentElement.style.setProperty('--reader-footer-h', footer.offsetHeight + 'px');
+    }
+    placeTapZones();
+    window.addEventListener('resize', placeTapZones);
+    if (typeof ResizeObserver !== 'undefined') {
+      const chromeObserver = new ResizeObserver(placeTapZones);
+      const headerBar = document.querySelector('header');
+      const footerBar = document.querySelector('footer');
+      if (headerBar) chromeObserver.observe(headerBar);
+      if (footerBar) chromeObserver.observe(footerBar);
+    }
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowRight') next();
